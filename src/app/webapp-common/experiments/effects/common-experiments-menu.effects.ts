@@ -422,7 +422,7 @@ export class CommonExperimentsMenuEffects {
         menuActions.removeTagSuccess({experiments: action.experiments.map(e => e.id), tag: action.tag}),
         addMessage('success', `已从任务“${action.experiments[0]?.name}”中移除标签“${action.tag}”`, [
           {
-            name: 'Undo',
+            name: '撤销',
             actions: [
               addMessage('success', `标签“${action.tag}”已恢复`),
               ...action.experiments.map(() => menuActions.addTag({
@@ -457,7 +457,7 @@ export class CommonExperimentsMenuEffects {
           const allFailed = res.failed.length === experiments.length;
           const undoAction = [
             {
-              name: 'Undo', actions: [
+              name: '撤销', actions: [
                 viewActions.setSelectedExperiments({experiments}),
                 menuActions.restoreSelectedExperiments({
                   selectedEntities: experiments,
@@ -518,7 +518,7 @@ export class CommonExperimentsMenuEffects {
           const allFailed = res.failed.length === experiments.length;
           const undoAction = [
             {
-              name: 'Undo', actions: [
+              name: '撤销', actions: [
                 viewActions.setSelectedExperiments({experiments}),
                 menuActions.archiveSelectedExperiments({
                   selectedEntities: experiments,

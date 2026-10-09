@@ -551,7 +551,7 @@ export class ModelsComponent extends BaseEntityPageComponent implements OnDestro
               },
               ...(this.projectDeepMode() && selectedProject?.id !== '*' && {
                 subFeatureBreadcrumb: {
-                  name: 'All Models'
+                  name: '全部模型'
                 }
               }),
               projectsOptions: {
@@ -561,7 +561,7 @@ export class ModelsComponent extends BaseEntityPageComponent implements OnDestro
                 showSelectedProject: selectedProject?.id !== '*',
                 ...(selectedProject && {
                   selectedProjectBreadcrumb: {
-                    name: selectedProject?.id === '*' ? 'All Models' : selectedProject?.basename,
+                    name: selectedProject?.id === '*' ? '全部模型' : selectedProject?.basename,
                     url: `projects/${selectedProject?.id}/projects`
                   }
                 })

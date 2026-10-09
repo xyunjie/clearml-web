@@ -162,7 +162,7 @@ export class ModelsMenuEffects {
         menuActions.removeTagSuccess({models: action.models.map(e => e.id), tag: action.tag}),
         addMessage('success', `已从模型“${action.models[0]?.name}”中移除标签“${action.tag}”`, [
             {
-              name: 'Undo',
+              name: '撤销',
               actions: [
                 addMessage('success', `标签“${action.tag}”已恢复`),
                 ...action.models.map(() => addTag({
@@ -193,7 +193,7 @@ export class ModelsMenuEffects {
             const allFailed = res.failed.length === models.length;
             const undoAction = [
               {
-                name: 'Undo', actions: [
+                name: '撤销', actions: [
                   viewActions.setSelectedModels({models}),
                   menuActions.restoreSelectedModels({selectedEntities: models, skipUndo: true})
                 ]
@@ -240,7 +240,7 @@ export class ModelsMenuEffects {
           const allFailed = res.failed.length === models.length;
           const undoAction = [
             {
-              name: 'Undo', actions: [
+              name: '撤销', actions: [
                 viewActions.setSelectedModels({models}),
                 menuActions.archiveSelectedModels({selectedEntities: models, skipUndo: true})
               ]

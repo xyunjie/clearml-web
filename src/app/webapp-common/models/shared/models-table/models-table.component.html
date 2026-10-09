@@ -57,7 +57,7 @@
         [subValue]="filtersSubValues()[modelsTableColFields.TAGS]"
         [columns]="initialColumns"
         [filterMatch]="filtersMatch()"
-        fixedOptionsSubheader="System tags"
+        fixedOptionsSubheader="系统标签"
         (subFilterChanged)="tableFilterChanged({id:'system_tags'}, $event)"
         (filterChanged)="tableFilterChanged({id: $event.col}, $event)"
         (menuOpened)="columnFilterOpened($event)"
@@ -84,10 +84,10 @@
         </div>
 <!--      }-->
       <mat-menu class="light-theme" #selectionMenu="matMenu">
-        <div class="menu-title">Select from project</div>
-        <button mat-menu-item data-id="All Option" (click)="selectAll()">All</button>
-        <button mat-menu-item data-id="None Option" (click)="emitSelection([])">None</button>
-        <button mat-menu-item data-id="All Matching Filter Option" (click)="selectAll(true)">All matching filter</button>
+        <div class="menu-title">从项目中选择</div>
+        <button mat-menu-item data-id="All Option" (click)="selectAll()">全部</button>
+        <button mat-menu-item data-id="None Option" (click)="emitSelection([])">不选</button>
+        <button mat-menu-item data-id="All Matching Filter Option" (click)="selectAll(true)">全部匹配筛选的项</button>
       </mat-menu>
     </ng-template>
 
@@ -224,7 +224,7 @@
     <ng-template #compactCol>
       @if (!cardsCollapsed()) {
         <div animate.enter="enter" animate.leave="leaving" class="ellipsis compact-columns-data" [class.selected]="selected">
-          Updated {{model.last_update | timeAgo}} by {{model.user?.name || '未知用户'}}
+          {{model.user?.name || '未知用户'}} 更新于 {{model.last_update | timeAgo}}
           @if (model.task) {
             <span class="dot">●</span>{{model.task.name}}
           }
@@ -236,10 +236,10 @@
 <ng-template #noDataTemplate let-noDataTop="noDataTop" let-minimizedView="minimizedView">
   @if (hasActiveFilters()) {
     <div class="no-output" [class.centered]="minimizedView" [style.top.px]="noDataTop">
-      <span>No matching results. <a class="link" (click)="clearTableFiltersAndSearch.emit(tableFilters())">Clear filters</a></span>
+      <span>没有匹配的结果。<a class="link" (click)="clearTableFiltersAndSearch.emit(tableFilters())">清除筛选</a></span>
     </div>
   } @else if (modelsUpdated) {
-    <div class="no-output" [class.centered]="minimizedView" [style.top.px]="noDataTop"><span>No data to show</span></div>
+    <div class="no-output" [class.centered]="minimizedView" [style.top.px]="noDataTop"><span>暂无数据</span></div>
   }
 </ng-template>
 </div>

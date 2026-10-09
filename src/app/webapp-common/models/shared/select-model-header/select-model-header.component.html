@@ -3,7 +3,7 @@
     <sm-search
       #search
       class="outline"
-      placeholder="Search model to add to your comparison"
+      placeholder="搜索要加入对比的模型"
       [value]="searchValue()"
       (valueChanged)="onSearchValueChanged($event)"
       (focusout)="onSearchFocusOut()">
@@ -15,7 +15,7 @@
         class="me-2"
         [checked]="isShowArchived()"
         (change)="isArchivedChanged.emit($event.checked)"
-      >Include Archived</mat-slide-toggle>
+      >包含已归档</mat-slide-toggle>
     }
     <sm-clear-filters-button
       [tableFilters]="tableFilters()"

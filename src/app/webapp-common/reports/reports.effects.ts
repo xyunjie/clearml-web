@@ -317,7 +317,7 @@ export class ReportsEffects {
         mergeMap(() => {
           const undoActions = [
             {
-              name: 'Undo', actions: [
+              name: '撤销', actions: [
                 restoreReport({report: action.report, skipUndo: true})
               ]
             }
@@ -351,7 +351,7 @@ export class ReportsEffects {
         mergeMap(() => {
           const undoActions = [
             {
-              name: 'Undo', actions: [
+              name: '撤销', actions: [
                 archiveReport({report: action.report, skipUndo: true}),
               ]
             }

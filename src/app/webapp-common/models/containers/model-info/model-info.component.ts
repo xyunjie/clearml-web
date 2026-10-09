@@ -239,7 +239,7 @@ export class ModelInfoComponent implements OnDestroy {
                 showSelectedProject: selectedProject?.id !== '*',
                 ...(selectedProject && {
                   selectedProjectBreadcrumb: {
-                    name: selectedProject?.id === '*' ? 'All Models' : selectedProject?.basename,
+                    name: selectedProject?.id === '*' ? '全部模型' : selectedProject?.basename,
                     url: this.getMinimizeURL(params, config), queryParamsHandling: 'preserve', linkLast: true
                   }
                 })
