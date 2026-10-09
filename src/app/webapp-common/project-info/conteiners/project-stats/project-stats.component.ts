@@ -60,10 +60,10 @@ export class ProjectStatsComponent implements OnDestroy {
   public variantDisplay = 'Select Metric & Variant';
   private sub = new Subscription();
   states = [
-    {label: 'Completed or Stopped', type: TaskStatusEnum.Completed},
-    {label: 'Published', type: TaskStatusEnum.Published},
-    {label: 'Failed', type: TaskStatusEnum.Failed},
-    {label: 'Running', type: TaskStatusEnum.InProgress}
+    {label: '已完成或已停止', type: TaskStatusEnum.Completed},
+    {label: '已发布', type: TaskStatusEnum.Published},
+    {label: '失败', type: TaskStatusEnum.Failed},
+    {label: '运行中', type: TaskStatusEnum.InProgress}
   ] as {label: string; type: string; color?: string}[];
 
   project = input<Project>();
@@ -138,7 +138,7 @@ export class ProjectStatsComponent implements OnDestroy {
             y: point.y,
             id: point.id,
             name: point.name,
-            description: `Created By ${point.user}, Finished ${new Date(point.x).toLocaleString()}`,
+            description: `创建者 ${point.user}，完成于 ${new Date(point.x).toLocaleString()}`,
           })),
         } as ScatterPlotSeries));
         this.cdr.markForCheck();
