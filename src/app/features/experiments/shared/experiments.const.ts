@@ -46,17 +46,17 @@ export enum ExperimentTagsEnum {
 }
 
 export const EXPERIMENTS_TAGS = {
-  ['shared' as ExperimentTagsEnum]: 'SHARED'
+  ['shared' as ExperimentTagsEnum]: '已共享'
 };export const EXPERIMENTS_TAGS_TOOLTIP = {};
 export const EXPERIMENTS_STATUS_LABELS = {
-  [TaskStatusEnum.Created]   : 'Draft',
-  [TaskStatusEnum.Queued]    : 'Pending',
-  [TaskStatusEnum.InProgress]: 'Running',
-  [TaskStatusEnum.Completed] : 'Completed',
-  [TaskStatusEnum.Published] : 'Published',
-  [TaskStatusEnum.Failed]    : 'Failed',
-  [TaskStatusEnum.Stopped]   : 'Aborted',
-  [TaskStatusEnum.Closed]    : 'Completed'
+  [TaskStatusEnum.Created]   : '草稿',
+  [TaskStatusEnum.Queued]    : '排队中',
+  [TaskStatusEnum.InProgress]: '运行中',
+  [TaskStatusEnum.Completed] : '已完成',
+  [TaskStatusEnum.Published] : '已发布',
+  [TaskStatusEnum.Failed]    : '失败',
+  [TaskStatusEnum.Stopped]   : '已中止',
+  [TaskStatusEnum.Closed]    : '已完成'
 
 };
 export const DevWarningEnabled = false;
@@ -64,10 +64,10 @@ export const DevWarningEnabled = false;
 export const excludeTypes = [];
 
 export const DATASETS_STATUS_LABEL = {
-  [TaskStatusEnum.InProgress]: 'Uploading',
-  [TaskStatusEnum.Completed]: 'Final',
-  Running: 'Uploading',
-  Completed: 'Final'
+  [TaskStatusEnum.InProgress]: '上传中',
+  [TaskStatusEnum.Completed]: '最终版',
+  Running: '上传中',
+  Completed: '最终版'
 };
 
 export const selectQueueFields = ['id', 'name', 'display_name'];

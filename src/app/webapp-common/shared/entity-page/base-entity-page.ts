@@ -21,6 +21,7 @@ import {EntityTypeEnum} from '~/shared/constants/non-common-consts';
 import {IFooterState, ItemFooterModel} from './footer-items/footer-items.models';
 import {
   CountAvailableAndIsDisableSelectedFiltered,
+  entityTypeLabel,
   selectionAllHasExample,
   selectionAllIsArchive,
   selectionExamplesCount,
@@ -276,10 +277,10 @@ export abstract class BaseEntityPageComponent implements OnDestroy {
           if (this.getSelectedEntities().length > 0 && !neverShow?.includes('go-to-archive')) {
             return this.dialog.open(ConfirmDialogComponent, {
               data: {
-                title: 'Are you sure?',
-                body: `Navigating between "Live" and "Archive" will deselect your selected ${this.entityType}s.`,
-                yes: 'Proceed',
-                no: 'Back',
+                title: '确定吗？',
+                body: `在“活跃”和“归档”之间切换将取消选择已选中的${entityTypeLabel(this.entityType)}。`,
+                yes: '继续',
+                no: '返回',
                 iconClass: 'al-ico-alert',
                 conColor: 'var(--color-warning)',
                 showNeverShowAgain: true

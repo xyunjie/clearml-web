@@ -35,7 +35,7 @@ export const INITIAL_EXPERIMENT_TABLE_COLS: ISmCol[] = [
     headerType: ColHeaderTypeEnum.sortFilter,
     sortable: true,
     filterable: true,
-    header: 'TYPE',
+    header: '类型',
     bodyStyleClass: 'type-col',
     style: {width: '115px'},
     showInCardFilters: true
@@ -44,7 +44,7 @@ export const INITIAL_EXPERIMENT_TABLE_COLS: ISmCol[] = [
     id: EXPERIMENTS_TABLE_COL_FIELDS.NAME,
     headerType: ColHeaderTypeEnum.sortFilter,
     sortable: true,
-    header: 'NAME',
+    header: '名称',
     style: {width: '400px'},
   },
   {
@@ -55,25 +55,25 @@ export const INITIAL_EXPERIMENT_TABLE_COLS: ISmCol[] = [
     searchableFilter: true,
     paginatedFilterPageSize: 100,
     sortable: false,
-    header: 'TAGS',
+    header: '标签',
     style: {width: '300px'},
     excludeFilter: true,
     andFilter: true,
-    columnExplain: 'Click to include tag. Click again to exclude.',
+    columnExplain: '点击包含标签，再次点击排除。',
     showInCardFilters: true
   },
   {
     id: EXPERIMENTS_TABLE_COL_FIELDS.STATUS,
     headerType: ColHeaderTypeEnum.sortFilter,
     filterable: true,
-    header: 'STATUS',
+    header: '状态',
     style: {width: '130px', minWidth: '130px'},
     showInCardFilters: true
   },
   {
     id: EXPERIMENTS_TABLE_COL_FIELDS.PROJECT,
     headerType: ColHeaderTypeEnum.sortFilter,
-    header: 'PROJECT',
+    header: '项目',
     filterable: true,
     searchableFilter: true,
     asyncFilter: true,
@@ -89,7 +89,7 @@ export const INITIAL_EXPERIMENT_TABLE_COLS: ISmCol[] = [
     searchableFilter: true,
     filterable: true,
     sortable: false,
-    header: 'USER',
+    header: '用户',
     style: {width: '115px'},
     showInCardFilters: true
   },
@@ -100,7 +100,7 @@ export const INITIAL_EXPERIMENT_TABLE_COLS: ISmCol[] = [
     filterType: ColHeaderFilterTypeEnum.durationDate,
     filterable: true,
     searchableFilter: false,
-    header: 'STARTED',
+    header: '开始时间',
     style: {width: '150px'},
   },
   {
@@ -110,8 +110,8 @@ export const INITIAL_EXPERIMENT_TABLE_COLS: ISmCol[] = [
     filterType: ColHeaderFilterTypeEnum.durationDate,
     filterable: true,
     searchableFilter: false,
-    header: 'UPDATED',
-    label: 'Updated',
+    header: '更新时间',
+    label: '更新时间',
     style: {width: '150px'},
   },
   {
@@ -121,15 +121,15 @@ export const INITIAL_EXPERIMENT_TABLE_COLS: ISmCol[] = [
     filterType: ColHeaderFilterTypeEnum.durationNumeric,
     filterable: true,
     searchableFilter: false,
-    header: 'ITERATION',
-    label: 'Iterations:',
+    header: '迭代',
+    label: '迭代：',
     style: {width: '115px'},
   },
   {
     id: EXPERIMENTS_TABLE_COL_FIELDS.COMMENT,
     headerType: ColHeaderTypeEnum.sortFilter,
     sortable: true,
-    header: 'DESCRIPTION',
+    header: '描述',
     style: {width: '300px'}
   },
   {
@@ -140,7 +140,7 @@ export const INITIAL_EXPERIMENT_TABLE_COLS: ISmCol[] = [
     filterType: ColHeaderFilterTypeEnum.duration,
     searchableFilter: false,
     bodyStyleClass: 'type-col',
-    header: 'RUN TIME',
+    header: '运行时长',
     style: {width: '150px'}
   },
   {
@@ -150,7 +150,7 @@ export const INITIAL_EXPERIMENT_TABLE_COLS: ISmCol[] = [
     searchableFilter: true,
     filterable: true,
     sortable: false,
-    header: 'PARENT TASK',
+    header: '父任务',
     style: {width: '200px'},
     showInCardFilters: true,
     asyncFilter: true

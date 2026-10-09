@@ -1,6 +1,6 @@
 import {ItemFooterModel, IFooterState} from './footer-items.models';
 import {IconNames, ICONS} from '@common/constants';
-import {MenuItems, selectionDisabledAbort} from '../items.utils';
+import {MenuItems, selectionDisabledAbort, entityTypeLabel} from '../items.utils';
 import {EntityTypeEnum} from '~/shared/constants/non-common-consts';
 
 export class AbortFooterItem extends ItemFooterModel {
@@ -15,8 +15,8 @@ export class AbortFooterItem extends ItemFooterModel {
     const {available, disable} = selectionDisabledAbort(state.selected);
     return {
       disable,
-      description: `Abort (${available} items)`,
-      disableDescription: state.selectionIsOnlyExamples ? 'Abort' : `You can only abort ${this.entitiesType}s with ‘Running’ status`
+      description: `中止（${available} 项）`,
+      disableDescription: state.selectionIsOnlyExamples ? '中止' : `只能中止状态为“运行中”的${entityTypeLabel(this.entitiesType)}`
     };
   }
 }

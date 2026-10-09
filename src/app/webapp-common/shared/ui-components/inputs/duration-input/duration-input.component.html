@@ -13,7 +13,7 @@
            (blur)="focusOutInput()"
            smKeyDownStopPropagation
            (focus)="$any($event.target).select()"
-           smTooltip="Hours"><span class="separator">:</span>
+           smTooltip="小时"><span class="separator">:</span>
     <input #mins
            matInput
            formControlName="minutes"
@@ -28,7 +28,7 @@
            (blur)="focusOutInput()"
            smKeyDownStopPropagation
            (focus)="$any($event.target).select()"
-           smTooltip="Minutes"
+           smTooltip="分钟"
     >
     <span class="separator">:</span>
     <input #secs
@@ -45,7 +45,7 @@
            (blur)="focusOutInput()"
            smKeyDownStopPropagation
            (focus)="$any($event.target).select()"
-           smTooltip="Seconds"
+           smTooltip="秒"
     >
     <span class="separator">.</span>
     <input #mill
@@ -60,7 +60,7 @@
            (blur)="focusOutInput()"
            smKeyDownStopPropagation
            (focus)="$any($event.target).select()"
-           smTooltip="Milliseconds"
+           smTooltip="毫秒"
     >
   </div>
   <div class="submit" data-id="submitButton" [class.in-edit-mode]="inEdit()">

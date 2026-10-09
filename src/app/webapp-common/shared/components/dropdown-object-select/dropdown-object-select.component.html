@@ -8,7 +8,7 @@
         <sm-multi-line-tooltip [smallIcon]="true" [customClass]="'color-tertiary'"
                                class="xs pointer ms-1 color-tertiary"
                                iconClass="al-ico-settings">
-          <span class="me-2">Field key: <b>{{configurationInfo()}}</b></span>
+          <span class="me-2">字段键：<b>{{configurationInfo()}}</b></span>
           <sm-copy-clipboard [smallIcon]="true"
                              [clipboardText]="configurationInfo()"
                              (copySuccess)="copied.emit()"

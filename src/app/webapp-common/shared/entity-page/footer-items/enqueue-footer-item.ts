@@ -17,8 +17,8 @@ export class EnqueueFooterItem extends ItemFooterModel {
     return {
       disable: enqueue?.disable,
       preventCurrentItem: state.selectionAllIsArchive,
-      description: this.menuItemText.transform(enqueue?.available, 'Enqueue'),
-      disableDescription: state.selectionIsOnlyExamples ? 'Enqueue' : `You can only enqueue tasks with ‘Draft’/'Aborted' status`
+      description: this.menuItemText.transform(enqueue?.available, '入队'),
+      disableDescription: state.selectionIsOnlyExamples ? '入队' : `只能将状态为“草稿”/“已中止”的任务入队`
 
     };
   }

@@ -1,6 +1,6 @@
 import {IFooterState, ItemFooterModel} from './footer-items.models';
 import {IconNames, ICONS} from '@common/constants';
-import {MenuItems} from '../items.utils';
+import {MenuItems, entityTypeLabel} from '../items.utils';
 import {EntityTypeEnum} from '~/shared/constants/non-common-consts';
 
 export class PublishFooterItem extends ItemFooterModel {
@@ -16,8 +16,8 @@ export class PublishFooterItem extends ItemFooterModel {
   getItemState(state: IFooterState<{id: string}>): { icon?: IconNames; title?: string; description?: string; disable?: boolean; disableDescription?: string; emit?: boolean; emitValue?: boolean; preventCurrentItem?: boolean; class?: string; wrapperClass?: string } {
     return {
       disable: state.data[this.id]?.disable,
-      description: this.menuItemText.transform(state.data[MenuItems.publish]?.available, 'Publish'),
-      disableDescription: state.selectionIsOnlyExamples ? 'Publish' : `You can only publish ${this.entityType}s that have already been executed`
+      description: this.menuItemText.transform(state.data[MenuItems.publish]?.available, '发布'),
+      disableDescription: state.selectionIsOnlyExamples ? '发布' : `只能发布已执行过的${entityTypeLabel(this.entityType)}`
     };
   }
 }

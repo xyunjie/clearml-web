@@ -11,9 +11,9 @@
 ></sm-search>
 <div class="toggle-all-text">
   @if (searchTerm()) {
-    <span (click)="toggleHideMatching()" data-id="hideShowMatchingButton">{{ allFilteredSelected() ? 'Hide matching' : 'Show matching' }}</span>
+    <span (click)="toggleHideMatching()" data-id="hideShowMatchingButton">{{ allFilteredSelected() ? '隐藏匹配项' : '显示匹配项' }}</span>
   } @else {
-  <span (click)="toggleHideAll()" data-id="hideShowAllButton">{{ allSelected() ? 'Hide all' : 'Show all' }}</span>
+  <span (click)="toggleHideAll()" data-id="hideShowAllButton">{{ allSelected() ? '全部隐藏' : '全部显示' }}</span>
   }
 </div>
 <div class="toggle-all-text">

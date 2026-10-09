@@ -12,7 +12,7 @@
         <input
           #nameInput
           matInput
-          placeholder="Add Tag"
+          placeholder="添加标签"
           [formControl]="filterControl"
           class="filter"
           autocomplete="off"
@@ -22,7 +22,7 @@
           @if (!disableFilterByProject() && companyTags() !== null && isAllProject() === false) {
             <button mat-icon-button smClickStopPropagation
                     (click)="$event.preventDefault(); projectTagsFilterToggle()"
-                    smTooltip="Toggle all/project-only tags"
+                    smTooltip="切换显示全部标签/仅项目标签"
                     data-id="tagFilterButton"
             >
               <svg class="project-tags-filter" [class.active]="filterByProject()" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -51,7 +51,7 @@
           class="item"
           (click)="addTag(filterText())"
           (keyup.arrowUp)="focus($event)"
-        >"{{ filterText().trim() }}" <span class="new" data-id="createNewTag">(Create New)</span></button>
+        >"{{ filterText().trim() }}" <span class="new" data-id="createNewTag">（新建）</span></button>
       }
       @for (tag of slicedTags(); track tag; let i = $index) {
         <button
@@ -71,7 +71,7 @@
       </div>
     @if (!disableColorManagement()) {
       <hr>
-      <button mat-menu-item data-id="TagColors" class="item" (click)="openTagColors()">Tag Colors</button>
+      <button mat-menu-item data-id="TagColors" class="item" (click)="openTagColors()">标签颜色</button>
     }
   </span>
 </mat-menu>

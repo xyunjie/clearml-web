@@ -54,7 +54,7 @@ export const MODELS_TABLE_COLS: ISmCol[] = [
     sortable    : true,
     filterable  : true,
     searchableFilter: true,
-    header      : 'FRAMEWORK',
+    header      : '框架',
     style       : {width: '100px'},
     showInCardFilters: true
   },
@@ -62,7 +62,7 @@ export const MODELS_TABLE_COLS: ISmCol[] = [
     id          : MODELS_TABLE_COL_FIELDS.NAME,
     headerType  : ColHeaderTypeEnum.sortFilter,
     sortable    : true,
-    header      : 'NAME',
+    header      : '名称',
     style       : {width: '300px'},
   },
   {
@@ -72,11 +72,11 @@ export const MODELS_TABLE_COLS: ISmCol[] = [
     filterable  : true,
     sortable    : false,
     searchableFilter: true,
-    header      : 'TAGS',
+    header      : '标签',
     style       : {width: '240px'},
     excludeFilter: true,
     andFilter: true,
-    columnExplain: 'Click to include tag. Click again to exclude.',
+    columnExplain: '点击包含标签，再次点击排除。',
     showInCardFilters: true
   },
   {
@@ -84,7 +84,7 @@ export const MODELS_TABLE_COLS: ISmCol[] = [
     headerType  : ColHeaderTypeEnum.sortFilter,
     sortable    : true,
     filterable  : true,
-    header      : 'STATUS',
+    header      : '状态',
     style       : {width: '135px'},
     showInCardFilters: true
   },
@@ -96,7 +96,7 @@ export const MODELS_TABLE_COLS: ISmCol[] = [
     sortable    : false,
     asyncFilter : true,
     paginatedFilterPageSize : rootProjectsPageSize,
-    header      : 'PROJECT',
+    header      : '项目',
     style       : {width: '135px'}
   },
   {
@@ -106,7 +106,7 @@ export const MODELS_TABLE_COLS: ISmCol[] = [
     searchableFilter: true,
     filterable      : true,
     sortable        : false,
-    header          : 'USER',
+    header          : '用户',
     style           : {width: '240px'},
     showInCardFilters: true
   },
@@ -114,7 +114,7 @@ export const MODELS_TABLE_COLS: ISmCol[] = [
     id        : MODELS_TABLE_COL_FIELDS.TASK,
     headerType: ColHeaderTypeEnum.title,
     sortable  : false,
-    header    : 'TASK',
+    header    : '任务',
     style     : {width: '240px'}
   },
   {
@@ -124,15 +124,15 @@ export const MODELS_TABLE_COLS: ISmCol[] = [
     filterType    : ColHeaderFilterTypeEnum.durationDate,
     filterable: true,
     searchableFilter: false,
-    header      : 'UPDATED',
-    label       : 'Updated',
+    header      : '更新时间',
+    label       : '更新时间',
     style       : {width: '150px'},
   },
   {
     id        : MODELS_TABLE_COL_FIELDS.COMMENT,
     headerType: ColHeaderTypeEnum.sortFilter,
     sortable  : true,
-    header    : 'DESCRIPTION',
+    header    : '描述',
     style     : {width: '240px'}
   },
 ];

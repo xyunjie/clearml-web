@@ -66,7 +66,7 @@ export function addStats(current: Topic[], data, maxPoints: number,
         const topicName   = aggData.isSingleResource?
           `${paramInfo[param].title}${aggregation} ${paramInfo[param].suffix}`:
           `${paramInfo[param].title} ${paramInfo[param].suffix ?? ''}${aggregation}`
-          + `${shouldAddEntity && entity ? ' for ' + entity : ''}`;
+          + `${shouldAddEntity && entity ? '（' + entity + '）' : ''}`;
         let topic: Topic = dataByTopic.find(topic => topic.topicID === topicID);
         if (!topic) {
           topic = {topicName, topicID, topic: topicIDs[topicID], dates: [] as DataPoint[]};
@@ -96,7 +96,7 @@ export function addStats(current: Topic[], data, maxPoints: number,
       const item = dataByTopic.find((topic: Topic) => topic.topicID.indexOf(reqParam.key) > -1);
       if (!item) {
         const topicID   = `${entity} ${reqParam.key} avg`;
-        const topicName = `${paramInfo[reqParam.key].title} ${paramInfo[reqParam.key].suffix ?? ''} (avg) ${shouldAddEntity && entity ? 'for ' + entity : ''}`;
+        const topicName = `${paramInfo[reqParam.key].title} ${paramInfo[reqParam.key].suffix ?? ''} (avg) ${shouldAddEntity && entity ? '（' + entity + '）' : ''}`;
         const topic     = {topicName: topicName, topicID: topicID, topic: topicIDs[topicID], dates: [] as DataPoint[]};
         dataByTopic.push(topic);
       }

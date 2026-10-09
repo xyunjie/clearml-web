@@ -91,7 +91,7 @@ export class ServingTableComponent extends BaseTableView {
 
   // @Input() set users(users: User[]) {
   //   this.filtersOptions[servingTableColFields.USER] = users.map(user => ({
-  //     label: user.name ? user.name : 'Unknown User',
+  //     label: user.name ? user.name : '未知用户',
   //     value: user.id
   //   }));
   //   this.sortOptionsList(servingTableColFields.USER);

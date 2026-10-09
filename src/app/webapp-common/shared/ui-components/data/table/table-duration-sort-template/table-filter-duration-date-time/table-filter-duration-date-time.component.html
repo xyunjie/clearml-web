@@ -1,12 +1,12 @@
 <form class="filter-form p-4" #templateForm="ngForm" smClickStopPropagation smKeyDownStopPropagation>
-  <div class="mb-1 label">From</div>
+  <div class="mb-1 label">从</div>
   <div class="input-duration d-flex align-items-center">
     <mat-form-field subscriptSizing="dynamic">
       <input matInput
              [value]="_greaterThan.date"
              [matDatepicker]="fromPicker"
              data-id="From Date"
-             placeholder="Date"
+             placeholder="日期"
              (dateChange)="$event.value ? setCheckBox(true, 'greaterThan') : null;
                                   onDateHandler($any($event.value), '_greaterThan')"
       >
@@ -23,13 +23,13 @@
     ></sm-duration-input-list>
     <button mat-icon-button
             (click)="hasGreaterThanValue ? onResetHandler('greaterThan') : onAutoFillCurrentTimeHandler('greaterThan')"
-            [smTooltip]="hasGreaterThanValue ? 'Clear' : 'Autofill current time'"
+            [smTooltip]="hasGreaterThanValue ? '清除' : '填入当前时间'"
     >
       <mat-icon fontSet="al" [fontIcon]="hasGreaterThanValue ? 'al-ico-dialog-x' : 'al-ico-time'" data-id="fillRecentTimeButton"></mat-icon>
     </button>
   </div>
 
-  <div class="mb-1 mt-3 label">To</div>
+  <div class="mb-1 mt-3 label">到</div>
   <div class="input-duration d-flex align-items-center">
     <mat-form-field subscriptSizing="dynamic">
       <input matInput
@@ -37,7 +37,7 @@
              [value]="_lessThan.date"
              [matDatepicker]="toPicker"
              data-id="to Date"
-             placeholder="Now"
+             placeholder="现在"
              (dateChange)="$event.value ? setCheckBox(true, 'lessThan') : null;
                                   onDateHandler($any($event.value), '_lessThan')"
       >

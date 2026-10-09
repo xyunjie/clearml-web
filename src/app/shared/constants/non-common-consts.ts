@@ -39,25 +39,25 @@ export enum CircleTypeEnum {
 }
 
 export const EXPERIMENTS_TYPE_LABELS = {
-  [TaskStatusEnum.Created]     : 'Draft',
-  [TaskStatusEnum.Queued]      : 'Pending',
-  [TaskStatusEnum.InProgress]  : 'Running',
-  [TaskStatusEnum.Completed]   : 'Completed',
-  [TaskStatusEnum.Published]   : 'Published',
-  [TaskStatusEnum.Failed]      : 'Failed',
-  [TaskStatusEnum.Stopped]     : 'Aborted',
-  [TaskStatusEnum.Closed]      : 'Closed',
-  [TaskTypeEnum.Testing]       : 'Testing',
-  [TaskTypeEnum.Training]      : 'Training',
-  [TaskTypeEnum.Inference]     : 'Inference',
-  [TaskTypeEnum.DataProcessing]: 'Data Processing',
-  [TaskTypeEnum.Application]   : 'Application',
-  [TaskTypeEnum.Monitor]       : 'Monitor',
-  [TaskTypeEnum.Controller]    : 'Controller',
-  [TaskTypeEnum.Optimizer]     : 'Optimizer',
-  [TaskTypeEnum.Service]       : 'Service',
-  [TaskTypeEnum.Qc]            : 'QC',
-  [TaskTypeEnum.Custom]        : 'Custom'
+  [TaskStatusEnum.Created]     : '草稿',
+  [TaskStatusEnum.Queued]      : '排队中',
+  [TaskStatusEnum.InProgress]  : '运行中',
+  [TaskStatusEnum.Completed]   : '已完成',
+  [TaskStatusEnum.Published]   : '已发布',
+  [TaskStatusEnum.Failed]      : '失败',
+  [TaskStatusEnum.Stopped]     : '已中止',
+  [TaskStatusEnum.Closed]      : '已关闭',
+  [TaskTypeEnum.Testing]       : '测试',
+  [TaskTypeEnum.Training]      : '训练',
+  [TaskTypeEnum.Inference]     : '推理',
+  [TaskTypeEnum.DataProcessing]: '数据处理',
+  [TaskTypeEnum.Application]   : '应用',
+  [TaskTypeEnum.Monitor]       : '监控',
+  [TaskTypeEnum.Controller]    : '控制器',
+  [TaskTypeEnum.Optimizer]     : '优化器',
+  [TaskTypeEnum.Service]       : '服务',
+  [TaskTypeEnum.Qc]            : '质量检查',
+  [TaskTypeEnum.Custom]        : '自定义'
 };
 
 export const hideDeleteArtifactsEntities = [EntityTypeEnum.model];

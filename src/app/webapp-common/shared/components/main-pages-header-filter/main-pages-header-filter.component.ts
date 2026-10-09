@@ -122,7 +122,7 @@ export class MainPagesHeaderFilterComponent {
   statusOptions = input<IOption[]>([]);
 
   usersOptions = computed(() => this.users()?.map(user => ({
-    label: user.name ? user.name : 'Unknown User',
+    label: user.name ? user.name : '未知用户',
     value: user.id,
     tooltip: ''
   })) ?? []);
@@ -147,7 +147,7 @@ export class MainPagesHeaderFilterComponent {
     searchableFilter: true,
     filterable: true,
     sortable: false,
-    header: 'USER',
+    header: '用户',
     style: {width: '115px'},
     showInCardFilters: true
   };

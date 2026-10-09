@@ -129,8 +129,8 @@
           <sm-tag-list [tags]="model.tags" [sysTags]="getSysTags(model)"></sm-tag-list>
         }
         @case (modelsTableColFields.USER) {
-          <span class="ellipsis" [smTooltip]="model.user?.name ? model.user?.name : 'Unknown User'"
-          smShowTooltipIfEllipsis>{{model.user?.name ? model.user?.name : 'Unknown User'}}</span>
+          <span class="ellipsis" [smTooltip]="model.user?.name ? model.user?.name : '未知用户'"
+          smShowTooltipIfEllipsis>{{model.user?.name ? model.user?.name : '未知用户'}}</span>
         }
         @case (modelsTableColFields.PROJECT) {
           <span class="ellipsis" smShowTooltipIfEllipsis [smTooltip]="model?.project?.name"
@@ -224,7 +224,7 @@
     <ng-template #compactCol>
       @if (!cardsCollapsed()) {
         <div animate.enter="enter" animate.leave="leaving" class="ellipsis compact-columns-data" [class.selected]="selected">
-          Updated {{model.last_update | timeAgo}} by {{model.user?.name || 'Unknown User'}}
+          Updated {{model.last_update | timeAgo}} by {{model.user?.name || '未知用户'}}
           @if (model.task) {
             <span class="dot">●</span>{{model.task.name}}
           }

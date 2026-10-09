@@ -7,21 +7,21 @@
 <mat-menu #menu="matMenu" (closed)="closeMenu()">
   <button mat-menu-item smClickStopPropagation (click)="switchUserFocus()">
     <mat-icon matIconPrefix fontSet="al" [fontIcon]="showOnlyUserWork() ? 'al-ico-success' : ''" data-id="MyworkCheckbox"></mat-icon>
-    <div data-id="MyWorkFilterOption">My Work</div>
+    <div data-id="MyWorkFilterOption">我的工作</div>
   </button>
   <button mat-menu-item [matMenuTriggerFor]="subMenu" (menuOpened)="tagsFilterOpened()">
     <mat-icon matIconPrefix fontSet="al"
               [fontIcon]="!(tagsFilters()?.length > 0) ? '' : 'al-ico-success'"
               data-id="TagCheckbox"
     ></mat-icon>
-    <span data-id="TagOption">Tags</span>
+    <span data-id="TagOption">标签</span>
   </button>
   <button mat-menu-item [matMenuTriggerFor]="usersSubMenu?.smMenu()?.menu()" [disabled]="showOnlyUserWork()" (menuOpened)="usersSubMenu.onMenuOpen()">
     <mat-icon matIconPrefix fontSet="al"
               [fontIcon]="!(usersFilters()?.length > 0) ? '' : 'al-ico-success'"
               data-id="UsersCheckbox"
     ></mat-icon>
-    <span data-id="UsersOption">Users</span>
+    <span data-id="UsersOption">用户</span>
   </button>
   @if (statusOptions()?.length>0) {
   <button mat-menu-item [matMenuTriggerFor]="statusSubMenu" >
@@ -29,7 +29,7 @@
               [fontIcon]="!(statusFilters()?.length > 0) ? '' : 'al-ico-success'"
               data-id="StatusCheckbox"
     ></mat-icon>
-    <span data-id="StatusOption">Status</span>
+    <span data-id="StatusOption">状态</span>
   </button>
   }
   <mat-menu #subMenu="matMenu" class="table-card-filter-menu light-theme"  (close)="closeMenu()">
@@ -46,8 +46,8 @@
       </mat-form-field>
     </form>
     <div class="filter-type" smClickStopPropagation>
-      <button mat-button data-id="AnyTagOption" class="link" [class.selected]="matchMode() !== 'AND'" (click)="toggleMatch()">Any</button>
-      <button mat-button data-id="allTagOption" class="link" [class.selected]="matchMode() === 'AND'" (click)="toggleMatch()">All</button>
+      <button mat-button data-id="AnyTagOption" class="link" [class.selected]="matchMode() !== 'AND'" (click)="toggleMatch()">任一</button>
+      <button mat-button data-id="allTagOption" class="link" [class.selected]="matchMode() === 'AND'" (click)="toggleMatch()">全部</button>
     </div>
     <div class="results scroll"  smClickStopPropagation>
       <sm-checkbox-three-state-list
@@ -58,7 +58,7 @@
       > </sm-checkbox-three-state-list>
     </div>
     @if (tagsLabelValue()?.length>0) {
-      <div class="column-explanation">Click to include tag. Click again to exclude.</div>
+      <div class="column-explanation">点击包含标签，再次点击排除。</div>
     }
   </mat-menu>
   <sm-table-filter-sort #usersSubMenu
@@ -85,6 +85,6 @@
     class="user-filter-button"
     (click)="clearAll()"
   >
-    <div class="lbl" data-id="clearAllFilter">Clear all</div>
+    <div class="lbl" data-id="clearAllFilter">全部清除</div>
   </button>
 </mat-menu>

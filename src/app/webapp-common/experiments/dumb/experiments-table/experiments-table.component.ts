@@ -230,7 +230,7 @@ export class ExperimentsTableComponent extends BaseTableView {
         value: type
       })),
     [EXPERIMENTS_TABLE_COL_FIELDS.USER]: this.sortOptionsList(this.users()?.map(user => ({
-      label: user.name ? user.name : 'Unknown User',
+      label: user.name ? user.name : '未知用户',
       value: user.id,
       tooltip: ''
     })) ?? [], [...this.sortByFilterValues()[EXPERIMENTS_TABLE_COL_FIELDS.USER], this.currentUserId()]),

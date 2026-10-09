@@ -16,8 +16,8 @@ export class DequeueFooterItem extends ItemFooterModel {
     return {
       preventCurrentItem: dequeue?.disable,
       disable:  dequeue?.disable,
-      description: this.menuItemText.transform(dequeue?.available, 'Dequeue'),
-      disableDescription: state.selectionIsOnlyExamples ? 'Dequeue' : `You can only dequeue tasks with ‘Pending’ status`
+      description: this.menuItemText.transform(dequeue?.available, '出队'),
+      disableDescription: state.selectionIsOnlyExamples ? '出队' : `只能将状态为“排队中”的任务出队`
     };
   }
 }

@@ -211,7 +211,7 @@ export class GlobalSearchFilterComponent {
   });
   usersOptionsLabels = computed(() => {
     return this.sortOptionsList(this.usersOptions()?.map(user => ({
-      label: user.name ? user.name : 'Unknown User',
+      label: user.name ? user.name : '未知用户',
       value: user.id,
       tooltip: ''
     })) ?? [],this.sortByUsersList() );
