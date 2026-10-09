@@ -95,8 +95,8 @@ export class LayoutEffects {
     map(action => {
       const errorData = action.err?.error?.meta?.error_data?.access ===  'read_write' ? 'modifying' : 'accessing';
       return addMessage(MESSAGES_SEVERITY.ERROR,
-        `Insufficient privileges for ${errorData} this ${action.err?.error?.meta?.error_data?.type?.replace('datasetversion', 'dataset version') || 'resource'}.
-    Contact your service admin for information.`, [], true);
+        `权限不足，无法对此${action.err?.error?.meta?.error_data?.type?.replace('datasetversion', 'dataset version') || '资源'}执行${errorData}。
+    请联系服务管理员了解详情。`, [], true);
     })
   ));
 

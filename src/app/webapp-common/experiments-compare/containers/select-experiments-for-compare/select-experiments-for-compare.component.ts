@@ -255,7 +255,7 @@ export class SelectExperimentsForCompareComponent implements OnInit, OnDestroy {
   experimentsSelectionChanged(experiments: ITableExperiment[]) {
     this.reachedCompareLimit.set(experiments.length >= compareLimitations);
     if (experiments.length === 0) {
-      this.store.dispatch(addMessage(MESSAGES_SEVERITY.WARN, 'Compare module should include at least one experiment'));
+      this.store.dispatch(addMessage(MESSAGES_SEVERITY.WARN, '对比至少需要包含一个任务'));
       this.selectedExperimentsIds.set(experiments.map(ex => ex.id));
       return;
     }

@@ -172,7 +172,7 @@ export class ReportsPageComponent extends ProjectsPageComponent implements OnIni
   share(report: IReport) {
     this._clipboardService.copyResponse$
       .pipe(take(1))
-      .subscribe(() => this.store.dispatch(addMessage(MESSAGES_SEVERITY.SUCCESS, 'Report link copied to clipboard'))
+      .subscribe(() => this.store.dispatch(addMessage(MESSAGES_SEVERITY.SUCCESS, '报告链接已复制到剪贴板'))
       );
     this._clipboardService.copy(`${window.location.origin}/reports/${report.project.id}/${report.id}`);
   }

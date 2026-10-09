@@ -183,9 +183,9 @@ export class ModelsViewEffects {
         catchError(error => [
           requestFailed(error),
           deactivateLoader('Fetch Models'),
-          addMessage('warn', 'Fetch Models for selection failed', [{
-            name: 'More info',
-            actions: [setServerError(error, null, 'Fetch Models for selection failed')]
+          addMessage('warn', '获取待选模型失败', [{
+            name: '详细信息',
+            actions: [setServerError(error, null, '获取待选模型失败')]
           }])
         ])
       )
@@ -204,9 +204,9 @@ export class ModelsViewEffects {
         ]),
         catchError(error => [
           requestFailed(error),
-          addMessage('warn', 'Fetch frameworks failed', [{
-            name: 'More info',
-            actions: [setServerError(error, null, 'Fetch frameworks failed')]
+          addMessage('warn', '获取框架失败', [{
+            name: '详细信息',
+            actions: [setServerError(error, null, '获取框架失败')]
           }])]
         )
       )
@@ -237,9 +237,9 @@ export class ModelsViewEffects {
       catchError(error => [
         requestFailed(error),
         deactivateLoader('Fetch Models'),
-        addMessage('warn', 'Fetch tags failed', [{
-          name: 'More info',
-          actions: [setServerError(error, null, 'Fetch tags failed')]
+        addMessage('warn', '获取标签失败', [{
+          name: '详细信息',
+          actions: [setServerError(error, null, '获取标签失败')]
         }])]
       )
     ))
@@ -258,9 +258,9 @@ export class ModelsViewEffects {
       catchError(error => [
         requestFailed(error),
         deactivateLoader(action.type),
-        addMessage('warn', '${action.type}failed', [{
-          name: 'More info',
-          actions: [setServerError(error, null, '${action.type} failed')]
+        addMessage('warn', '操作失败', [{
+          name: '详细信息',
+          actions: [setServerError(error, null, '操作失败')]
         }])]
       )
     ))
@@ -285,9 +285,9 @@ export class ModelsViewEffects {
           catchError(error => [
             requestFailed(error),
             deactivateLoader(action.type),
-            addMessage('warn', 'Fetch custom metrics failed', error?.meta && [{
-              name: 'More info',
-              actions: [setServerError(error, null, 'Fetch custom metrics failed')]
+            addMessage('warn', '获取自定义指标失败', error?.meta && [{
+              name: '详细信息',
+              actions: [setServerError(error, null, '获取自定义指标失败')]
             }])
           ])
         )
@@ -332,9 +332,9 @@ export class ModelsViewEffects {
               return [
                 requestFailed(error),
                 deactivateLoader('Fetch Models'),
-                addMessage('warn', 'Fetch models failed', [{
-                  name: 'More info',
-                  actions: [setServerError(error, null, 'Fetch models failed')]
+                addMessage('warn', '获取模型失败', [{
+                  name: '详细信息',
+                  actions: [setServerError(error, null, '获取模型失败')]
                 }])
               ];
             })
@@ -355,7 +355,7 @@ export class ModelsViewEffects {
 
           const addModelsAction = scrollId === res.scroll_id || !scrollId ?
             [actions.addModels({models: res.models})] :
-            [actions.getNextModelsWithPageSize({pageSize: modelsList.length}), addMessage(MESSAGES_SEVERITY.WARN, 'Session expired')];
+            [actions.getNextModelsWithPageSize({pageSize: modelsList.length}), addMessage(MESSAGES_SEVERITY.WARN, '会话已过期')];
 
           return [
             actions.setNoMoreModels({payload: (res.models.length < MODELS_PAGE_SIZE)}),
@@ -367,9 +367,9 @@ export class ModelsViewEffects {
         catchError(error => [
           requestFailed(error),
           deactivateLoader('Fetch Models'),
-          addMessage('warn', 'Fetch models failed', [{
-            name: 'More info',
-            actions: [setServerError(error, null, 'Fetch models failed')]
+          addMessage('warn', '获取模型失败', [{
+            name: '详细信息',
+            actions: [setServerError(error, null, '获取模型失败')]
           }])
         ])
       )
@@ -410,9 +410,9 @@ export class ModelsViewEffects {
     catchError(error => [
       requestFailed(error),
       deactivateLoader('Fetch Models'),
-      addMessage('warn', 'Fetch models failed', [{
-        name: 'More info',
-        actions: [setServerError(error, null, 'Fetch models failed')]
+      addMessage('warn', '获取模型失败', [{
+        name: '详细信息',
+        actions: [setServerError(error, null, '获取模型失败')]
       }])
     ])
   ));

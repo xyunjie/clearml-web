@@ -28,7 +28,7 @@ import {TasksGetAllExResponse} from '~/business-logic/model/tasks/tasksGetAllExR
 import {ITask} from '~/business-logic/model/al-task';
 import {RouterState, selectRouterConfig, selectRouterParams} from '../../core/reducers/router-reducer';
 import {TasksArchiveManyResponse} from '~/business-logic/model/tasks/tasksArchiveManyResponse';
-import {cloneExtraActions, EntityTypeEnum} from '~/shared/constants/non-common-consts';
+import {cloneExtraActions, ENTITY_TYPE_LABELS, EntityTypeEnum} from '~/shared/constants/non-common-consts';
 import {TasksEnqueueManyResponse} from '~/business-logic/model/tasks/tasksEnqueueManyResponse';
 import {getNotificationAction, MenuItems, MoreMenuItems} from '../../shared/entity-page/items.utils';
 import {MatDialog} from '@angular/material/dialog';
@@ -255,7 +255,7 @@ export class CommonExperimentsMenuEffects {
             }),
             catchError(error => [
               deactivateLoader(action.type),
-              setServerError(error, null, 'Clone Task failed'),
+              setServerError(error, null, '克隆任务失败'),
               requestFailed(error)
             ])
           )
@@ -300,7 +300,7 @@ export class CommonExperimentsMenuEffects {
           confirmed ? stopClicked({selectedEntities: action.experiments, includePipelineSteps: isPipeline }) : emptyAction(),
           deactivateLoader(action.type)
         ]),
-        catchError(error => [deactivateLoader(action.type), requestFailed(error), addMessage(MESSAGES_SEVERITY.ERROR, 'Failed to fetch tasks running children')])
+        catchError(error => [deactivateLoader(action.type), requestFailed(error), addMessage(MESSAGES_SEVERITY.ERROR, '获取任务运行中的子任务失败')])
       )),
   ));
 
@@ -338,9 +338,9 @@ export class CommonExperimentsMenuEffects {
             ...action.selectedEntities.map(exp => this.setExperimentIfSelected(selectedExperiment, exp.id, {project: action.project ?? '*'})),
             deactivateLoader(action.type),
             viewActions.getExperiments(),
-            addMessage(MESSAGES_SEVERITY.SUCCESS, `Task moved successfully to ${action.project.name ?? '项目根目录'}`)
+            addMessage(MESSAGES_SEVERITY.SUCCESS, `任务已成功移动到 ${action.project.name ?? '项目根目录'}`)
           ]),
-          catchError(error => [requestFailed(error), deactivateLoader(action.type), setServerError(error, null, 'Failed to move tasks')])
+          catchError(error => [requestFailed(error), deactivateLoader(action.type), setServerError(error, null, '移动任务失败')])
         )
     )
   ));
@@ -403,10 +403,10 @@ export class CommonExperimentsMenuEffects {
                 projectsActions.addCompanyTag({tag: action.tag}),
               ];
             } else {
-              return [addMessage(MESSAGES_SEVERITY.ERROR, 'Not all tags were applied')]
+              return [addMessage(MESSAGES_SEVERITY.ERROR, '部分标签未能应用')]
             }
           }),
-          catchError(() => [addMessage(MESSAGES_SEVERITY.ERROR, 'Failed to apply tags')])
+          catchError(() => [addMessage(MESSAGES_SEVERITY.ERROR, '应用标签失败')])
         );
     }),
   ));
@@ -420,11 +420,11 @@ export class CommonExperimentsMenuEffects {
     }).pipe(
       switchMap(() => [
         menuActions.removeTagSuccess({experiments: action.experiments.map(e => e.id), tag: action.tag}),
-        addMessage('success', `“${action.tag}” tag has been removed from “${action.experiments[0]?.name}” task`, [
+        addMessage('success', `已从任务“${action.experiments[0]?.name}”中移除标签“${action.tag}”`, [
           {
             name: 'Undo',
             actions: [
-              addMessage('success', `“${action.tag}” tag has been restored`),
+              addMessage('success', `标签“${action.tag}”已恢复`),
               ...action.experiments.map(() => menuActions.addTag({
                 experiments: action.experiments,
                 tag: action.tag
@@ -495,7 +495,7 @@ export class CommonExperimentsMenuEffects {
         catchError(error => [
           requestFailed(error),
           deactivateLoader(action.type),
-          setServerError(error, null, `Failed To Archive ${action.entityType || 'Task'}s`)
+          setServerError(error, null, `归档${ENTITY_TYPE_LABELS[action.entityType] ?? action.entityType ?? '任务'}失败`)
         ])
       )
     )
@@ -556,7 +556,7 @@ export class CommonExperimentsMenuEffects {
         catchError(error => [
           requestFailed(error),
           deactivateLoader(action.type),
-          setServerError(error, null, `Failed To Restore ${action.entityType || 'Task'}s`)
+          setServerError(error, null, `恢复${ENTITY_TYPE_LABELS[action.entityType] ?? action.entityType ?? '任务'}失败`)
         ])
       )
     )

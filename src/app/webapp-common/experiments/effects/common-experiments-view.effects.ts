@@ -263,9 +263,9 @@ export class CommonExperimentsViewEffects {
         catchError(error => [
           requestFailed(error),
           deactivateLoader(action.type),
-          addMessage('warn', 'Fetch Tasks failed', error?.meta && [{
-            name: 'More info',
-            actions: [setServerError(error, null, 'Fetch Tasks failed')]
+          addMessage('warn', '获取任务失败', error?.meta && [{
+            name: '详细信息',
+            actions: [setServerError(error, null, '获取任务失败')]
           }])
         ])
       )
@@ -303,7 +303,7 @@ export class CommonExperimentsViewEffects {
                   exActions.setNoMoreExperiments({hasMore: (res.tasks.length < EXPERIMENTS_PAGE_SIZE)}));
                 if (!action.autoRefresh) {
                   actions.push(
-                    addMessage(MESSAGES_SEVERITY.WARN, 'Session expired'),
+                    addMessage(MESSAGES_SEVERITY.WARN, '会话已过期'),
                     exActions.setTableRefreshSessionPending({refresh: true}));
                 }
               }
@@ -333,9 +333,9 @@ export class CommonExperimentsViewEffects {
               return [
                 requestFailed(error),
                 deactivateLoader(action.type),
-                ...(action.autoRefresh ? [] : [addMessage('warn', 'Fetch Tasks failed', error?.meta && [{
-                  name: 'More info',
-                  actions: [setServerError(error, null, 'Fetch Tasks failed')]
+                ...(action.autoRefresh ? [] : [addMessage('warn', '获取任务失败', error?.meta && [{
+                  name: '详细信息',
+                  actions: [setServerError(error, null, '获取任务失败')]
                 }])])
               ];
             })
@@ -364,7 +364,7 @@ export class CommonExperimentsViewEffects {
           res.tasks = convertStopToComplete(res.tasks);
           const addTasksAction = scrollId === res.scroll_id || !scrollId
             ? [exActions.addExperiments({experiments: res.tasks as ITableExperiment[]})]
-            : [exActions.setTableRefreshSessionPending({refresh: true}), addMessage(MESSAGES_SEVERITY.WARN, 'Session expired')];
+            : [exActions.setTableRefreshSessionPending({refresh: true}), addMessage(MESSAGES_SEVERITY.WARN, '会话已过期')];
 
           return [
             exActions.setNoMoreExperiments({hasMore: (res.tasks.length < EXPERIMENTS_PAGE_SIZE)}),
@@ -376,9 +376,9 @@ export class CommonExperimentsViewEffects {
         catchError(error => [
           requestFailed(error),
           deactivateLoader(action.type),
-          addMessage('warn', 'Fetch Tasks failed', error?.meta && [{
-            name: 'More info',
-            actions: [setServerError(error, null, 'Fetch Tasks failed')]
+          addMessage('warn', '获取任务失败', error?.meta && [{
+            name: '详细信息',
+            actions: [setServerError(error, null, '获取任务失败')]
           }])
         ])
       )
@@ -452,9 +452,9 @@ export class CommonExperimentsViewEffects {
         catchError(error => [
           requestFailed(error),
           deactivateLoader(action.type),
-          addMessage('warn', 'Fetch types failed', error?.meta && [{
-            name: 'More info',
-            actions: [setServerError(error, null, 'Fetch types failed')]
+          addMessage('warn', '获取类型失败', error?.meta && [{
+            name: '详细信息',
+            actions: [setServerError(error, null, '获取类型失败')]
           }])]
         )
       ))));
@@ -473,9 +473,9 @@ export class CommonExperimentsViewEffects {
     }),
     catchError(error => [
       requestFailed(error),
-      addMessage('warn', 'Fetch users failed', error?.meta && [{
-        name: 'More info',
-        actions: [setServerError(error, null, 'Fetch users failed')]
+      addMessage('warn', '获取用户失败', error?.meta && [{
+        name: '详细信息',
+        actions: [setServerError(error, null, '获取用户失败')]
       }])]
     )
   ));
@@ -508,9 +508,9 @@ export class CommonExperimentsViewEffects {
       }),
       catchError(error => [
           requestFailed(error),
-          addMessage('warn', 'Fetch parents failed', error?.meta && [{
-            name: 'More info',
-            actions: [setServerError(error, null, 'Fetch parents failed')]
+          addMessage('warn', '获取父任务失败', error?.meta && [{
+            name: '详细信息',
+            actions: [setServerError(error, null, '获取父任务失败')]
           }])
         ]
       )
@@ -535,9 +535,9 @@ export class CommonExperimentsViewEffects {
           catchError(error => [
             requestFailed(error),
             deactivateLoader(action.type),
-            addMessage('warn', 'Fetch custom metrics failed', error?.meta && [{
-              name: 'More info',
-              actions: [setServerError(error, null, 'Fetch custom metrics failed')]
+            addMessage('warn', '获取自定义指标失败', error?.meta && [{
+              name: '详细信息',
+              actions: [setServerError(error, null, '获取自定义指标失败')]
             }]),
             exActions.setCustomHyperParams({params: []})])
         )
@@ -569,9 +569,9 @@ export class CommonExperimentsViewEffects {
               catchError(error => [
                 requestFailed(error),
                 deactivateLoader(action.type),
-                addMessage('warn', 'Fetch custom metrics failed', error?.meta && [{
-                  name: 'More info',
-                  actions: [setServerError(error, null, 'Fetch custom metrics failed')]
+                addMessage('warn', '获取自定义指标失败', error?.meta && [{
+                  name: '详细信息',
+                  actions: [setServerError(error, null, '获取自定义指标失败')]
                 }]),
                 exActions.setCustomHyperParams({params: []})])
             );
@@ -601,9 +601,9 @@ export class CommonExperimentsViewEffects {
           catchError(error => [
             requestFailed(error),
             deactivateLoader(action.type),
-            addMessage('warn', 'Fetch hyperparameters failed', error?.meta && [{
-              name: 'More info',
-              actions: [setServerError(error, null, 'Fetch hyperparameters failed')]
+            addMessage('warn', '获取超参数失败', error?.meta && [{
+              name: '详细信息',
+              actions: [setServerError(error, null, '获取超参数失败')]
             }]),
             exActions.setCustomHyperParams({params: []})])
         )
@@ -686,7 +686,7 @@ export class CommonExperimentsViewEffects {
     catchError(error => [
       requestFailed(error),
       deactivateLoader(exActions.selectAllExperiments.type),
-      setServerError(error, null, 'Fetch tasks for selection failed')
+      setServerError(error, null, '获取待选任务失败')
     ])
   ));
 
@@ -824,9 +824,9 @@ export class CommonExperimentsViewEffects {
       catchError(error => [
         requestFailed(error),
         deactivateLoader(action.type),
-        addMessage('warn', 'Fetch tags failed', error?.meta && [{
-          name: 'More info',
-          actions: [setServerError(error, null, 'Fetch tags failed')]
+        addMessage('warn', '获取标签失败', error?.meta && [{
+          name: '详细信息',
+          actions: [setServerError(error, null, '获取标签失败')]
         }])]
       )
     ))
@@ -909,14 +909,14 @@ export class CommonExperimentsViewEffects {
         } as TasksCreateRequest).pipe(
           map((res: TasksCreateResponse) => exActions.createExperimentSuccess({data: {...action.data, id: res.id}, project: projectId}))
       )),
-      catchError(error => [addMessage(MESSAGES_SEVERITY.ERROR, `Failed to create tasks.\n${this.errService.getErrorMsg(error.error)}`)])
+      catchError(error => [addMessage(MESSAGES_SEVERITY.ERROR, `创建任务失败。\n${this.errService.getErrorMsg(error.error)}`)])
     );
   });
 
   createExperimentSuccess = createEffect(() => {
     return this.actions$.pipe(
       ofType(exActions.createExperimentSuccess),
-      map(action => addMessage(MESSAGES_SEVERITY.SUCCESS, `Successfully created task ${action.data.name}`, [{name: 'open task', actions: [exActions.openExperiment({id: action.data.id, project: action.project})]}]))
+      map(action => addMessage(MESSAGES_SEVERITY.SUCCESS, `已成功创建任务 ${action.data.name}`, [{name: 'open task', actions: [exActions.openExperiment({id: action.data.id, project: action.project})]}]))
     );
   });
 
@@ -945,7 +945,7 @@ export class CommonExperimentsViewEffects {
       }).pipe(
         map(res => res.queue_watched === false ? menuActions.openEmptyQueueMessage({queue: action.data.queue, entityName: action.data.name}) : {type: 'EMPTY'})
       )),
-      catchError(error => [addMessage(MESSAGES_SEVERITY.ERROR, `Failed to enqueue tasks.\n${this.errService.getErrorMsg(error.error)}`)])
+      catchError(error => [addMessage(MESSAGES_SEVERITY.ERROR, `任务入队失败。\n${this.errService.getErrorMsg(error.error)}`)])
     );
   });
 

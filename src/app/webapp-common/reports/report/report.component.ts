@@ -202,7 +202,7 @@ export class ReportComponent implements OnDestroy {
                 );
             }),
             catchError((err, caught) => {
-              this.store.dispatch(addMessage(MESSAGES_SEVERITY.ERROR, 'invalid file'));
+              this.store.dispatch(addMessage(MESSAGES_SEVERITY.ERROR, '文件无效'));
               this.store.dispatch(deactivateLoader('upload'));
               throw caught;
             })
@@ -211,7 +211,7 @@ export class ReportComponent implements OnDestroy {
         return obs;
       });
       if (valid.length === 0) {
-        this.store.dispatch(addMessage(MESSAGES_SEVERITY.ERROR, 'invalid file type'));
+        this.store.dispatch(addMessage(MESSAGES_SEVERITY.ERROR, '文件类型无效'));
         this.store.dispatch(deactivateLoader('upload'));
         return Promise.reject('Invalid file type');
       }
@@ -235,7 +235,7 @@ export class ReportComponent implements OnDestroy {
           return this.http.post(filesServerUrl, formData, {withCredentials: true})
             .pipe(
               catchError((err) => {
-                this.store.dispatch(addMessage(MESSAGES_SEVERITY.ERROR, 'Upload failed' + err?.message));
+                this.store.dispatch(addMessage(MESSAGES_SEVERITY.ERROR, '上传失败' + err?.message));
                 this.store.dispatch(deactivateLoader('upload'));
                 throw new Error('upload failed');
               }),
@@ -350,7 +350,7 @@ export class ReportComponent implements OnDestroy {
   share() {
     this._clipboardService.copyResponse$
       .pipe(take(1))
-      .subscribe(() => this.store.dispatch(addMessage(MESSAGES_SEVERITY.SUCCESS, 'Report link copied to clipboard'))
+      .subscribe(() => this.store.dispatch(addMessage(MESSAGES_SEVERITY.SUCCESS, '报告链接已复制到剪贴板'))
       );
     this._clipboardService.copy(window.location.href);
   }
@@ -385,7 +385,7 @@ export class ReportComponent implements OnDestroy {
   copyMarkdown() {
     this._clipboardService.copyResponse$
       .pipe(take(1))
-      .subscribe(() => this.store.dispatch(addMessage(MESSAGES_SEVERITY.SUCCESS, 'Report markdown copied to clipboard'))
+      .subscribe(() => this.store.dispatch(addMessage(MESSAGES_SEVERITY.SUCCESS, '报告 Markdown 已复制到剪贴板'))
       );
     this._clipboardService.copy(this.mdEditor().getData());
   }

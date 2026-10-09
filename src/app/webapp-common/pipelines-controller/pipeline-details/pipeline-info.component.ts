@@ -59,7 +59,7 @@ export class PipelineInfoComponent {
   protected controller = computed(() => this.entity()?.type === TaskTypeEnum.Controller);
 
   copyToClipboard() {
-    this.store.dispatch(addMessage(MESSAGES_SEVERITY.SUCCESS, 'ID copied successfully'));
+    this.store.dispatch(addMessage(MESSAGES_SEVERITY.SUCCESS, 'ID 已复制'));
   }
 
   exportPipelineInfo(): void {

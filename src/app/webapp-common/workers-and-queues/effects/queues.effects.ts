@@ -110,7 +110,7 @@ export class QueuesEffect {
       catchError(err => [
         deactivateLoader(queueActions.deleteQueue.type),
         requestFailed(err),
-        addMessage(MESSAGES_SEVERITY.ERROR, 'Delete Queue failed')
+        addMessage(MESSAGES_SEVERITY.ERROR, '删除队列失败')
       ])
     );
   });
@@ -130,7 +130,7 @@ export class QueuesEffect {
         catchError(err => [
           deactivateLoader(action.type),
           requestFailed(err),
-          addMessage(MESSAGES_SEVERITY.ERROR, 'Clear queue failed')])
+          addMessage(MESSAGES_SEVERITY.ERROR, '清空队列失败')])
       ))
     );
   });
@@ -150,7 +150,7 @@ export class QueuesEffect {
         catchError(err => [
           deactivateLoader(action.type),
           requestFailed(err),
-          addMessage(MESSAGES_SEVERITY.ERROR, 'Move Task failed')])
+          addMessage(MESSAGES_SEVERITY.ERROR, '移动任务失败')])
       ))
     )
   });
@@ -168,7 +168,7 @@ export class QueuesEffect {
         ]),
       catchError(err => [deactivateLoader(action.type),
         requestFailed(err),
-        addMessage(MESSAGES_SEVERITY.ERROR, 'Move Task failed')])
+        addMessage(MESSAGES_SEVERITY.ERROR, '移动任务失败')])
     ))
   ));
 
@@ -189,7 +189,7 @@ export class QueuesEffect {
           queueActions.fetchQueue({id: queue.id}),
           deactivateLoader(action.type),
           requestFailed(err),
-          addMessage(MESSAGES_SEVERITY.ERROR, 'Move Queue failed')])
+          addMessage(MESSAGES_SEVERITY.ERROR, '移动队列失败')])
       )
     ),
   ));
@@ -207,7 +207,7 @@ export class QueuesEffect {
         queueActions.getQueues({})
       ]),
       catchError(err => [deactivateLoader(action.type), requestFailed(err),
-        addMessage(MESSAGES_SEVERITY.ERROR, 'Remove Queue failed')])
+        addMessage(MESSAGES_SEVERITY.ERROR, '移除队列失败')])
     ))
   ));
 
@@ -221,7 +221,7 @@ export class QueuesEffect {
           ]
         ),
         catchError(err => [deactivateLoader(action.type), requestFailed(err),
-          addMessage(MESSAGES_SEVERITY.ERROR, `Failed to move task, ${this.errService.getErrorMsg(err.error)}`)])
+          addMessage(MESSAGES_SEVERITY.ERROR, `移动任务失败，${this.errService.getErrorMsg(err.error)}`)])
       )
     )
   ));

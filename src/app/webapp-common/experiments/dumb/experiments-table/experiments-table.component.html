@@ -43,7 +43,7 @@
         [subValue]="filtersSubValues()[experimentsTableColFields.TAGS]"
         [columns]="initialColumns()"
         [andFilter]="filtersMatch()['tags'] === 'AND'"
-        fixedOptionsSubheader="System tags"
+        fixedOptionsSubheader="系统标签"
         (subFilterChanged)="tableFilterChanged({id:'system_tags'}, $event)"
         (filterChanged)="tableFilterChanged({id: $event.col}, $event)"
         (searchValueChanged)="searchValueChanged($event, $event.colId, $event.async)"
@@ -72,11 +72,11 @@
       </div>
       <mat-menu #selectionMenu="matMenu">
         @if (entityType() === entityTypes.experiment) {
-          <div class="menu-title">Select from project</div>
+          <div class="menu-title">从项目中选择</div>
         }
-        <button mat-menu-item data-id="All Option" (click)="selectAll()">All</button>
-        <button mat-menu-item data-id="None Option" (click)="emitSelection([])">None</button>
-        <button mat-menu-item data-id="All Matching Filter Option" (click)="selectAll(true)">All matching filter
+        <button mat-menu-item data-id="All Option" (click)="selectAll()">全部</button>
+        <button mat-menu-item data-id="None Option" (click)="emitSelection([])">不选</button>
+        <button mat-menu-item data-id="All Matching Filter Option" (click)="selectAll(true)">全部匹配筛选的项
         </button>
       </mat-menu>
     </ng-template>
@@ -283,11 +283,11 @@
         @if (!cardsCollapsed()) {
           <span animate.enter="enter" animate.leave="leaving">
             <div class="d-flex justify-content-between compact-columns-data" [class.selected]="selected">
-              <span class="ellipsis">Updated {{ experiment.last_update | timeAgo }}<span
-              class="dot">●</span>Created by {{ experiment.user?.name || '未知用户' }}
+              <span class="ellipsis">更新于 {{ experiment.last_update | timeAgo }}<span
+              class="dot">●</span>创建者 {{ experiment.user?.name || '未知用户' }}
             </span>
             @if (experiment.last_iteration) {
-              <span>{{ experiment.last_iteration }} Iterations</span>
+              <span>{{ experiment.last_iteration }} 次迭代</span>
             }
           </div>
         </span>
@@ -298,10 +298,10 @@
 <ng-template #noDataTemplate let-noDataTop="noDataTop" let-minimizedView="minimizedView">
   @if (hasActiveFilters()) {
     <div class="no-output" [class.centered]="minimizedView" [style.top.px]="noDataTop">
-      <span>No matching results. <a class="link" (click)="clearTableFiltersAndSearch.emit(tableFilters())" data-id="clearFiltersButton">Clear filters</a></span>
+      <span>没有匹配的结果。<a class="link" (click)="clearTableFiltersAndSearch.emit(tableFilters())" data-id="clearFiltersButton">清除筛选</a></span>
     </div>
   } @else if (experimentsUpdated) {
-    <div class="no-output" [class.centered]="minimizedView" [style.top.px]="noDataTop"><span>No data to show</span></div>
+    <div class="no-output" [class.centered]="minimizedView" [style.top.px]="noDataTop"><span>暂无数据</span></div>
   }
 </ng-template>
 </div>

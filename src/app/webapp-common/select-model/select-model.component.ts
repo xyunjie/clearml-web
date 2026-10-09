@@ -173,7 +173,7 @@ export class SelectModelComponent {
       return;
     }
     if (models.length === 0) {
-      this.store.dispatch(addMessage(MESSAGES_SEVERITY.WARN, 'Compare module should include at least one model'));
+      this.store.dispatch(addMessage(MESSAGES_SEVERITY.WARN, '对比至少需要包含一个模型'));
       return;
     }
     if (models.length <= compareLimitations) {

@@ -86,7 +86,7 @@ export class ExperimentInfoModelComponent {
   onModelSelected(selectedModelId: string) {
     const modelFoundIndex = this.orgModels.findIndex(model => model.id === this.modelId);
     if (this.orgModels.map(m => m.id).includes(selectedModelId)) {
-      this.store.dispatch(addMessage('warn', 'Selected model is already an input-model'));
+      this.store.dispatch(addMessage('warn', '所选模型已经是输入模型'));
     } else {
       let newModels: { model: string; name: string }[];
       if (modelFoundIndex >= 0) {

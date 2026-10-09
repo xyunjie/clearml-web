@@ -172,7 +172,7 @@ export class ModelInfoComponent implements OnDestroy {
     if (name.trim().length > 2) {
       this.store.dispatch(infoActions.updateModelDetails({id: this.modelId(), changes: {name}}));
     } else {
-      this.store.dispatch(addMessage(MESSAGES_SEVERITY.ERROR, 'Name must be more than three letters long'));
+      this.store.dispatch(addMessage(MESSAGES_SEVERITY.ERROR, '名称长度必须超过三个字符'));
     }
   }
 

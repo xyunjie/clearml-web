@@ -108,7 +108,7 @@ export class WorkersEffects {
           }),
           catchError(err => [requestFailed(err),
             workersActions.setStats({data: []}),
-            addMessage(MESSAGES_SEVERITY.WARN, 'Failed to fetching activity worker statistics')])
+            addMessage(MESSAGES_SEVERITY.WARN, '获取工作节点活动统计失败')])
         );
       } else {
         const req: WorkersGetActivityReportRequest = {

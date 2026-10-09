@@ -196,11 +196,11 @@ export const selectTaskStore = signalStore(
                 viewEvents.requestFailed(error),
                 viewEvents.addMessage({
                   severity: MESSAGES_SEVERITY.WARN,
-                  msg: 'Fetch tags failed',
+                  msg: '获取标签失败',
                   userActions: error?.meta && [
                     {
-                      name: 'More info',
-                      actions: [setServerError(error, null, 'Fetch tags failed')]
+                      name: '详细信息',
+                      actions: [setServerError(error, null, '获取标签失败')]
                     }]
                 })]
               )
@@ -232,11 +232,11 @@ export const selectTaskStore = signalStore(
                   viewEvents.requestFailed(error),
                   viewEvents.addMessage({
                     severity: MESSAGES_SEVERITY.WARN,
-                    msg: 'Fetch parents failed',
+                    msg: '获取父任务失败',
                     userActions: error?.meta && [
                       {
-                        name: 'More info',
-                        actions: [setServerError(error, null, 'Fetch parents failed')]
+                        name: '详细信息',
+                        actions: [setServerError(error, null, '获取父任务失败')]
                       }]
                   })
                 ]
@@ -270,11 +270,11 @@ export const selectTaskStore = signalStore(
                 viewEvents.requestFailed(error),
                 viewEvents.addMessage({
                   severity: MESSAGES_SEVERITY.WARN,
-                  msg: 'Fetch types failed',
+                  msg: '获取类型失败',
                   userActions: error?.meta && [
                     {
-                      name: 'More info',
-                      actions: [setServerError(error, null, 'Fetch types failed')]
+                      name: '详细信息',
+                      actions: [setServerError(error, null, '获取类型失败')]
                     }]
                 })
               ])

@@ -107,9 +107,9 @@ export class ServingEffects {
         catchError(error => [
           requestFailed(error),
           deactivateLoader('Fetch Endpoint'),
-          addMessage(MESSAGES_SEVERITY.WARN, 'Fetch Endpoint for selection failed', [{
-            name: 'More info',
-            actions: [setServerError(error, null, 'Fetch Endpoint for selection failed')]
+          addMessage(MESSAGES_SEVERITY.WARN, '获取待选端点失败', [{
+            name: '详细信息',
+            actions: [setServerError(error, null, '获取待选端点失败')]
           }])
         ])
       )
@@ -171,9 +171,9 @@ export class ServingEffects {
               return [
                 requestFailed(error),
                 deactivateLoader('Fetch Endpoint')
-                // addMessage(MESSAGES_SEVERITY.WARN, 'Fetch endpoints failed', [{
-                //   name: 'More info',
-                //   actions: [setServerError(error, null, 'Fetch endpoints failed')]
+                // addMessage(MESSAGES_SEVERITY.WARN, '获取端点失败', [{
+                //   name: '详细信息',
+                //   actions: [setServerError(error, null, '获取端点失败')]
                 // }])
               ];
             })
@@ -386,9 +386,9 @@ export class ServingEffects {
               ServingActions.setServingEndpointDetails({endpoint: null}),
               requestFailed(error),
               deactivateLoader(action.type),
-              addMessage(MESSAGES_SEVERITY.ERROR, 'Fetch Endpoint for selection failed', [{
-                name: 'More info',
-                actions: [setServerError(error, null, 'Fetch Endpoint for selection failed')]
+              addMessage(MESSAGES_SEVERITY.ERROR, '获取待选端点失败', [{
+                name: '详细信息',
+                actions: [setServerError(error, null, '获取待选端点失败')]
               }])
             ])
           );
@@ -456,7 +456,7 @@ export class ServingEffects {
           }),
           catchError(error => action.refresh ?
             of(requestFailed(error)) :
-            of(addMessage(MESSAGES_SEVERITY.WARN, 'Failed to fetch history \n' + JSON.stringify(error)))
+            of(addMessage(MESSAGES_SEVERITY.WARN, '获取历史记录失败\n' + JSON.stringify(error)))
           )
         );
       })

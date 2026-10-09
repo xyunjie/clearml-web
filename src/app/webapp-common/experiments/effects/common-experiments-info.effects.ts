@@ -167,9 +167,9 @@ export class CommonExperimentsInfoEffects {
           catchError(error => [
             requestFailed(error),
             deactivateLoader(action.type),
-            addMessage('warn', 'Fetch configuration names failed', [{
-              name: 'More info',
-              actions: [setServerError(error, null, 'Fetch configuration names failed')]
+            addMessage('warn', '获取配置名称失败', [{
+              name: '详细信息',
+              actions: [setServerError(error, null, '获取配置名称失败')]
             }])
           ])
         )
@@ -212,9 +212,9 @@ export class CommonExperimentsInfoEffects {
             setBackdrop({active: false}),
             deactivateEdit(),
             setExperimentSaving({saving: false}),
-            addMessage('warn', 'Fetch configuration failed', [{
-              name: 'More info',
-              actions: [setServerError(error, null, 'Fetch configuration failed')]
+            addMessage('warn', '获取配置失败', [{
+              name: '详细信息',
+              actions: [setServerError(error, null, '获取配置失败')]
             }])
           ])
         )
@@ -355,7 +355,7 @@ export class CommonExperimentsInfoEffects {
             requestFailed(error),
             deactivateLoader(action.type),
             deactivateLoader(commonInfoActions.getExperimentInfo.type),
-            ...(action.autoRefresh ? [] : [setServerError(error, null, 'Fetch task failed')])
+            ...(action.autoRefresh ? [] : [setServerError(error, null, '获取任务失败')])
           ])
         )
     )
@@ -472,7 +472,7 @@ export class CommonExperimentsInfoEffects {
           }),
           catchError((err: HttpErrorResponse) => [
             requestFailed(err),
-            setServerError(err, null, 'Update task failed'),
+            setServerError(err, null, '更新任务失败'),
             commonInfoActions.getExperimentInfo({id: action.id})
           ])
         )
@@ -642,10 +642,10 @@ export class CommonExperimentsInfoEffects {
         a.click();
         return {type: 'none'};
       } else {
-        return addMessage(MESSAGES_SEVERITY.WARN, 'Dataset not found');
+        return addMessage(MESSAGES_SEVERITY.WARN, '未找到数据集');
       }
     }),
-    catchError(() => of(addMessage(MESSAGES_SEVERITY.WARN, 'Dataset not found')))
+    catchError(() => of(addMessage(MESSAGES_SEVERITY.WARN, '未找到数据集')))
   ));
 
   exportTaskInfo$ = createEffect(() => this.actions$.pipe(
@@ -659,7 +659,7 @@ export class CommonExperimentsInfoEffects {
         mergeMap((res: TasksGetByIdExResponse) => {
           const task = res.tasks[0];
           if (!task) {
-            return [addMessage('error', 'Task not found')];
+            return [addMessage('error', '未找到任务')];
           }
 
           try {
@@ -667,15 +667,15 @@ export class CommonExperimentsInfoEffects {
             const filename = generateTaskExportFilename(task.id);
             downloadObjectAsJson(exportData, filename, true);
 
-            return [addMessage('success', `${action.exportType ?? 'Task'} exported successfully`)];
+            return [addMessage('success', `${action.exportType ?? '任务'}导出成功`)];
           } catch (error) {
             console.error('Export failed:', error);
-            return [addMessage('error', 'Failed to export task. Please try again.')];
+            return [addMessage('error', '导出任务失败，请重试。')];
           }
         }),
         catchError(error => [
           requestFailed(error),
-          addMessage('error', 'Failed to export task. Please try again.')
+          addMessage('error', '导出任务失败，请重试。')
         ])
       )
     )

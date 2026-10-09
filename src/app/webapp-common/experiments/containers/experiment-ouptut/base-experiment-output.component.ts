@@ -178,7 +178,7 @@ export abstract class BaseExperimentOutputComponent implements OnInit, OnDestroy
     if (name.trim().length > 2) {
       this.store.dispatch(experimentDetailsUpdated({id: this.selectedExperiment().id, changes: {name}}));
     } else {
-      this.store.dispatch(addMessage(MESSAGES_SEVERITY.ERROR, 'Name must be more than three letters long'));
+      this.store.dispatch(addMessage(MESSAGES_SEVERITY.ERROR, '名称长度必须超过三个字符'));
     }
   }
 

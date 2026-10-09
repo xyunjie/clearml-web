@@ -81,7 +81,7 @@ export class CommonAuthEffects {
       catchError(error => [
         requestFailed(error),
         deactivateLoader(action.type),
-        setServerError(error, null, `Can't delete this credentials.`)
+        setServerError(error, null, `无法删除此凭据。`)
       ])
     ))
   ));
@@ -119,7 +119,7 @@ export class CommonAuthEffects {
         ]),
         catchError(error => [
           requestFailed(error),
-          setServerError(error, null, 'Unable to update credentials'),
+          setServerError(error, null, '无法更新凭据'),
           deactivateLoader(action.type)])
       ))
   ));

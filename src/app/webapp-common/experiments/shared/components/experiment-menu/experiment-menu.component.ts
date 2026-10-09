@@ -163,8 +163,8 @@ export class ExperimentMenuComponent extends BaseContextMenuComponent {
           if (showShareWarningDialog) {
             this.showConfirmArchiveExperiments(selectedExperiments, entityType);
           } else if (showRunningWarningDialog) {
-            this.showConfirmArchiveExperiments(selectedExperiments, entityType, 'ARCHIVE A RUNNING TASK',
-              'Some of the tasks you are about to archive are running or queued.<br>Archiving running tasks will also <b>RESET</b> them.<br>Archive tasks?',
+            this.showConfirmArchiveExperiments(selectedExperiments, entityType, '归档运行中的任务',
+              '要归档的任务中有正在运行或排队的任务。<br>归档运行中的任务也会将其<b>重置</b>。<br>确定归档这些任务吗？',
               false);
           } else {
             this.store.dispatch(commonMenuActions.archiveSelectedExperiments({
@@ -232,14 +232,14 @@ export class ExperimentMenuComponent extends BaseContextMenuComponent {
             queueName?: string
           }>, boolean>(ConfirmDialogComponent, {
             data: {
-              title: 'Dequeue Task',
+              title: '任务出队',
               template: this.dequeueTemplate(),
               templateContext: {
                 $implicit: selectedExperiments,
                 ...(queue && {queueName: queue.display_name || queue.name})
               },
-              yes: 'Dequeue',
-              no: 'Cancel',
+              yes: '出队',
+              no: '取消',
               iconClass: 'al-ico-alert',
               iconColor: 'var(--color-warning)'
             },
@@ -303,11 +303,11 @@ export class ExperimentMenuComponent extends BaseContextMenuComponent {
       $implicit: ISelectedExperiment[]
     }>, boolean>(ConfirmDialogComponent, {
       data: {
-        title: 'ABORT',
+        title: '中止',
         template: this.stopTemplate(),
         templateContext: {$implicit: selectedExperiments},
-        yes: 'Abort',
-        no: 'Cancel',
+        yes: '中止',
+        no: '取消',
         iconClass: 'al-ico-abort',
       },
       panelClass: 'dialog-md'
@@ -338,11 +338,11 @@ export class ExperimentMenuComponent extends BaseContextMenuComponent {
       $implicit: ISelectedExperiment[]
     }>, boolean>(ConfirmDialogComponent, {
       data: {
-        title: 'PUBLISH TASKS',
+        title: '发布任务',
         template: this.publishTemplate(),
         templateContext: {$implicit: selectedExperiments},
-        yes: 'Publish',
-        no: 'Cancel',
+        yes: '发布',
+        no: '取消',
         iconClass: 'al-ico-publish'
       },
       panelClass: 'dialog-md'
@@ -360,7 +360,7 @@ export class ExperimentMenuComponent extends BaseContextMenuComponent {
   shareExperimentPopup() {
     this.dialog.open(ShareDialogComponent, {
       data: {
-        title: 'SHARE TASK PUBLICLY',
+        title: '公开分享任务',
         link: `${window.location.origin}/projects/${this.experiment().project.id}/experiments/${this.experiment().id}/output/execution`,
         alreadyShared: this.experiment()?.system_tags.includes('shared'),
         task: this.experiment()?.id
@@ -474,11 +474,11 @@ export class ExperimentMenuComponent extends BaseContextMenuComponent {
       neverShowAgain: boolean
     }>(ConfirmDialogComponent, {
       data: {
-        title: title ?? 'ARCHIVE A PUBLICLY SHARED TASK',
-        body: body ?? `This task is accessible through a public access link.
-            Archiving will disable public access`,
-        yes: 'OK',
-        no: 'Cancel',
+        title: title ?? '归档已公开分享的任务',
+        body: body ?? `此任务可通过公开访问链接访问。
+            归档后将禁用公开访问。`,
+        yes: '确定',
+        no: '取消',
         iconClass: 'al-ico-archive',
         showNeverShowAgain
       }

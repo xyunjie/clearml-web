@@ -134,7 +134,7 @@ export class ExperimentsCompareChartsEffects {
         ),
         catchError(error => [
           requestFailed(error), deactivateLoader(action.type),
-          setServerError(error, null, 'Failed to get Scalar Charts', action.autoRefresh)
+          setServerError(error, null, '获取标量图表失败', action.autoRefresh)
         ])
       );
     })
@@ -183,7 +183,7 @@ export class ExperimentsCompareChartsEffects {
         deactivateLoader(chartActions.getMultiPlotCharts.type)]),
       catchError(error => [
         requestFailed(error), deactivateLoader(chartActions.getMultiPlotCharts.type)
-        // setServerError(error, null, 'Failed to get Plot Charts', action.autoRefresh)
+        // setServerError(error, null, '获取图表失败', action.autoRefresh)
       ])
     )
   );

@@ -86,9 +86,9 @@ export class ModelsMenuEffects {
               viewActions.resetState(),
               selectedModel ? infoActions.setModelInfo({model: selectedModel}) : emptyAction(),
               deactivateLoader(action.type),
-              addMessage(MESSAGES_SEVERITY.SUCCESS, `Model moved successfully to ${action.project.name ?? '项目根目录'}`)
+              addMessage(MESSAGES_SEVERITY.SUCCESS, `模型已成功移动到 ${action.project.name ?? '项目根目录'}`)
             ]),
-            catchError(error => [requestFailed(error), deactivateLoader(action.type), setServerError(error, null, 'Failed to Move model')])
+            catchError(error => [requestFailed(error), deactivateLoader(action.type), setServerError(error, null, '移动模型失败')])
           );
       }
     )
@@ -144,10 +144,10 @@ export class ModelsMenuEffects {
                 projectsActions.addCompanyTag({tag: action.tag}),
               ];
             } else {
-              return [addMessage(MESSAGES_SEVERITY.ERROR, 'Not all tags were applied')];
+              return [addMessage(MESSAGES_SEVERITY.ERROR, '部分标签未能应用')];
             }
           }),
-          catchError(() => [addMessage(MESSAGES_SEVERITY.ERROR, 'Failed to apply tags')])
+          catchError(() => [addMessage(MESSAGES_SEVERITY.ERROR, '应用标签失败')])
         );
     })
   ));
@@ -160,11 +160,11 @@ export class ModelsMenuEffects {
     }).pipe(
       switchMap(() => [
         menuActions.removeTagSuccess({models: action.models.map(e => e.id), tag: action.tag}),
-        addMessage('success', `“${action.tag}” tag has been removed from “${action.models[0]?.name}” model`, [
+        addMessage('success', `已从模型“${action.models[0]?.name}”中移除标签“${action.tag}”`, [
             {
               name: 'Undo',
               actions: [
-                addMessage('success', `“${action.tag}” tag has been restored`),
+                addMessage('success', `标签“${action.tag}”已恢复`),
                 ...action.models.map(() => addTag({
                     models: action.models,
                     tag: action.tag
@@ -220,7 +220,7 @@ export class ModelsMenuEffects {
           catchError(error => [
             requestFailed(error),
             deactivateLoader(action.type),
-            setServerError(error, null, 'Failed To Archive models')
+            setServerError(error, null, '归档模型失败')
           ])
         )
     )
@@ -265,7 +265,7 @@ export class ModelsMenuEffects {
         catchError(error => [
           requestFailed(error),
           deactivateLoader(action.type),
-          setServerError(error, null, 'Failed To Restore models')
+          setServerError(error, null, '恢复模型失败')
         ])
       )
     )

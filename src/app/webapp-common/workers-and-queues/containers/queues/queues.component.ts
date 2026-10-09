@@ -185,6 +185,6 @@ export class QueuesComponent {
   }
 
   copySuccess(key: string) {
-    this.store.dispatch(addMessage(MESSAGES_SEVERITY.SUCCESS, `Queue ${key} copied to clipboard`));
+    this.store.dispatch(addMessage(MESSAGES_SEVERITY.SUCCESS, `队列 ${key} 已复制到剪贴板`));
   }
 }

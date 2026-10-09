@@ -127,7 +127,7 @@ export class DebugImagesEffects {
         catchError(error => [
           requestFailed(error),
           deactivateLoader(action.type),
-          addMessage(MESSAGES_SEVERITY.WARN, `Fetch debug samples failed`)
+          addMessage(MESSAGES_SEVERITY.WARN, `获取调试样本失败`)
       ])
       )
     )
@@ -156,7 +156,7 @@ export class DebugImagesEffects {
           catchError(error => [
             requestFailed(error),
             deactivateLoader(action.type),
-            addMessage(MESSAGES_SEVERITY.WARN, `Fetch debug samples failed`)
+            addMessage(MESSAGES_SEVERITY.WARN, `获取调试样本失败`)
           ])
         )
     )

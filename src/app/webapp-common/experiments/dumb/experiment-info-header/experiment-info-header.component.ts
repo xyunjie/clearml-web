@@ -159,7 +159,7 @@ export class ExperimentInfoHeaderComponent {
   }
 
   copyToClipboard() {
-    this.store.dispatch(addMessage('success', 'Copied to clipboard'));
+    this.store.dispatch(addMessage('success', '已复制到剪贴板'));
   }
 
   exportTaskInfo(): void {
