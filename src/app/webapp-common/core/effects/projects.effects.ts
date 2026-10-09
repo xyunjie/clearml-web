@@ -19,6 +19,7 @@ import {EMPTY, forkJoin, Observable, of} from 'rxjs';
 import {ProjectsGetTaskTagsResponse} from '~/business-logic/model/projects/projectsGetTaskTagsResponse';
 import {ProjectsGetModelTagsResponse} from '~/business-logic/model/projects/projectsGetModelTagsResponse';
 import {ScatterPlotPoint, selectAllProjectsUsers, selectCompanyTagsLastUpdate, selectIsDeepMode, selectMainPageTagsFilter, selectProjectsOptionsScrollId, selectRouterProjectId, selectSelectedMetricVariantForCurrProject, selectSelectedProjectId, selectShowHidden} from '../reducers/projects.reducer';
+import {entityTypeLabel, menuItemLabel} from '@common/shared/entity-page/items.utils';
 import {OperationErrorDialogComponent} from '@common/shared/ui-components/overlay/operation-error-dialog/operation-error-dialog.component';
 import {ApiTasksService} from '~/business-logic/api-services/tasks.service';
 import {createMetricColumn, excludedKey, MetricColumn} from '@common/shared/utils/tableParamEncode';
@@ -280,7 +281,7 @@ export class ProjectsEffects {
     ofType(actions.openMoreInfoPopup),
     switchMap(action => this.dialog.open(OperationErrorDialogComponent, {
         data: {
-          title: `${action.operationName} ${action.entityType}`,
+          title: `${menuItemLabel(action.operationName)}${entityTypeLabel(action.entityType)}`,
           action,
           iconClass: `d-block al-ico-${action.operationName} al-icon w-auto`
         },

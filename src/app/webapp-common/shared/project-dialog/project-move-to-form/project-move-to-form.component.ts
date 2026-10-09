@@ -45,7 +45,7 @@ import {MatButton} from '@angular/material/button';
     ]
 })
 export class ProjectMoveToFormComponent implements OnChanges, OnDestroy {
-  public readonly projectsRoot = 'Projects root';
+  public readonly projectsRoot = '项目根目录';
   public rootFiltered: boolean;
   public projectName: string;
   public isAutoCompleteOpen: boolean;

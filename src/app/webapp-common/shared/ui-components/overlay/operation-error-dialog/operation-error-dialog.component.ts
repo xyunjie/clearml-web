@@ -2,6 +2,7 @@ import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogActions, MatDialogClose} from '@angular/material/dialog';
 import {openMoreInfoPopup} from '@common/core/actions/projects.actions';
 import {htmlTextShort} from '../../../utils/shared-utils';
+import {entityTypeLabel, menuItemLabel} from '@common/shared/entity-page/items.utils';
 import {DialogTemplateComponent} from '@common/shared/ui-components/overlay/dialog-template/dialog-template.component';
 import {MatButton} from '@angular/material/button';
 
@@ -30,6 +31,8 @@ export class OperationErrorDialogComponent {
   protected failedList = this.data.action.res.failed || [];
   protected failed = this.data.action.res.failed.length || 0;
   protected iconClass = this.data.iconClass || '';
+  protected entityLabel = entityTypeLabel(this.action.entityType);
+  protected operationLabel = menuItemLabel(this.action.operationName);
 
   getName(fail: any) {
     return htmlTextShort(this.action.parentAction.selectedEntities.find(entity => entity.id === fail.id)?.name);

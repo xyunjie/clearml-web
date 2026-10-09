@@ -10,7 +10,7 @@ export class ProjectLocationPipe implements PipeTransform {
       return '';
     }
     const lastSeparator = value.lastIndexOf('/');
-    return lastSeparator > 0 ? value.substring(0, lastSeparator) : 'Projects root';
+    return lastSeparator > 0 ? value.substring(0, lastSeparator) : '项目根目录';
   }
 
 }

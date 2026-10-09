@@ -107,7 +107,7 @@ export class EditJsonComponent {
         this.textData = text;
         this.dialogRef.close(text ? (this.typeJson ? JSON.parse(text) : text) : '');
       } catch {
-        this.store.dispatch(addMessage('warn', 'Not a valid JSON'));
+        this.store.dispatch(addMessage('warn', '不是有效的 JSON'));
         // this.showErrors = true; // shows warning message bellow texterea
       }
     } else {

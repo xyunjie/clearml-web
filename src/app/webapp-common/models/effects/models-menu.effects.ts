@@ -86,7 +86,7 @@ export class ModelsMenuEffects {
               viewActions.resetState(),
               selectedModel ? infoActions.setModelInfo({model: selectedModel}) : emptyAction(),
               deactivateLoader(action.type),
-              addMessage(MESSAGES_SEVERITY.SUCCESS, `Model moved successfully to ${action.project.name ?? 'Projects root'}`)
+              addMessage(MESSAGES_SEVERITY.SUCCESS, `Model moved successfully to ${action.project.name ?? '项目根目录'}`)
             ]),
             catchError(error => [requestFailed(error), deactivateLoader(action.type), setServerError(error, null, 'Failed to Move model')])
           );

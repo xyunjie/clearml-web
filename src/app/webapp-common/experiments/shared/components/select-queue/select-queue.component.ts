@@ -65,7 +65,7 @@ export class SelectQueueComponent {
     this.tasksForEnqueue()?.some(task => !(task && task.script && (task.script.diff || (task.script.repository && task.script.entry_point)))));
   public queueControl = new FormControl<string | Queue>('', [Validators.required]);
   split = splitLine;
-  public reference = signal(this.data.taskIds.length < 2 ? this.data.reference : `${this.data.taskIds.length} tasks `);
+  public reference = signal(this.data.taskIds.length < 2 ? this.data.reference : `${this.data.taskIds.length} 个任务`);
   protected userAllowedToCreateQueue = signal(false);
   protected queuesNames = computed(() => this.queues().map(q => q.name));
   protected queuesDisplays = computed(() => this.queues().map(q => q.display_name).filter(name => !!name));

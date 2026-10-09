@@ -14,6 +14,19 @@ export enum EntityTypeEnum {
   endpointsContainer = 'endpoints container'
 }
 
+export const ENTITY_TYPE_LABELS: Record<string, string> = {
+  [EntityTypeEnum.experiment]: '任务',
+  [EntityTypeEnum.model]: '模型',
+  [EntityTypeEnum.project]: '项目',
+  [EntityTypeEnum.pipeline]: '流水线',
+  [EntityTypeEnum.controller]: '流水线运行',
+  [EntityTypeEnum.dataset]: '版本',
+  [EntityTypeEnum.openDataset]: '数据集',
+  [EntityTypeEnum.report]: '报告',
+  [EntityTypeEnum.endpoint]: '端点',
+  [EntityTypeEnum.endpointsContainer]: '端点容器'
+};
+
 export enum CircleTypeEnum {
   completed = 'completed',
   running = 'running',

@@ -1,7 +1,7 @@
 import {TaskStatusEnum} from '~/business-logic/model/tasks/taskStatusEnum';
 import {ModelsArchiveManyResponse} from '~/business-logic/model/models/modelsArchiveManyResponse';
 import {TasksArchiveManyResponse} from '~/business-logic/model/tasks/tasksArchiveManyResponse';
-import {EntityTypeEnum} from '~/shared/constants/non-common-consts';
+import {ENTITY_TYPE_LABELS, EntityTypeEnum} from '~/shared/constants/non-common-consts';
 import {addMessage} from '@common/core/actions/layout.actions';
 import {openMoreInfoPopup} from '@common/core/actions/projects.actions';
 import {TaskTypeEnum} from '~/business-logic/model/tasks/taskTypeEnum';
@@ -164,38 +164,42 @@ export enum MoreMenuItems {
 
 export type AllMenuItems = MenuItems | MoreMenuItems;
 
-const pastify = (verb: AllMenuItems): string => {
-  switch (verb) {
-    case MenuItems.abort:
-      return 'aborted';
-    case MenuItems.archive:
-      return 'archived';
-    case MoreMenuItems.restore:
-      return 'restored';
-    case MenuItems.delete:
-      return 'deleted';
-    case MenuItems.dequeue:
-      return 'dequeued';
-    case MenuItems.enqueue:
-      return 'enqueued';
-    case MenuItems.reset:
-      return 'reset';
-    case MenuItems.publish:
-      return 'published';
-    default:
-      return verb;
-  }
+export const MENU_ITEM_LABELS: Record<string, string> = {
+  [MenuItems.abort]: '中止',
+  [MenuItems.abortAllChildren]: '中止所有子任务',
+  [MenuItems.run]: '运行',
+  [MenuItems.archive]: '归档',
+  [MenuItems.compare]: '对比',
+  [MenuItems.delete]: '删除',
+  [MenuItems.enqueue]: '入队',
+  [MenuItems.dequeue]: '出队',
+  [MenuItems.queue]: '入队',
+  [MenuItems.moveTo]: '移动',
+  [MenuItems.publish]: '发布',
+  [MenuItems.reset]: '重置',
+  [MenuItems.viewWorker]: '查看工作节点',
+  [MenuItems.tags]: '标签',
+  [MenuItems.showAllItems]: '显示全部',
+  [MenuItems.continue]: '继续',
+  [MenuItems.retry]: '重试',
+  [MenuItems.changeVersion]: '更改版本',
+  [MoreMenuItems.restore]: '恢复'
 };
+
+export const menuItemLabel = (item: string): string => MENU_ITEM_LABELS[item] ?? item;
+export const entityTypeLabel = (entityType: string): string => ENTITY_TYPE_LABELS[entityType] ?? entityType;
 
 export const getNotificationAction = (res: ModelsArchiveManyResponse | TasksArchiveManyResponse, action, operationName: AllMenuItems, entityType: EntityTypeEnum, notificationActions = []) => {
   const totalNum = res.failed.length + res.succeeded.length;
   const allFailed = res.succeeded.length === 0;
 
-  const message = allFailed ? `${totalNum === 1 ? '' : totalNum} ${entityType}${totalNum > 1 ? 's' : ''} failed to ${operationName}` :
-    `${totalNum === 1 ? '' : res.succeeded.length} ${totalNum > res.succeeded.length ? 'of ' + totalNum : ''} ${entityType}${res.succeeded.length > 1 ? 's' : ''} ${pastify(operationName)} successfully`;
+  const entity = entityTypeLabel(entityType);
+  const operation = menuItemLabel(operationName);
+  const message = allFailed ? `${totalNum === 1 ? '' : `${totalNum} 个`}${entity}${operation}失败` :
+    `${totalNum === 1 ? '' : totalNum > res.succeeded.length ? `${res.succeeded.length}/${totalNum} 个` : `${res.succeeded.length} 个`}${entity}已成功${operation}`;
 
   return addMessage(res.failed.length > 0 ? 'error' : 'success', message, [
-    res.failed.length > 0 ? {actions: [openMoreInfoPopup({parentAction: action, operationName, res, entityType: EntityTypeEnum[entityType]})], name: 'More info'} : null,
+    res.failed.length > 0 ? {actions: [openMoreInfoPopup({parentAction: action, operationName, res, entityType: EntityTypeEnum[entityType]})], name: '详细信息'} : null,
     ...notificationActions
   ].filter(a => a));
 };

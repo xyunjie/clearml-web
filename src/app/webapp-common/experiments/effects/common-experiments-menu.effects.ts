@@ -338,7 +338,7 @@ export class CommonExperimentsMenuEffects {
             ...action.selectedEntities.map(exp => this.setExperimentIfSelected(selectedExperiment, exp.id, {project: action.project ?? '*'})),
             deactivateLoader(action.type),
             viewActions.getExperiments(),
-            addMessage(MESSAGES_SEVERITY.SUCCESS, `Task moved successfully to ${action.project.name ?? 'Projects root'}`)
+            addMessage(MESSAGES_SEVERITY.SUCCESS, `Task moved successfully to ${action.project.name ?? '项目根目录'}`)
           ]),
           catchError(error => [requestFailed(error), deactivateLoader(action.type), setServerError(error, null, 'Failed to move tasks')])
         )

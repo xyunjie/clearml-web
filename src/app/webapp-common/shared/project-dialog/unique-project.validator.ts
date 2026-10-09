@@ -14,7 +14,7 @@ export const uniqueProjectValidator = (
   return (control: AbstractControl) => {
     const nameControl = control.get<string>('name');
     const parentControl = control.get<string>('parent');
-    const pattern = (parentControl.value && parentControl.value !== 'Projects root' ? `${parentControl.value}/${nameControl.value}` : nameControl.value).trim();
+    const pattern = (parentControl.value && parentControl.value !== '项目根目录' ? `${parentControl.value}/${nameControl.value}` : nameControl.value).trim();
 
     if (!(nameControl.value?.length > 0) || pattern === allowedPath || nameControl.value === initialValue) {
       nameControl.setErrors(null);

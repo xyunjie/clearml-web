@@ -17,7 +17,7 @@
   @if (showNeverShowAgain) {
     <div class="body mt-4" >
       <mat-checkbox [(ngModel)]="neverShowAgain">
-        <span class="chkbx-label">Don't show this message again</span>
+        <span class="chkbx-label">不再显示此消息</span>
       </mat-checkbox>
     </div>
   }
@@ -36,7 +36,7 @@
         <button
           mat-flat-button
           [id]="yes"
-          [class.delete-button]="['DELETE', 'DEACTIVATE'].includes(yes)"
+          [class.delete-button]="['DELETE', 'DEACTIVATE', '删除', '停用'].includes(yes)"
           (click)="closeDialog(true)">
           {{yes}}
         </button>

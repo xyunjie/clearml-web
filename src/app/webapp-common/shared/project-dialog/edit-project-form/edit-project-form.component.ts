@@ -29,7 +29,7 @@ export class EditProjectFormComponent {
   private readonly projectsApi = inject(ApiProjectsService);
   private readonly formBuilder = inject(FormBuilder);
 
-  public readonly projectsRoot = 'Projects root';
+  public readonly projectsRoot = '项目根目录';
 
   projectForm = this.formBuilder.group({
     name: ['', [Validators.required, minLengthTrimmed(1), Validators.pattern(/^[^\/]*$/)]],

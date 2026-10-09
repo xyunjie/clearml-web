@@ -12,17 +12,17 @@
            (keydown.enter)="!nameControl.invalid && closeDialog(true)"
            required>
     @if (nameControl.errors?.required) {
-      <mat-error>Please provide a {{fieldName}}</mat-error>
+      <mat-error>请输入{{fieldName}}</mat-error>
     } @else if (nameControl.errors?.minlength  ===  -1) {
-      <mat-error>{{fieldName | titlecase}} can't contain only spaces</mat-error>
+      <mat-error>{{fieldName | titlecase}}不能只包含空格</mat-error>
     } @else if (nameControl.errors?.minlength) {
-      <mat-error>{{fieldName | titlecase}} should be at least 3 characters long</mat-error>
+      <mat-error>{{fieldName | titlecase}}长度至少为 3 个字符</mat-error>
     } @else if (nameControl.errors?.pattern) {
-      <mat-error>{{ patternError ? patternError : 'Invalid Pattern' }}</mat-error>
+      <mat-error>{{ patternError ? patternError : '格式无效' }}</mat-error>
     }
   </mat-form-field>
 </sm-dialog-template>
 <mat-dialog-actions>
-  <button mat-stroked-button (click)="closeDialog(false)" data-id="Cancel">CANCEL</button>
-  <button mat-flat-button [disabled]="nameControl.invalid || Input.value === data.name" (click)="closeDialog(true)" data-id="Save">SAVE</button>
+  <button mat-stroked-button (click)="closeDialog(false)" data-id="Cancel">取消</button>
+  <button mat-flat-button [disabled]="nameControl.invalid || Input.value === data.name" (click)="closeDialog(true)" data-id="Save">保存</button>
 </mat-dialog-actions>

@@ -5,7 +5,7 @@ import {Store} from '@ngrx/store';
 import {selectTablesFilterProjectsOptions} from '@common/core/reducers/projects.reducer';
 import {getTablesFilterProjectsOptions} from '@common/core/actions/projects.actions';
 import {AsyncValidatorFn, FormBuilder, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
-import {EntityTypeEnum} from '~/shared/constants/non-common-consts';
+import {ENTITY_TYPE_LABELS, EntityTypeEnum} from '~/shared/constants/non-common-consts';
 import {PaginatedEntitySelectorComponent} from '@common/shared/components/paginated-entity-selector/paginated-entity-selector.component';
 import {StringIncludedInArrayPipe} from '@common/shared/pipes/string-included-in-array.pipe';
 import {MatError} from '@angular/material/form-field';
@@ -61,6 +61,7 @@ export class MoveProjectDialogComponent {
   private selectedProject: Project = null;
 
   protected reference: string;
+  protected typeLabel = ENTITY_TYPE_LABELS[this.data.type] ?? this.data.type ?? '项';
   protected moveProjectForm = this.builder.group({
     project: ['', [minLengthTrimmed(1)], [exampleProjectAsyncValidator()]],
     projectId: [null as string],
@@ -90,7 +91,7 @@ export class MoveProjectDialogComponent {
   protected projectsNames = computed(() => this.allProjects().map(project => project.name));
 
   constructor() {
-    this.reference = Array.isArray(this.data.reference) ? `${this.data.reference.length} ${this.data.type}s` : this.data.reference;
+    this.reference = Array.isArray(this.data.reference) ? `${this.data.reference.length} 个${ENTITY_TYPE_LABELS[this.data.type] ?? this.data.type}` : this.data.reference;
     this.searchChanged('');
 
     effect(() => {

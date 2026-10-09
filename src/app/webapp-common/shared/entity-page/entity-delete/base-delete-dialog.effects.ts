@@ -26,7 +26,7 @@ import {selectSelectedModels} from '@common/models/reducers';
 import {ApiModelsService} from '~/business-logic/api-services/models.service';
 import {CloudProviders} from './common-delete-dialog.reducer';
 import {selectProjectForDelete} from '@common/projects/common-projects.reducer';
-import {EntityTypeEnum} from '~/shared/constants/non-common-consts';
+import {ENTITY_TYPE_LABELS, EntityTypeEnum} from '~/shared/constants/non-common-consts';
 import {activateEdit, experimentUpdatedSuccessfully} from '@common/experiments/actions/common-experiments-info.actions';
 import {activateModelEdit} from '@common/models/actions/models-info.actions';
 import {ModelsDeleteManyResponse} from '~/business-logic/model/models/modelsDeleteManyResponse';
@@ -245,7 +245,7 @@ export class DeleteDialogEffectsBase {
               return [
                 requestFailed(error),
                 deactivateLoader(action.type),
-                setServerError(error, null, `Can't delete ${action.entityType} ${error?.meta?.error_data?.id || ''}`)
+                setServerError(error, null, `无法删除${ENTITY_TYPE_LABELS[action.entityType] ?? action.entityType} ${error?.meta?.error_data?.id || ''}`)
               ];
             })
           )
@@ -343,12 +343,12 @@ export class DeleteDialogEffectsBase {
   private handleLastRun(project: string) {
     return this.dialog.open(ConfirmDialogComponent, {
       data: {
-        title: 'Delete Pipeline',
-        body: 'Deleting the last run of a pipeline will also delete the pipeline',
+        title: '删除流水线',
+        body: '删除流水线的最后一次运行也会删除该流水线',
         iconClass: 'al-ico-alert',
         iconColor: 'var(--color-warning)',
-        yes: 'DELETE',
-        no: 'Cancel'
+        yes: '删除',
+        no: '取消'
       } as ConfirmDialogConfig
     }).afterClosed()
       .pipe(

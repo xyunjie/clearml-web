@@ -30,6 +30,9 @@ import {MatInput} from '@angular/material/input';
 import {StringIncludedInArrayPipe} from '@common/shared/pipes/string-included-in-array.pipe';
 import {SlicePipe} from '@angular/common';
 import {minLengthTrimmed} from '@common/shared/validators/minLengthTrimmed';
+import {ENTITY_TYPE_LABELS} from '~/shared/constants/non-common-consts';
+
+const CLONE_TOGGLE_LABELS: Record<string, string> = {'force original packages': '强制使用原始依赖包'};
 
 export interface CloneDialogData {
   type: string;
@@ -72,10 +75,11 @@ export class CloneDialogComponent {
   public reference: string;
   public header: string;
   public type: string;
+  protected typeLabel: string;
 
   protected extraToggles = this.data.extraToggles?.reduce((acc, toggle) => {
     const key = camelCase(toggle);
-    acc[key] = capitalize(toggle);
+    acc[key] = CLONE_TOGGLE_LABELS[toggle] ?? capitalize(toggle);
     return acc;
   }, {});
   protected toggleKeys = Object.keys(this.extraToggles ?? {});
@@ -107,8 +111,9 @@ export class CloneDialogComponent {
 
   constructor() {
     this.defaultProjectId = this.data.defaultProject;
-    this.header = `${this.data.extend ? 'Extend' : 'Clone'} ${this.data.type}`;
     this.type = this.data.type.toLowerCase();
+    this.typeLabel = ENTITY_TYPE_LABELS[this.type] ?? this.data.type;
+    this.header = `${this.data.extend ? '扩展' : '克隆'}${this.typeLabel}`;
     this.reference = this.data.defaultName;
     this.extend = this.data.extend;
     setTimeout(() => {

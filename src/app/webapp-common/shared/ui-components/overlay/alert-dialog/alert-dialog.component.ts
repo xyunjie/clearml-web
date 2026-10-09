@@ -27,6 +27,7 @@ export class AlertDialogComponent {
   protected moreInfo = signal(this.data.moreInfo);
   protected resultMessage = signal(this.data.resultMessage ?? '');
   protected moreInfoEntities = computed(() => this.moreInfo() && Object.keys(this.moreInfo()));
+  protected entityLabels: Record<string, string> = {tasks: '任务', models: '模型', datasets: '数据集', pipelines: '流水线', projects: '项目', reports: '报告'};
 
   public setMoreInfo(moreInfo: Record<string, any>) {
     this.moreInfo.set(moreInfo);

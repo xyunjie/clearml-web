@@ -272,7 +272,7 @@ export class ReportsEffects {
             }
           }),
           deactivateLoader(moveReport.type),
-          addMessage(MESSAGES_SEVERITY.SUCCESS, `Report moved successfully to ${moveRequest.project_name ?? 'Projects root'}`),
+          addMessage(MESSAGES_SEVERITY.SUCCESS, `Report moved successfully to ${moveRequest.project_name ?? '项目根目录'}`),
           navigateToProjectAfterMove({projectId: res.project_id})
         ]),
         catchError(err => [

@@ -42,15 +42,15 @@ export class ProjectDialogComponent {
 
   public modeParameters: Record<string, { header: string; icon: string }> = {
     create: {
-      header: 'NEW PROJECT',
+      header: '新建项目',
       icon: 'al-ico-projects'
     },
     move: {
-      header: 'MOVE TO',
+      header: '移动到',
       icon: 'al-ico-move-to'
     },
     edit: {
-      header: 'EDIT PROJECT',
+      header: '编辑项目',
       icon: 'al-ico-projects'
     },
 
@@ -82,7 +82,7 @@ export class ProjectDialogComponent {
       project: this.baseProject.id,
       ...event,
 
-      new_location: event.location === 'Projects root' ? '' : event.location,
+      new_location: event.location === '项目根目录' ? '' : event.location,
       dialogId: this.matDialogRef.id
     }));
   }
@@ -101,7 +101,7 @@ export class ProjectDialogComponent {
 
   private convertFormToProject(projectForm: any): ProjectsCreateRequest {
     return {
-      name: `${projectForm.parent === 'Projects root' ? '' : projectForm.parent + '/'}${projectForm.name}`,
+      name: `${projectForm.parent === '项目根目录' ? '' : projectForm.parent + '/'}${projectForm.name}`,
       ...(projectForm.description && {description: projectForm.description}),
       ...(projectForm.system_tags && {system_tags: projectForm.system_tags}),
       default_output_destination: projectForm.default_output_destination

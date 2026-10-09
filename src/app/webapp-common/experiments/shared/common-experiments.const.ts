@@ -20,6 +20,6 @@ export enum CustomColumnMode {
 export const singleValueChartTitle = 'Summary';
 
 export const projectsRoot = {
-  name: 'Projects root',
+  name: '项目根目录',
   id: '999999999999999',
 } as Project;

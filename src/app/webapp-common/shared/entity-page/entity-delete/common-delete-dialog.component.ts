@@ -8,7 +8,7 @@ import {
 } from './common-delete-dialog.reducer';
 import {deleteEntities, resetDeleteState} from './common-delete-dialog.actions';
 import {getDeleteProjectPopupStatsBreakdown} from '~/features/projects/projects-page.utils';
-import {EntityTypeEnum, hideDeleteArtifactsEntities} from '~/shared/constants/non-common-consts';
+import {ENTITY_TYPE_LABELS, EntityTypeEnum, hideDeleteArtifactsEntities} from '~/shared/constants/non-common-consts';
 import {CommonReadyForDeletion} from '@common/projects/common-projects.reducer';
 import DOMPurify from 'dompurify';
 import {DialogTemplateComponent} from '@common/shared/ui-components/overlay/dialog-template/dialog-template.component';
@@ -59,8 +59,9 @@ export class CommonDeleteDialogComponent {
   protected readonly resetMode = this.data.resetMode;
   protected readonly devWarning = this.data.devWarning;
   protected readonly entityType = this.data.entityType;
+  protected readonly entityTypeLabel = ENTITY_TYPE_LABELS[this.data.entityType] ?? this.data.entityType;
   protected readonly numSelected = this.data.numSelected;
-  protected readonly header = `${this.data.resetMode ? 'Reset' : 'Delete'} ${this.data.entityType}${this.data.numSelected > 1 ? 's' : ''}`;
+  protected readonly header = `${this.data.resetMode ? '重置' : '删除'}${ENTITY_TYPE_LABELS[this.data.entityType] ?? this.data.entityType}`;
   protected readonly bodyMessage = this.getMessageByEntity(this.data.entityType, this.data.projectStats);
   protected readonly useCurrentEntity = this.data.useCurrentEntity;
   protected readonly entity = this.data.entity;
@@ -87,7 +88,7 @@ export class CommonDeleteDialogComponent {
     const name = DOMPurify.sanitize(this.data.entity?.name);
     this.entityName = this.data.numSelected === 1 ?
       this.data.entityType === EntityTypeEnum.project ? name.split('/').pop() : name :
-      `${this.data.numSelected} ${this.data.entityType}s`;
+      `${this.data.numSelected} 个${ENTITY_TYPE_LABELS[this.data.entityType] ?? this.data.entityType}`;
 
     const firstTimeEffect = effect(() => {
       if (this.firstTime(this.filesNumber())) {
@@ -141,17 +142,17 @@ export class CommonDeleteDialogComponent {
     switch (entityType) {
       case EntityTypeEnum.controller:
       case EntityTypeEnum.experiment:
-        return 'This will also remove all captured logs, results, artifacts and debug samples.';
+        return '这还将删除所有已采集的日志、结果、产物和调试样本。';
       case EntityTypeEnum.model:
-        return 'This will also remove the model weights file. Note: Tasks using deleted models will no longer be able to run.';
+        return '这还将删除模型权重文件。注意：使用已删除模型的任务将无法再运行。';
       case EntityTypeEnum.project:
         // eslint-disable-next-line no-case-declarations
         const entitiesBreakDown = getDeleteProjectPopupStatsBreakdown(stats, 'total', 'task');
-        return entitiesBreakDown.trim().length > 0 ? `${entitiesBreakDown} will be deleted, including their artifacts. This may take a few minutes.` : '';
+        return entitiesBreakDown.trim().length > 0 ? `将删除${entitiesBreakDown}及其产物，这可能需要几分钟。` : '';
       case EntityTypeEnum.openDataset: {
         const entitiesBreakDown2 = getDeleteProjectPopupStatsBreakdown(stats, 'total', `version`);
         const single = Object.values(stats).reduce((a, b) => a + (b.total || 0), 0) == 1;
-        return entitiesBreakDown2.trim().length > 0 ? `${entitiesBreakDown2} will be deleted and ${single ? 'its' : 'their'}this.data. This may take a few minutes.` : '';
+        return entitiesBreakDown2.trim().length > 0 ? `将删除${entitiesBreakDown2}及其数据，这可能需要几分钟。` : '';
       }
     }
     return '';

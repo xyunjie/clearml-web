@@ -147,7 +147,7 @@ export class ProjectSettingsDialogComponent {
   protected scalarSettingsChanged = signal(false);
   protected generalChanged= signal(false);
   protected hiddenChanged= signal(false);
-  dialogTitle = signal<string>(`PROJECT SETTINGS: "${this.data.project.name}"`);
+  dialogTitle = signal<string>(`项目设置：“${this.data.project.name}”`);
   extraTabs = contentChildren(MatTab);
   extraDirty = input<boolean>(false);
   isEditing = input<boolean>(false);
@@ -215,7 +215,7 @@ export class ProjectSettingsDialogComponent {
 
   private convertFormToProject(projectForm: { parent: string; name: string; description?: string; system_tags?: string[]; default_output_destination?: string }): ProjectsCreateRequest {
     return {
-      name: `${projectForm.parent === 'Projects root' ? '' : projectForm.parent + '/'}${projectForm.name}`,
+      name: `${projectForm.parent === '项目根目录' ? '' : projectForm.parent + '/'}${projectForm.name}`,
       ...(projectForm.description && {description: projectForm.description}),
       ...(projectForm.system_tags && {system_tags: projectForm.system_tags}),
       default_output_destination: projectForm.default_output_destination
