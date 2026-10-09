@@ -58,7 +58,7 @@ export class OpenDatasetVersionsComponent extends ControllersComponent {
   protected override get tableCols() {
     return INITIAL_CONTROLLER_TABLE_COLS.map((col) =>
       col.id === EXPERIMENTS_TABLE_COL_FIELDS.NAME ?
-        {...col, header: 'VERSION NAME'} :
+        {...col, header: '版本名称'} :
         col.id === EXPERIMENTS_TABLE_COL_FIELDS.SELECTED ? {...col, disablePointerEvents: false} : col);
   }
 

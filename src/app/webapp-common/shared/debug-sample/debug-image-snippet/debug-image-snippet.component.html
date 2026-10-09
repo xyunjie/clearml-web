@@ -67,7 +67,7 @@
           <div class="html-snippet">
             <div class="html-wrap" [class.loading]="!blockUserScripts() && loading()">
               @if (blockUserScripts()) {
-                <div class="scripts-blocked">Preview not available because 3rd party scripts are blocked</div>
+                <div class="scripts-blocked">第三方脚本已被阻止，无法预览</div>
               } @else {
                 <iframe
                   class="html-viewer"

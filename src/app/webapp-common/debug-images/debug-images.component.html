@@ -22,7 +22,7 @@
         @if (!thereAreNoMetrics(experimentId) && !disableStatusRefreshFilter()) {
           <div class="metric-bar" [class.minimized]="minimized()"
             data-id="metricBar">
-            <label data-id="metricText">Metric:</label>
+            <label data-id="metricText">指标：</label>
             <mat-form-field appearance="outline" class="no-bottom" data-id="metricField">
               <mat-select
                 #metricSelect
@@ -38,7 +38,7 @@
                 }
               </mat-select>
             </mat-form-field>
-            <label data-id="IterationText">Iterations:</label>
+            <label data-id="IterationText">迭代：</label>
             <div [class.disabled]="beginningOfTime()?.[experimentId]"
               (click)="nextBatch({task: experimentId, metric: metricSelect.value})"
               class="al-icon al-ico-next-batch"
@@ -60,7 +60,7 @@
       @if (optionalMetricsDic()?.[experimentId]?.length === 0 && shouldShowNoImagesForExperiment(experimentId)) {
         <div class="no-images no-output">
           <mat-icon fontSet="al" fontIcon="al-ico-debug-samples"></mat-icon>
-          <h4>NO DEBUG SAMPLES</h4>
+          <h4>暂无调试样本</h4>
         </div>
       }
       @if (debugImages?.[experimentId]?.data) {
@@ -81,7 +81,7 @@
     <div
       class="limit-message-container">
       <div class="limit-message">
-        <i class="al-icon al-ico-info-circle mb-2"></i>Only the first 10 tasks are available for this view...
+        <i class="al-icon al-ico-info-circle mb-2"></i>此视图仅显示前 10 个任务…
       </div>
     </div>
   }

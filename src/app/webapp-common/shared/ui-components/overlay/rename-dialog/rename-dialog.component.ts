@@ -43,7 +43,7 @@ export class RenameDialogComponent {
   protected patternError: string = this.data.patternError;
   protected iconClass: string = this.data.iconClass;
   protected header: string = this.data.header ?? '重命名';
-  protected fieldName: string = this.data.fieldName ?? 'name';
+  protected fieldName: string = this.data.fieldName ?? '名称';
 
   protected nameControl = new FormControl(this.data.name, [
     Validators.required,

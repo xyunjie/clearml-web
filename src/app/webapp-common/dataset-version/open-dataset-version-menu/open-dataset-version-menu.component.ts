@@ -40,9 +40,9 @@ export class OpenDatasetVersionMenuComponent extends ExperimentMenuComponent {
     this.dialog.open<RenameDialogComponent>(RenameDialogComponent,{
       data:{name: selectedExperiments.hyperparams?.properties?.version?.value,
         iconClass: 'al-ico-edit',
-        header:'EDIT VERSION',
-        fieldName: 'Version',
-        patternError: 'Version should follow Semantic Versioning format (MAJOR.MINOR.PATCH)',
+        header:'编辑版本',
+        fieldName: '版本',
+        patternError: '版本号须符合语义化版本格式（MAJOR.MINOR.PATCH）',
         pattern: '^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$' },
     }).afterClosed().subscribe((res) => {
       if (res) {
@@ -57,11 +57,11 @@ export class OpenDatasetVersionMenuComponent extends ExperimentMenuComponent {
       $implicit: ISelectedExperiment[]
     }>, boolean>(ConfirmDialogComponent, {
       data: {
-        title: 'PUBLISH DATASET VERSION',
+        title: '发布数据集版本',
         template: this.publishTemplate(),
         templateContext: {$implicit: selectedExperiments},
-        yes: 'Publish',
-        no: 'Cancel',
+        yes: '发布',
+        no: '取消',
         iconClass: 'al-ico-publish',
       },
       panelClass: 'dialog-md'
