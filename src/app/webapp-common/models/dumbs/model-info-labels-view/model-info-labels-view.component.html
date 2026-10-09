@@ -27,18 +27,18 @@
                        matInput>
                 @if (parameterLabel.invalid && parameterLabel?.errors?.required) {
                   <mat-error>
-                    Required
+                    必填
                   </mat-error>
                 }
               </mat-form-field>
               @if (labelsForm?.errors?.uniqueName) {
                 <mat-error class='outside-error'>
-                  Labels must be unique.
+                  标签不能重复。
                 </mat-error>
               }
               @if (labelsForm?.errors?.uniqueName2 && labelsForm?.errors?.uniqueName2[i]) {
                 <span class="outside-error">
-                  Label must be unique.
+                  标签不能重复。
                 </span>
               }
               <mat-form-field [hintLabel]="parameterKey.invalid && parameterKey?.errors?.required? '*必填': ''" appearance="outline" class="w-100">
@@ -54,12 +54,12 @@
                        required>
                 @if (parameterKey.invalid && parameterKey?.errors?.required) {
                   <mat-error>
-                    Required
+                    必填
                   </mat-error>
                 }
                 @if (parameterKey.invalid && parameterKey?.errors?.pattern) {
                   <mat-error>
-                    Only integers are allowed
+                    只允许输入整数
                   </mat-error>
                 }
               </mat-form-field>

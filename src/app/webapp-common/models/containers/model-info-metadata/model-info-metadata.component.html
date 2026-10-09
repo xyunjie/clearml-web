@@ -18,10 +18,10 @@
                 <mat-label class="field-label">Key*</mat-label>
               </div>
               <div>
-                <mat-label class="field-label">Type*</mat-label>
+                <mat-label class="field-label">类型*</mat-label>
               </div>
               <div>
-                <mat-label class="field-label">Value</mat-label>
+                <mat-label class="field-label">值</mat-label>
               </div>
               <div style="width: 140px"></div>
             </div>
@@ -39,17 +39,17 @@
                   matInput>
                 @if (metadataItem.controls.key.errors?.required) {
                   <mat-error>
-                    Required
+                    必填
                   </mat-error>
                 }
                 @if (metadataItem.controls.key.errors?.pattern) {
                   <mat-error>
-                    Key can't be empty
+                    键不能为空
                   </mat-error>
                 }
                 @if (metadataItem.controls.key.errors?.uniqueName2) {
                   <mat-error>
-                    Key must be unique
+                    键不能重复
                   </mat-error>
                 }
               </mat-form-field>
@@ -62,12 +62,12 @@
                   matInput>
                 @if (metadataItem.controls.type.errors?.required) {
                   <mat-error>
-                    Required
+                    必填
                   </mat-error>
                 }
                 @if (metadataItem.controls.type.errors?.pattern) {
                   <mat-error>
-                    Type can't be empty
+                    类型不能为空
                   </mat-error>
                 }
               </mat-form-field>

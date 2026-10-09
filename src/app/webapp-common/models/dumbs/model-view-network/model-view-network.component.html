@@ -19,14 +19,14 @@
         class="terminal flex-1"
         (click)="protoTextSection().editModeChanged(true)"
         data-id="editModelConfigurationButton"
-      >EDIT</button>
+      >编辑</button>
     }
     @if (!model()?.ready && model()?.company?.id && !isSharedAndNotOwner() && design()) {
       <button extra-buttons mat-stroked-button
               class="terminal flex-1"
               (click)="clearProtoText()"
               data-id="clearModelConfiguration"
-      ><mat-icon fontSet="al" fontIcon="al-ico-trash"></mat-icon>CLEAR</button>
+      ><mat-icon fontSet="al" fontIcon="al-ico-trash"></mat-icon>清除</button>
     }
     </sm-scroll-textarea>
   </sm-editable-section>

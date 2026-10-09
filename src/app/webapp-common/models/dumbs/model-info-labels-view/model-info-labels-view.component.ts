@@ -42,7 +42,7 @@ export class ModelInfoLabelsViewComponent {
   public formData: { label: string; id: number }[] = [];
   public editable = false;
   public columns: ISmCol[] = [
-    {id: 'label', header: 'Label'},
+    {id: 'label', header: '标签'},
     {id: 'id', header: 'ID'}
   ];
 

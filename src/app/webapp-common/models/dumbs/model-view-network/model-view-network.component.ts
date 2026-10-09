@@ -67,7 +67,7 @@ export class ModelViewNetworkComponent {
 
   editProtoText() {
     this.dialog.open<EditJsonComponent, EditJsonData, string>(EditJsonComponent, {
-      data: {textData: this.design(), readOnly: false, title: 'EDIT MODEL CONFIGURATION'} as EditJsonData
+      data: {textData: this.design(), readOnly: false, title: '编辑模型配置'} as EditJsonData
     }).afterClosed()
       .pipe(take(1))
       .subscribe((data) => {
@@ -83,10 +83,10 @@ export class ModelViewNetworkComponent {
   clearProtoText() {
     this.dialog.open<ConfirmDialogComponent, ConfirmDialogConfig, boolean>(ConfirmDialogComponent, {
       data: {
-        title    : 'Clear model configuration',
-        body     : 'Are you sure you want to clear the entire contents of Model Configuration?',
-        yes      : 'Clear',
-        no       : 'Keep',
+        title    : '清除模型配置',
+        body     : '确定要清除模型配置的全部内容吗？',
+        yes      : '清除',
+        no       : '保留',
         iconClass: 'al-ico-trash',
         centerText: true,
       },
