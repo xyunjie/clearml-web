@@ -138,11 +138,11 @@ export const MODELS_TABLE_COLS: ISmCol[] = [
 ];
 
 export const  infoModelsTabsLinks = [
-  {name: 'general', url: ['general']},
-  {name: 'network', url: ['network']},
-  {name: 'labels', url: ['labels']},
-  {name: 'metadata', url: ['metadata']},
-  {name: 'lineage', url: ['tasks']},
-  {name: 'scalars', url: ['scalars']},
-  {name: 'plots', url: ['plots']},
+  {name: 'general', label: '常规', url: ['general']},
+  {name: 'network', label: '网络结构', url: ['network']},
+  {name: 'labels', label: '标签', url: ['labels']},
+  {name: 'metadata', label: '元数据', url: ['metadata']},
+  {name: 'lineage', label: '血缘', url: ['tasks']},
+  {name: 'scalars', label: '标量', url: ['scalars']},
+  {name: 'plots', label: '图表', url: ['plots']},
 ] as Link[];

@@ -25,17 +25,17 @@
               @case (sourceTypesEnum.VersionNum) {
                 {{sourceCodeForm.controls.version_num.value}}
                 @if (sourceCodeForm.controls.branch.value) {
-                  (in branch {{sourceCodeForm.controls.branch.value}})
+                  （分支 {{sourceCodeForm.controls.branch.value}}）
                 }
               }
               @case (sourceTypesEnum.Branch) {
                 @if (sourceCodeForm.controls.branch.value) {
-                  Latest in branch {{sourceCodeForm.controls.branch.value}}
+                  分支 {{sourceCodeForm.controls.branch.value}} 的最新提交
                 }
               }
               @case (sourceTypesEnum.Tag) {
                 @if (sourceCodeForm.controls.version_num.value) {
-                  {{sourceCodeForm.controls.tag.value}} (commit id {{sourceCodeForm.controls.version_num.value}})
+                  {{sourceCodeForm.controls.tag.value}}（提交 ID {{sourceCodeForm.controls.version_num.value}}）
                 } @else {
                   {{sourceCodeForm.controls.tag.value}}
                 }
@@ -46,7 +46,7 @@
       } @else {
         <div class="d-flex w-100 align-items-start" style="gap: 12px">
           <mat-form-field appearance="outline" class="flex-grow-1">
-            <mat-label>Type</mat-label>
+            <mat-label>类型</mat-label>
             <mat-select panelClass="light-theme" formControlName="scriptType" data-id="commitDropdownButton">
               @for (type of scriptTypeOptions; track type) {
                 <mat-option [value]="type.value">{{type.label}}</mat-option>
@@ -56,8 +56,8 @@
           @switch (sourceCodeForm.controls.scriptType.value) {
             @case (sourceTypesEnum.VersionNum) {
               <mat-form-field appearance="outline" class="flex-grow-1">
-                <mat-error>Required</mat-error>
-                <mat-label>Commit ID</mat-label>
+                <mat-error>必填</mat-error>
+                <mat-label>提交 ID</mat-label>
                 <input matInput type="text" formControlName="version_num" data-id="commitIdField"
                        (blur)="resetOtherScriptParameters(sourceTypesEnum.VersionNum)"
                        [placeholder]="scriptPlaceHolders[sourceTypesEnum.VersionNum]">
@@ -65,8 +65,8 @@
             }
             @case (sourceTypesEnum.Branch) {
               <mat-form-field appearance="outline" class="flex-grow-1">
-                <mat-label>Branch</mat-label>
-                <mat-error>Required</mat-error>
+                <mat-label>分支</mat-label>
+                <mat-error>必填</mat-error>
                 <input matInput type="text" formControlName="branch" data-id="branchField"
                        (blur)="resetOtherScriptParameters(sourceTypesEnum.Branch)"
                        [placeholder]="scriptPlaceHolders[sourceTypesEnum.Branch]">
@@ -74,8 +74,8 @@
             }
             @case (sourceTypesEnum.Tag) {
               <mat-form-field appearance="outline" class="flex-grow-1">
-                <mat-error>Required</mat-error>
-                <mat-label>Tag</mat-label>
+                <mat-error>必填</mat-error>
+                <mat-label>标签</mat-label>
                 <input matInput type="text" formControlName="tag" data-id="tagNameField"
                        (blur)="resetOtherScriptParameters(sourceTypesEnum.Tag)"
                        [placeholder]="scriptPlaceHolders[sourceTypesEnum.Tag]">

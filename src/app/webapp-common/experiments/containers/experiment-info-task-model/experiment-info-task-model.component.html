@@ -26,14 +26,14 @@
     @if (formData?.value && editable) {
       <button extra-buttons
               mat-stroked-button
-              (click)="prototext.editModeChanged(true)">EDIT
+              (click)="prototext.editModeChanged(true)">编辑
       </button>
     }
     @if (formData?.value && editable) {
       <button extra-buttons
               mat-stroked-button
               (click)="clearPrototext()">
-        CLEAR
+        清除
       </button>
     }
   </sm-scroll-textarea>

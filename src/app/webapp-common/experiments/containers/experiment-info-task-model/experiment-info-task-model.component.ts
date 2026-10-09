@@ -99,7 +99,7 @@ export class ExperimentInfoTaskModelComponent {
 
   editPrototext() {
     const editPrototextDialog = this.dialog.open(EditJsonComponent, {
-      data: {textData: this.formData?.value, readOnly: false, title: 'EDIT CONFIGURATION'} as EditJsonData
+      data: {textData: this.formData?.value, readOnly: false, title: '编辑配置'} as EditJsonData
     });
 
     editPrototextDialog.afterClosed().pipe(take(1)).subscribe((data) => {
@@ -120,10 +120,10 @@ export class ExperimentInfoTaskModelComponent {
   clearPrototext() {
     const confirmDialogRef: MatDialogRef<any, boolean> = this.dialog.open(ConfirmDialogComponent, {
       data: {
-        title: 'Clear model configuration',
-        body: 'Are you sure you want to clear the entire contents of Model Configuration?',
-        yes: 'Clear',
-        no: 'Keep',
+        title: '清除模型配置',
+        body: '确定要清除模型配置的全部内容吗？',
+        yes: '清除',
+        no: '保留',
         iconClass: 'al-ico-trash',
         centerText: true,
       },

@@ -23,17 +23,17 @@
               required/>
             @if (parameterKey.invalid && parameterKey?.errors?.required) {
               <mat-error>
-                Required
+                必填
               </mat-error>
             }
             @if (parameterKey.invalid && parameterKey?.errors?.smNotAllowedStringsValidator) {
               <mat-error>
-                .(dot) $(dollar) and space are not allowed in parameter key.
+                参数键中不能包含 .（点）、$（美元符号）和空格。
               </mat-error>
             }
             @if (!parameterKey?.errors?.required && parameterKey.invalid && parameterKey?.errors?.uniqueName) {
               <mat-error>
-                key already exists
+                键已存在
               </mat-error>
             }
           </mat-form-field>
@@ -62,7 +62,7 @@
   </form>
   <button mat-stroked-button (click)="addRow()">
     <mat-icon fontSet="al" fontIcon="al-ico-plus" data-id="AddParamterButton"></mat-icon>
-    ADD PARAMETER
+    添加参数
   </button>
 } @else {
   <div class="table-container">
@@ -137,7 +137,7 @@
                       <div class="dots-slice">● ● ●</div>
                       <mat-divider class="divider"></mat-divider>
                       <a href="" (click)="$event.preventDefault(); openJsonViewer(row, true)">
-                        View All
+                        查看全部
                       </a>
                     }
                   </sm-multi-line-tooltip>

@@ -86,11 +86,11 @@ export abstract class BaseExperimentOutputComponent implements OnInit, OnDestroy
 
   groupByOptions = [
     {
-      name: 'Metric',
+      name: '指标',
       value: groupByCharts.metric
     },
     {
-      name: 'None',
+      name: '不分组',
       value: groupByCharts.none
     }
   ];

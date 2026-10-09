@@ -267,7 +267,7 @@ export class ExperimentExecutionParametersComponent implements OnChanges {
       data: {
         textData: text,
         readOnly,
-        title: `${readOnly ? 'VIEW' : 'EDIT'} PARAMETER: "${parameter.name}"`,
+        title: `${readOnly ? '查看' : '编辑'}参数：“${parameter.name}”`,
         format: isJson ? 'json' : null
       } as EditJsonData,
       maxWidth: 'calc(70vw + 64px)'

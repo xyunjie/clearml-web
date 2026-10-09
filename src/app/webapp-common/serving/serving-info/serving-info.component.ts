@@ -33,8 +33,8 @@ export class ServingInfoComponent implements OnDestroy {
 
   protected splitSize$ = this.store.select(servingFeature.selectSplitSize);
   links = [
-    {name: 'details', url: ['general']},
-    {name: 'monitor', url: ['monitor']}
+    {name: 'details', label: '详情', url: ['general']},
+    {name: 'monitor', label: '监控', url: ['monitor']}
   ] as Link[];
 
   constructor( ) {

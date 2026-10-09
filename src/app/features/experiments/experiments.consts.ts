@@ -12,19 +12,20 @@ export const getTaskExportOnlyFields = (hasDataFeature: boolean) => TASK_EXPORT_
 
 export interface Link {
   name: string;
+  label?: string;
   url: string[];
   activeBy?: string;
 }
 
 export const infoTabLinks = [
-  {name: 'execution', url: ['execution']},
-  {name: 'configuration', url: ['hyper-params', 'hyper-param', '_empty_'], activeBy: 'hyper-params'},
-  {name: 'artifacts', url: ['artifacts']},
-  {name: 'info', url: ['general']},
-  {name: 'console', url: ['log'], output: true},
-  {name: 'scalars', url: ['scalars'], output: true},
-  {name: 'plots', url: ['plots'], output: true},
-  {name: 'debug samples', url: ['debugImages'], output: true}
+  {name: 'execution', label: '执行', url: ['execution']},
+  {name: 'configuration', label: '配置', url: ['hyper-params', 'hyper-param', '_empty_'], activeBy: 'hyper-params'},
+  {name: 'artifacts', label: '产物', url: ['artifacts']},
+  {name: 'info', label: '信息', url: ['general']},
+  {name: 'console', label: '控制台', url: ['log'], output: true},
+  {name: 'scalars', label: '标量', url: ['scalars'], output: true},
+  {name: 'plots', label: '图表', url: ['plots'], output: true},
+  {name: 'debug samples', label: '调试样本', url: ['debugImages'], output: true}
 ];
 
 export const FILTERED_EXPERIMENTS_STATUS_OPTIONS = (isDataset) => Object.entries(EXPERIMENTS_STATUS_LABELS)

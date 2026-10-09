@@ -84,11 +84,11 @@ export class ProjectSettingsDialogComponent {
   protected readonly data: ProjectSettingsDialogConfig = inject(MAT_DIALOG_DATA);
   groupByOptions = [
     {
-      name: 'Metric',
+      name: '指标',
       value: groupByCharts.metric
     },
     {
-      name: 'None',
+      name: '不分组',
       value: groupByCharts.none
     }
   ];

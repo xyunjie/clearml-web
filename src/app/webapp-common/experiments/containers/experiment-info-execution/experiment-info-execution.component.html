@@ -64,14 +64,14 @@
                 extra-buttons mat-stroked-button class="flex-1"
                 (click)="diffSection.editModeChanged(true)"
                 data-id="edit uncommitted changes"
-              >EDIT</button>
+              >编辑</button>
             }
             @if (formData.diff && editable() && !showExtraDataSpinner()) {
               <button
                 extra-buttons mat-stroked-button
                 (click)="discardDiff()"
                 data-id="Discard Diffs"
-              >DISCARD DIFFS</button>
+              >丢弃差异</button>
             }
           </sm-scroll-textarea>
         </sm-editable-section>
@@ -128,7 +128,7 @@
                       class="flex-1"
                       (click)="requirementsSection.editModeChanged(true)"
                       data-id="Edit Installed Packages"
-              >EDIT</button>
+              >编辑</button>
             }
           </sm-scroll-textarea>
         </sm-editable-section>
@@ -184,14 +184,14 @@
             @if (formData?.container?.setup_shell_script && editable() && !showExtraDataSpinner()) {
               <button extra-buttons
                       mat-stroked-button
-                      (click)="containerSetupShellSection.editModeChanged(true)">EDIT
+                      (click)="containerSetupShellSection.editModeChanged(true)">编辑
               </button>
             }
             @if (formData.container?.setup_shell_script && editable() && !showExtraDataSpinner()) {
               <button extra-buttons
                       mat-stroked-button
                       (click)="clearSetupShellScript()">
-                CLEAR
+                清除
               </button>
             }
           </sm-scroll-textarea>
