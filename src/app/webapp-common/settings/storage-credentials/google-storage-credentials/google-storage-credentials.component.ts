@@ -113,7 +113,7 @@ export class GoogleStorageCredentialsComponent implements OnInit {
     }
     this.dialog.open<EditJsonComponent, EditJsonData, string>(EditJsonComponent, {
       data: {
-        title: `Bucket ${bucket.bucket}`,
+        title: `存储桶 ${bucket.bucket}`,
         readOnly: true,
         format: 'json',
         textData
