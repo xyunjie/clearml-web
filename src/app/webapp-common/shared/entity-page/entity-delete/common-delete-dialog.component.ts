@@ -151,7 +151,6 @@ export class CommonDeleteDialogComponent {
         return entitiesBreakDown.trim().length > 0 ? `将删除${entitiesBreakDown}及其产物，这可能需要几分钟。` : '';
       case EntityTypeEnum.openDataset: {
         const entitiesBreakDown2 = getDeleteProjectPopupStatsBreakdown(stats, 'total', `version`);
-        const single = Object.values(stats).reduce((a, b) => a + (b.total || 0), 0) == 1;
         return entitiesBreakDown2.trim().length > 0 ? `将删除${entitiesBreakDown2}及其数据，这可能需要几分钟。` : '';
       }
     }

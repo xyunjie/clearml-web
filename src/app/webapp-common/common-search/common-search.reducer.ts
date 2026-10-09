@@ -24,10 +24,10 @@ export const searchReducer = createReducer(
   on(setSearchQuery, (state, action): SearchState => ({...state, searchQuery: action})),
   on(initSearch, (state, action): SearchState => ({
     ...state,
-    placeholder: action.payload || 'Search',
+    placeholder: action.payload || '搜索',
     initiated: true
   })),
-  on(resetSearch, (): SearchState => ({...searchInitState, placeholder: 'Search'})),
+  on(resetSearch, (): SearchState => ({...searchInitState, placeholder: '搜索'})),
 );
 
 export const selectCommonSearch = createFeatureSelector<SearchState>('commonSearch');
