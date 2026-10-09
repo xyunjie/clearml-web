@@ -1,5 +1,5 @@
 <sm-dialog-template [closeOnX]="false" (xClicked)="closeDialog(false)"
-                    [header]="form.controls.createNewPipeline.value ? 'RUN IN NEW PIPELINE' : 'NEW RUN'"
+                    [header]="form.controls.createNewPipeline.value ? '在新流水线中运行' : '新建运行'"
                     [pageHeader]="title()"
                     iconClass="al-ico-pipelines">
 
@@ -7,35 +7,35 @@
     <!-- Trap focus if strictly necessary, otherwise consider removing -->
     <input name="focus_trap" style="opacity: 0; height: 0; width: 0">
     @if (form.controls.createNewPipeline.value) {
-      <div class="section-title">New Pipeline Details</div>
+      <div class="section-title">新流水线详情</div>
       <div class="param-line">
-        <div class="param-key" [class.error]="form.controls.pipelineName.invalid && form.controls.pipelineName.touched">Pipeline name*</div>
+        <div class="param-key" [class.error]="form.controls.pipelineName.invalid && form.controls.pipelineName.touched">流水线名称*</div>
         <mat-form-field appearance="outline" subscriptSizing="dynamic">
           <input matInput formControlName="pipelineName">
           <mat-error>
             @if (form.controls.pipelineName.hasError('required')) {
-              Pipeline name is required.
+              流水线名称为必填项。
             }
             @else if (form.controls.pipelineName.hasError('pattern')) {
-              Pipeline name can't contain slash (/)
+              流水线名称不能包含斜杠（/）
             }
             @else if (form.controls.pipelineName.hasError('minlength')) {
-              Pipeline name should contain at least 3 characters.
+              流水线名称至少包含 3 个字符。
             }
           </mat-error>
         </mat-form-field>
       </div>
       <div class="param-line">
-        <div class="param-key" [class.error]="form.controls.pipelineVersion.invalid && form.controls.pipelineVersion.touched">Initial version</div>
+        <div class="param-key" [class.error]="form.controls.pipelineVersion.invalid && form.controls.pipelineVersion.touched">初始版本</div>
         <mat-form-field appearance="outline" subscriptSizing="dynamic">
           <input matInput formControlName="pipelineVersion">
           @if (form.controls.pipelineVersion.hasError('pattern')) {
-            <mat-error>Invalid version format</mat-error>
+            <mat-error>版本格式无效</mat-error>
           }
         </mat-form-field>
       </div>
       <div class="param-line">
-        <div class="param-key align-key" [class.error]="form.controls.project.invalid && form.controls.project.touched">Project*</div>
+        <div class="param-key align-key" [class.error]="form.controls.project.invalid && form.controls.project.touched">项目*</div>
         <div class="param-value">
           <sm-paginated-entity-selector
             class="project-selector no-bottom"
@@ -49,10 +49,10 @@
           ></sm-paginated-entity-selector>
           <div class="error-message">
             @if (form.controls.project.hasError('required') && form.controls.project.touched) {
-              Project is required.
+              项目为必填项。
             }
             @else if (form.controls.project.hasError('minlength') && form.controls.project.touched) {
-              Project name can't contain only spaces.
+              项目名称不能只包含空格。
             }
           </div>
 
@@ -60,8 +60,8 @@
             <div class="warning-message">
               <mat-icon fontSet="al" fontIcon="al-ico-alert" class="sm"></mat-icon>
               <div>
-                <b>{{ form.controls.project.value }}</b> project already contains a <b>{{ form.controls.pipelineName.value }}</b> pipeline.
-                Clicking <b>RUN</b> will create a new run in that pipeline, based on this run's structure and parameters.
+                <b>{{ form.controls.project.value }}</b> 项目中已存在 <b>{{ form.controls.pipelineName.value }}</b> 流水线。
+                点击<b>运行</b>将基于本次运行的结构和参数，在该流水线中创建一次新运行。
               </div>
             </div>
           }
@@ -71,7 +71,7 @@
     }
 
     @if (paramsArray.controls.length > 0) {
-      <div class="section-title">Parameters</div>
+      <div class="section-title">参数</div>
 
     <!-- Dynamic Params Loop -->
     <div formArrayName="params">
@@ -86,7 +86,7 @@
               <mat-form-field appearance="outline" subscriptSizing="dynamic">
                 <input type="text" matInput formControlName="value">
                 @if (control.get('value').hasError('pattern')) {
-                  <mat-error>Please provide a float</mat-error>
+                  <mat-error>请输入浮点数</mat-error>
                 }
               </mat-form-field>
             }
@@ -94,7 +94,7 @@
               <mat-form-field appearance="outline" subscriptSizing="dynamic">
                 <input type="text" step="1" matInput formControlName="value">
                 @if (control.get('value').hasError('pattern')) {
-                  <mat-error>Please provide an integer</mat-error>
+                  <mat-error>请输入整数</mat-error>
                 }
               </mat-form-field>
             }
@@ -108,12 +108,12 @@
       }
     </div>
     }
-    <div class="section-title d-flex align-items-center">Configuration</div>
+    <div class="section-title d-flex align-items-center">配置</div>
 
     <!-- Queue Selection -->
     <div class="param-line">
       <div class="param-key" [class.error]="form.controls.queue.invalid && form.controls.queue.touched">
-        Pipeline controller queue*
+        流水线控制器队列*
       </div>
 
       <mat-form-field appearance="outline" class="no-bottom queue-select">
@@ -149,10 +149,10 @@
 </sm-dialog-template>
 
 <mat-dialog-actions>
-  <button mat-stroked-button mat-dialog-close data-id="cancleNewRun">CANCEL</button>
+  <button mat-stroked-button mat-dialog-close data-id="cancleNewRun">取消</button>
   <button mat-flat-button
           [disabled]="form.invalid"
           (click)="closeDialog(true)"
           data-id="confirmNewRun"
-  >RUN</button>
+  >运行</button>
 </mat-dialog-actions>

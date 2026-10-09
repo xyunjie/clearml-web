@@ -45,7 +45,7 @@
         class="last-run"
         [smTooltip]="project.last_update | date: timeFormatString"
         matTooltipPosition="after"
-      >Updated {{project.last_update | timeAgo}}</span>
+      >更新于 {{project.last_update | timeAgo}}</span>
     } @else {
       <span class="last-run"></span>
     }
@@ -53,14 +53,14 @@
   <div class="d-flex justify-content-around w-100">
     <sm-circle-counter
       [counter]="project.stats?.active?.total_tasks"
-      label="VERSIONS"
+      label="版本数"
     ></sm-circle-counter>
     <sm-circle-counter
       [counter]="[
-        {value: project?.dataset_stats?.file_count | NA, label: 'FILES'},
-        {value: project?.dataset_stats?.total_size | filesize : fileSizeConfigStorage | NA, label: 'SIZE'}
+        {value: project?.dataset_stats?.file_count | NA, label: '文件'},
+        {value: project?.dataset_stats?.total_size | filesize : fileSizeConfigStorage | NA, label: '大小'}
       ]"
-      label="LATEST VERSION"
+      label="最新版本"
     ></sm-circle-counter>
   </div>
   <div footer class="footer-tags">

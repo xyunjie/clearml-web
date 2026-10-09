@@ -3,7 +3,7 @@
     @if (!hideNavigation()) {
       <sm-button-toggle
         [disabled]="!tableMode() || noData()"
-        [options]="[{label: 'Table view', value: 'table', icon: 'al-ico-table-view'}, {label: 'Details view', value: 'info', icon: 'al-ico-experiment-view'}]"
+        [options]="[{label: '表格视图', value: 'table', icon: 'al-ico-table-view'}, {label: '详情视图', value: 'info', icon: 'al-ico-experiment-view'}]"
         [rippleEffect]="rippleEffect()"
         [ngModel]="!noData() && tableMode()"
         (ngModelChange)="tableModeChanged.emit($any($event))"></sm-button-toggle>

@@ -19,18 +19,17 @@
 
   <button mat-flat-button create-button (click)="createExamples()">
     <mat-icon fontSet="al" fontIcon="al-ico-add"></mat-icon>
-    NEW DATASET
+    新建数据集
   </button>
 
   <div empty-state class="empty-state">
     <div class="title-icon">
       <mat-icon fontSet="al" fontIcon="al-ico-datasets" class="xxl"></mat-icon>
     </div>
-    <div class="title">NO DATASETS TO SHOW</div>
-    <div class="sub-title">Run your first dataset to see it displayed here
+    <div class="title">暂无数据集</div>
+    <div class="sub-title">运行你的第一个数据集后即可在此处看到
       @if (allExamples) {
-        or <a href="" (click)="$event.preventDefault(); createExamples()" class="link">generate
-        example
+        或者<a href="" (click)="$event.preventDefault(); createExamples()" class="link">生成示例
       </a>
     }
   </div>
@@ -44,7 +43,7 @@
     [counter]="project.id === '*' ? '∞' : project.stats?.datasets?.count ?? '0'"
     [label]="'DATASETS'"
   [type]="project.stats?.datasets?.count===0 ? circleTypeEnum.empty : circleTypeEnum.pending"></sm-circle-counter>
-  <sm-circle-counter label="TAGS IN USE" [counter]="[]">
+  <sm-circle-counter label="使用中的标签" [counter]="[]">
     @if (!hideMenu) {
       <sm-tag-list
         class="tags-list-counter"
