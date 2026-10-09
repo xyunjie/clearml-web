@@ -46,7 +46,7 @@ export abstract class ExperimentDetailsReverterServiceBase {
     }
     return Object.entries(configuration).reduce((acc, [key, value]) => {
       if (key === 'design' && value.type === 'legacy') {
-        acc['General'] = value;
+        acc['常规'] = value;
       } else {
         acc[key] = value;
       }

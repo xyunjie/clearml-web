@@ -53,9 +53,9 @@ export class ExperimentInfoTaskModelComponent {
 
   protected formData: ConfigurationItem;
   protected sectionReplaceMap = {
-    _legacy: 'General',
-    properties: 'User Properties',
-    design: 'General'
+    _legacy: '常规',
+    properties: '用户属性',
+    design: '常规'
   };
   protected configInfo$ = this.store.select(selectExperimentConfigObj);
   protected selectedConfigObj$ = this.store.select(selectExperimentSelectedConfigObjectFromRoute);

@@ -359,7 +359,7 @@ export class ExperimentCompareMetricValuesComponent implements OnInit, OnDestroy
   exportToCSV() {
     const headers = this.experiments.map(ex => ex.name);
     const options = mkConfig({
-      filename: `Scalars compare table`,
+      filename: `标量对比表`,
       showColumnHeaders: true,
       columnHeaders: ['Metric', 'Variant'].concat(headers)
     });

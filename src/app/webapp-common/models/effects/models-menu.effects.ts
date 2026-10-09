@@ -106,7 +106,7 @@ export class ModelsMenuEffects {
         })
       );
     } else {
-      const errorText = 'Your attempt to publish models failed.';
+      const errorText = '发布模型失败。';
       return of(errorText);
     }
   }

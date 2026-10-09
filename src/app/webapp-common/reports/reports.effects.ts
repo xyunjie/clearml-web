@@ -268,7 +268,7 @@ export class ReportsEffects {
             changes: {
               project: (moveRequest.project ?
                 {id: res.project_id, name: moveRequest.project_name} :
-                {id: res.project_id, name: moveRequest.project_name ?? 'Root project'})
+                {id: res.project_id, name: moveRequest.project_name ?? '根项目'})
             }
           }),
           deactivateLoader(moveReport.type),

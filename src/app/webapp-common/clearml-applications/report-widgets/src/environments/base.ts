@@ -92,8 +92,8 @@ export const BASE_ENV: Environment = {
   docsLink: '/docs',
   useFilesProxy: true,
   branding: {logo: 'assets/logo-white.svg?v=7', logoSmall: 'assets/small-logo-white.svg?=2'},
-  serverDownMessage: 'The ClearML server is currently unavailable.<BR>' +
-    'Please try to reload this page in a little while.',
+  serverDownMessage: 'ClearML 服务器当前不可用。<BR>' +
+    '请稍后重新加载此页面。',
   legal: {TOULink: 'https://clear.ml/legal-platform-tou/', pricingLink: 'https://clear.ml/pricing/'},
   showMaskWithoutLabels: true,
   newExperimentYouTubeVideoId: 'bjWwZAzDxTY'

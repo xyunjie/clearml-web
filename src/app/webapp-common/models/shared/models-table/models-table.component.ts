@@ -208,7 +208,7 @@ export class ModelsTableComponent extends BaseTableView implements OnChanges {
       Array.from(new Set(this.frameworks().concat(this.sortByFilterValues()[MODELS_TABLE_COL_FIELDS.FRAMEWORK]))).map(framework =>
         ({
           label: framework ? framework :
-            (framework === null ? '(No framework)' : 'Unknown'), value: framework
+            (framework === null ? '（无框架）' : '未知'), value: framework
         })
       ),
       this.filtersValues()[MODELS_TABLE_COL_FIELDS.FRAMEWORK]

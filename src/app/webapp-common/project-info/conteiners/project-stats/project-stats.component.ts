@@ -130,7 +130,7 @@ export class ProjectStatsComponent implements OnDestroy {
             label: this.selectedVariants.find(v => v.id === group).header,
             backgroundColor: this.variantToColor(group)
           } : {
-            label: group,
+            label: group === 'Completed or Stopped' ? '已完成或已停止' : (this.states.find(state => state.type === group)?.label ?? group),
             backgroundColor: this.statusToColor(group),
           }),
           data: points.map(point => ({

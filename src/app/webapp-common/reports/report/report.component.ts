@@ -213,7 +213,7 @@ export class ReportComponent implements OnDestroy {
       if (valid.length === 0) {
         this.store.dispatch(addMessage(MESSAGES_SEVERITY.ERROR, '文件类型无效'));
         this.store.dispatch(deactivateLoader('upload'));
-        return Promise.reject('Invalid file type');
+        return Promise.reject('文件类型无效');
       }
       const uploads$ = combineLatest(valid).pipe(
         debounceTime(0),

@@ -91,9 +91,9 @@ export class ExperimentExecutionSourceCodeComponent implements ControlValueAcces
   ];
 
   protected readonly scriptPlaceHolders = {
-    [sourceTypesEnum.VersionNum]: 'Insert commit id',
-    [sourceTypesEnum.Tag]       : 'Insert tag name',
-    [sourceTypesEnum.Branch]    : 'Insert branch name',
+    [sourceTypesEnum.VersionNum]: '输入提交 ID',
+    [sourceTypesEnum.Tag]       : '输入标签名',
+    [sourceTypesEnum.Branch]    : '输入分支名',
   };
 
   protected readonly flagNameMap = {

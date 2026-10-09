@@ -92,7 +92,7 @@ export class ModelDetailsReverterService {
   private revertLineage(model: IModelInfo, tasks: ITask[]) {
     return {
       ...(model.task && {'created by': `${model.task.name} (${model.task.id})`}),
-      'Used by': tasks.reduce((acc, curr) => {
+      '使用者': tasks.reduce((acc, curr) => {
         acc[`hash_${curr.name}${curr.id}`] = `${curr.name} : ${curr.id}`;
         return acc;
       }, {} as {id: string; name: string})
