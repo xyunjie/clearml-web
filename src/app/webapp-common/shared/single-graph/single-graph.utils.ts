@@ -47,6 +47,13 @@ export const smoothTypeEnum = {
   any: 'No Smoothing' as SmoothTypeEnum
 };
 
+export const SMOOTH_TYPE_LABELS: Record<string, string> = {
+  [smoothTypeEnum.exponential]: '指数移动平均',
+  [smoothTypeEnum.runningAverage]: '滑动平均',
+  [smoothTypeEnum.gaussian]: '高斯',
+  [smoothTypeEnum.any]: '不平滑'
+};
+
 export const generateColorKey = (name: string, task: string, colorKey: string, isCompare)=> {
   const variant = colorKey || name;
   if (!isCompare) {

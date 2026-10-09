@@ -43,7 +43,7 @@ import {
 import {getSignedUrl} from '@common/core/actions/common-auth.actions';
 import {selectSignedUrl} from '@common/core/reducers/common-auth-reducer';
 import {Color, LayoutAxis} from 'plotly.js';
-import {smoothTypeEnum} from '@common/shared/single-graph/single-graph.utils';
+import {SMOOTH_TYPE_LABELS, smoothTypeEnum} from '@common/shared/single-graph/single-graph.utils';
 import {SingleGraphComponent} from '@common/shared/single-graph/single-graph.component';
 import {GraphViewerData} from '@common/shared/single-graph/graph-viewer/graph-viewer.consts';
 import {MatSlideToggle} from '@angular/material/slide-toggle';
@@ -98,6 +98,7 @@ export class GraphViewerComponent implements AfterViewInit, OnInit, OnDestroy {
 
   protected readonly checkIfLegendToTitle = checkIfLegendToTitle;
   protected readonly smoothTypeEnum = smoothTypeEnum;
+  protected readonly smoothTypeLabels = SMOOTH_TYPE_LABELS;
   private sub = new Subscription();
   private isForward = true;
   private charts: ExtFrame[];
@@ -105,15 +106,15 @@ export class GraphViewerComponent implements AfterViewInit, OnInit, OnDestroy {
   private range: { xaxis: LayoutAxis[]; yaxis: LayoutAxis[] };
   protected readonly xAxisTypeOption = [
     {
-      name: 'Iterations',
+      name: '迭代',
       value: ScalarKeyEnum.Iter
     },
     {
-      name: 'Time from start',
+      name: '自开始的时间',
       value: ScalarKeyEnum.Timestamp
     },
     {
-      name: 'Wall time',
+      name: '实际时间',
       value: ScalarKeyEnum.IsoTime
     }
   ];

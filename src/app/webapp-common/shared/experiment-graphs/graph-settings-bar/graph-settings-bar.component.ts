@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component, computed, input, output, signal} fro
 import {ScalarKeyEnum} from '~/business-logic/model/events/scalarKeyEnum';
 import {MatFormField, MatOption, MatSelect, MatSelectChange} from '@angular/material/select';
 import {GroupByCharts} from '@common/experiments/actions/common-experiment-output.actions';
-import {SmoothTypeEnum, smoothTypeEnum} from '@common/shared/single-graph/single-graph.utils';
+import {SMOOTH_TYPE_LABELS, SmoothTypeEnum, smoothTypeEnum} from '@common/shared/single-graph/single-graph.utils';
 import {MatSlider, MatSliderThumb} from '@angular/material/slider';
 import {FormsModule} from '@angular/forms';
 import {KeyValuePipe} from '@angular/common';
@@ -46,17 +46,18 @@ export class GraphSettingsBarComponent {
   protected readonly scalarKeyEnum = ScalarKeyEnum;
   protected readonly round = Math.round;
   protected readonly smoothTypeEnum = smoothTypeEnum;
+  protected readonly smoothTypeLabels = SMOOTH_TYPE_LABELS;
   protected readonly xAxisTypeOption = [
     {
-      name: 'Iterations',
+      name: '迭代',
       value: ScalarKeyEnum.Iter
     },
     {
-      name: 'Time from start',
+      name: '自开始的时间',
       value: ScalarKeyEnum.Timestamp
     },
     {
-      name: 'Wall time',
+      name: '实际时间',
       value: ScalarKeyEnum.IsoTime
     },
   ];

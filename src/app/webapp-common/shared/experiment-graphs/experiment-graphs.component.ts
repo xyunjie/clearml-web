@@ -513,7 +513,7 @@ export class ExperimentGraphsComponent {
     if ($event.edges.right && this.resizeTextElement) {
       const graphsPerRow = this.calcGraphPerRow($event.rectangle.width, this.el.nativeElement.clientWidth);
       this.store.dispatch(setGraphsPerRow({graphsPerRow: graphsPerRow}));
-      const text = `${graphsPerRow > 1 ? graphsPerRow + ' graphs' : '1 graph'} per row`;
+      const text = `每行 ${graphsPerRow} 个图表`;
       this.renderer.setProperty(this.resizeTextElement, 'textContent', text);
     }
   }

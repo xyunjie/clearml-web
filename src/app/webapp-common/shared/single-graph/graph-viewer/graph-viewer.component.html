@@ -22,7 +22,7 @@
           <div>
             @if (minMaxIterations.maxIteration !== minMaxIterations.minIteration || minMaxIterations.minIteration > 0) {
               <span>
-                Iteration <span class="number">{{ iteration() }}</span>
+                迭代 <span class="number">{{ iteration() }}</span>
               </span>
             }
             @if (minMaxIterations.maxIteration !== minMaxIterations.minIteration) {
@@ -60,7 +60,7 @@
     <div class="graph-controls">
       @if (!isCompare && !reportWidget) {
         <div class="d-flex field">
-          <span class="label-text axis-text-margin-left" data-id="HorizontalAxisText">Horizontal Axis</span>
+          <span class="label-text axis-text-margin-left" data-id="HorizontalAxisText">横轴</span>
           <mat-form-field appearance="outline" class="axis-type-field no-bottom">
             <mat-select
               [value]="xAxisType()" (selectionChange)="setFreezeColor(); xAxisTypeChanged($event)"
@@ -76,12 +76,12 @@
       }
       <div class="d-flex smooth-options" [class.separator]="!isCompare && !reportWidget">
         <div class="d-flex field">
-          <span class="label-text axis-text-margin-left">Smoothing</span>
+          <span class="label-text axis-text-margin-left">平滑</span>
           <mat-form-field appearance="outline" class="smooth-selector no-bottom">
             <mat-select [value]="smoothType()" (selectionChange)="setFreezeColor(); selectSmoothType($event)" [hideSingleSelectionIndicator]="true">
               @for (smoothTypeOption of smoothTypeEnum | keyvalue; track smoothTypeOption.key) {
                 <mat-option [value]="smoothTypeOption.value">
-                  {{ smoothTypeOption.value }}
+                  {{ smoothTypeLabels[smoothTypeOption.value] ?? smoothTypeOption.value }}
                 </mat-option>
               }
             </mat-select>
@@ -112,7 +112,7 @@
         }
         @if (smoothType() === smoothTypeEnum.gaussian) {
           <div class="d-flex field">
-            <span class="label-text axis-text-margin-left slider-label">Sigma:</span>
+            <span class="label-text axis-text-margin-left slider-label">Sigma：</span>
             <div class="smooth-fields">
               <mat-slider
                 [max]="3"
@@ -129,7 +129,7 @@
         }
         @if (smoothType() && smoothType() !== smoothTypeEnum.any) {
           <div class="d-flex field  ms-3">
-            <span class="label-text axis-text-margin-left">Show Originals:</span>
+            <span class="label-text axis-text-margin-left">显示原始曲线：</span>
             <mat-slide-toggle class="smooth-slide-field" [(ngModel)]="showOrigin" labelPosition="after"></mat-slide-toggle>
           </div>
         }

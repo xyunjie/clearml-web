@@ -22,13 +22,13 @@
     @if (dataTable()?.length === 0) {
       <div class="no-output">
         <mat-icon fontSet="al" fontIcon="al-ico-no-data-table" class="xxl"></mat-icon>
-        <h4>NO METRICS</h4>
+        <h4>暂无指标</h4>
       </div>
     }
 
     @if (dataTable()?.length > 0 && dataTableFiltered()?.length === 0) {
       <div class="no-output all-filtered-message">
-        All metrics hidden. <a class="link" (click)="clear()">Clear filters</a>
+        所有指标均已隐藏。<a class="link" (click)="clear()">清除筛选</a>
       </div>
     }
 

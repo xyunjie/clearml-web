@@ -1,6 +1,6 @@
 <div class="x-axis-options" [class.vertical-layout]="verticalLayout()" [class.short-mode]="(shortMode$ | ngrxPush) && !verticalLayout()" data-id="scalarSettings">
   <div class="d-flex field" [class.width-100]="verticalLayout()">
-    <span class="label-text" data-id="GroupBytext">Group by</span>
+    <span class="label-text" data-id="GroupBytext">分组方式</span>
     <mat-form-field appearance="outline" class="group-by-field no-bottom thin" data-id="GroupByField">
       <mat-select [value]="groupBy()" (selectionChange)="groupByChanged($event)" [hideSingleSelectionIndicator]="true">
         @for (type of groupByOptions(); track type) {
@@ -10,7 +10,7 @@
     </mat-form-field>
   </div>
   <div class="d-flex field" [class.width-100]="verticalLayout()">
-    <span class="label-text" data-id="HorizontalAxisText">Horizontal Axis</span>
+    <span class="label-text" data-id="HorizontalAxisText">横轴</span>
     <mat-form-field appearance="outline" class="axis-type-field no-bottom thin" data-id="HorizontalAxisField">
       <mat-select [value]="xAxisType()" (selectionChange)="xAxisTypeChanged($event)" panelClass="light-theme" [hideSingleSelectionIndicator]="true"
                   name="scriptType">
@@ -21,12 +21,12 @@
     </mat-form-field>
   </div>
   <div class="d-flex field divider" [class.width-100]="verticalLayout()">
-    <span class="label-text" data-id="SmoothingText">Smoothing</span>
+    <span class="label-text" data-id="SmoothingText">平滑</span>
     <mat-form-field appearance="outline" class="smooth-type-field no-bottom thin" data-id="SmoothingInputField">
       <mat-select [panelClass]="'light-theme'" [value]="smoothType()" (selectionChange)="selectSmoothType($event)" [hideSingleSelectionIndicator]="true">
         @for (smoothTypeOption of smoothTypeEnum | keyvalue; track smoothTypeOption) {
           <mat-option [value]="smoothTypeOption.value">
-            {{ smoothTypeOption.value }}
+            {{ smoothTypeLabels[smoothTypeOption.value] ?? smoothTypeOption.value }}
           </mat-option>
         }
       </mat-select>
@@ -39,7 +39,7 @@
       }
       @switch (smoothType()) {
         @case (smoothTypeEnum.gaussian) {
-          <span class="label-text smoothing-label">Kernel</span>
+          <span class="label-text smoothing-label">核大小</span>
           <div class="d-flex align-items-center slider">
             <mat-slider [max]="15" [min]="3" [step]="2">
               <input matSliderThumb [ngModel]="smoothState().weight()" (ngModelChange)="changeWeight.emit($any($event))"/>
@@ -48,7 +48,7 @@
           </div>
         }
         @case (smoothTypeEnum.runningAverage) {
-          <span class="label-text smoothing-label">Window size</span>
+          <span class="label-text smoothing-label">窗口大小</span>
           <div class="d-flex align-items-center slider">
             <mat-slider [max]="35" [min]="3" [step]="2">
               <input matSliderThumb [ngModel]="smoothState().weight()" (ngModelChange)="changeWeight.emit($any($event))"/>
@@ -81,11 +81,11 @@
         </div>
       </div>
     }
-    <mat-slide-toggle class="smooth-slide-field" [ngModel]="showOrigin()" (ngModelChange)="changeShowOrigin.emit($event)" labelPosition="before">Show Originals</mat-slide-toggle>
+    <mat-slide-toggle class="smooth-slide-field" [ngModel]="showOrigin()" (ngModelChange)="changeShowOrigin.emit($event)" labelPosition="before">显示原始曲线</mat-slide-toggle>
   }
   @if (showLineWidth()) {
     <div class="field line-width-control" [class.width-100]="verticalLayout()">
-      <span class="label-text" data-id="HorizontalLineWidth">Line Width</span>
+      <span class="label-text" data-id="HorizontalLineWidth">线宽</span>
       <div class="slider-row">
         <mat-slider [min]="0.5" [max]="7" [step]="0.5" (dblclick)="lineWidthChanged(1)">
           <input matSliderThumb [(ngModel)]="localLineWidth().width" (ngModelChange)="lineWidthChanged($any($event))"/>
@@ -106,7 +106,7 @@
       <button mat-button
               [disabled]="!clearable()"
               (click)="setToProjectLevel()"
-      >Set as default
+      >设为默认
       </button>
     </div>
   }
