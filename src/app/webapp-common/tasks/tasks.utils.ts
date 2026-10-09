@@ -124,7 +124,7 @@ export const convertSplitScalars = (scalars: GroupedList, experimentId: string):
           line: {width: 1, ...data.line},
           type: 'scatter'
         }],
-        {type: 'scalar', title: {text: variant}, xaxis: {title: {text: 'Iterations'}}, yaxis: {tickformat}},
+        {type: 'scalar', title: {text: variant}, xaxis: {title: {text: '迭代'}}, yaxis: {tickformat}},
         {},
         {metric: key, type: 'scalar', variant, variants: [variant]}
       ));
@@ -145,7 +145,7 @@ export const convertScalars = (scalars: GroupedList, experimentId: string): Reco
 
     acc[key] = [prepareGraph(
       chartData,
-      {type: 'scalar', title: {text: key}, xaxis: {title: {text: 'Iterations'}}, yaxis: {tickformat: getAxisFormat(graph)}},
+      {type: 'scalar', title: {text: key}, xaxis: {title: {text: '迭代'}}, yaxis: {tickformat: getAxisFormat(graph)}},
       {},
       {metric: key, type: 'scalar', variants: Object.keys(graph)}
     )];
@@ -613,7 +613,7 @@ export function createMultiSingleValuesChart(singleValues: EventsGetTaskSingleVa
   const yValues = singleValues?.map(singleValue => singleValue.values.map(trace => (trace.value))).flat(1) ?? [0];
   const maxY = maxInArray(yValues);
   const tickformat = maxY >= 1e9 || (maxY < 1e-5 && maxY > 0) ? '.1e' : undefined;
-  const chartLayout = {title: {text: 'Summary'}, barmode: 'group' as ExtLayout['barmode'], bargap: 0.08, bargroupgap: 0, xaxis: {title: {text: 'Series'}}, yaxis: {tickformat}};
+  const chartLayout = {title: {text: 'Summary'}, barmode: 'group' as ExtLayout['barmode'], bargap: 0.08, bargroupgap: 0, xaxis: {title: {text: '序列'}}, yaxis: {tickformat}};
   const chartData = singleValues.map(task => ({
     type: 'bar',
     task: task.task,

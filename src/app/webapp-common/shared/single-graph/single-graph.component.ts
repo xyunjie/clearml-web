@@ -1167,11 +1167,11 @@ export class SingleGraphComponent extends PlotlyGraphBaseComponent {
     }
     switch (this.xAxisType) {
       case ScalarKeyEnum.Iter:
-        return this.areAllSameXaxis() ? this.chart.data[0].x_axis_label ?? 'Iterations' : 'Iterations';
+        return this.areAllSameXaxis() ? this.chart.data[0].x_axis_label ?? '迭代' : '迭代';
       case ScalarKeyEnum.IsoTime:
-        return 'Wall Time';
+        return '实际时间';
       case ScalarKeyEnum.Timestamp:
-        return (timeUnit && timeUnit.str) ? `${timeUnit.str} From Start` : 'Relative Time';
+        return (timeUnit && timeUnit.str) ? `自开始的时间（${timeUnit.str}）` : '相对时间';
       default:
         return null;
     }

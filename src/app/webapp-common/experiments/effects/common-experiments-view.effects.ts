@@ -916,7 +916,7 @@ export class CommonExperimentsViewEffects {
   createExperimentSuccess = createEffect(() => {
     return this.actions$.pipe(
       ofType(exActions.createExperimentSuccess),
-      map(action => addMessage(MESSAGES_SEVERITY.SUCCESS, `已成功创建任务 ${action.data.name}`, [{name: 'open task', actions: [exActions.openExperiment({id: action.data.id, project: action.project})]}]))
+      map(action => addMessage(MESSAGES_SEVERITY.SUCCESS, `已成功创建任务 ${action.data.name}`, [{name: '打开任务', actions: [exActions.openExperiment({id: action.data.id, project: action.project})]}]))
     );
   });
 
