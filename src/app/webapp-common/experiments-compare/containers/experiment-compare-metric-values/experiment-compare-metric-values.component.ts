@@ -63,16 +63,16 @@ const VALUE_MODES: ValueModes = {
 
   min_values: {
     key: 'min_value',
-    name: 'Min Value'
+    name: '最小值'
   },
 
   max_values: {
     key: 'max_value',
-    name: 'Max Value'
+    name: '最大值'
   },
   values: {
     key: 'value',
-    name: 'Last Value'
+    name: '最新值'
   }
 };
 

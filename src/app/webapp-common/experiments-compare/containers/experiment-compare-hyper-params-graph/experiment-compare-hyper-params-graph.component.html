@@ -1,7 +1,7 @@
 <div class="list-container">
   @if (scatter) {
-    <div class="metric-title">Plot axes</div>
-    <div class="label">Y-axis</div>
+    <div class="metric-title">绘图坐标轴</div>
+    <div class="label">Y 轴</div>
     <sm-metric-variant-selector
       class="param-selector"
       [title]="'指标'"
@@ -11,7 +11,7 @@
       (clearSelection)="clearMetricsSelection()"
     ></sm-metric-variant-selector>
   } @else {
-    <div class="metric-title">Coordinates</div>
+    <div class="metric-title">坐标</div>
     <sm-metric-variant-selector
       class="param-selector"
       [title]="'性能指标'"
@@ -23,7 +23,7 @@
     ></sm-metric-variant-selector>
   }
   @if (scatter) {
-    <div class="label">X-axis</div>
+    <div class="label">X 轴</div>
   }
   <sm-param-selector
     class="param-selector"
@@ -38,7 +38,7 @@
   ></sm-param-selector>
   @if (scatter) {
     <hr class="separate-margins">
-    <div class="metric-title">Additional data point information</div>
+    <div class="metric-title">数据点附加信息</div>
     <sm-metric-variant-selector class="param-selector"
                                 [title]="'指标'"
                                 [selectedMetricVariants]="(selectedMetricsHoverInfo$ | ngrxPush)"
@@ -81,8 +81,8 @@
     } @else if (selectedHyperParams) {
       <div class="d-flex align-items-center justify-content-center flex-column h-100 no-data">
         <mat-icon fontSet="al" fontIcon="al-ico-no-data-graph" class="xxl"></mat-icon>
-        <h4 class="no-data-title">NO DATA TO SHOW</h4>
-        <div class="sub-title">Please select hyperparameters & metrics</div>
+        <h4 class="no-data-title">暂无数据</h4>
+        <div class="sub-title">请选择超参数和指标</div>
       </div>
     }
   }

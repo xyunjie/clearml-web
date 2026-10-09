@@ -16,7 +16,7 @@ import {filter, map} from 'rxjs/operators';
 import {MatSlideToggle, MatSlideToggleChange} from '@angular/material/slide-toggle';
 import {compareLimitations} from '@common/shared/entity-page/footer-items/compare-footer-item';
 import {SelectExperimentsForCompareComponent} from '../../containers/select-experiments-for-compare/select-experiments-for-compare.component';
-import {EntityTypeEnum} from '~/shared/constants/non-common-consts';
+import {ENTITY_TYPE_LABELS, EntityTypeEnum} from '~/shared/constants/non-common-consts';
 import {paramsActions} from '@common/experiments-compare/actions/experiments-compare-params.actions';
 import {SelectModelComponent} from '@common/select-model/select-model.component';
 import {MatDialog} from '@angular/material/dialog';
@@ -85,6 +85,7 @@ export class ExperimentCompareHeaderComponent implements OnInit, OnDestroy {
   protected globalLegend = this.store.selectSignal(selectShowGlobalLegend);
 
   @Input() entityType: EntityTypeEnum;
+  protected readonly entityTypeLabels: Record<string, string> = ENTITY_TYPE_LABELS;
 
   routerParamsIds = injectParams('ids');
   allowAddExperiment = computed(() => this.routerParamsIds()?.split(',').length < compareLimitations);
@@ -143,7 +144,7 @@ export class ExperimentCompareHeaderComponent implements OnInit, OnDestroy {
         data: {
           selectionMode: 'multiple',
           selectedModels: selectedIds,
-          header: 'Select compared model'
+          header: '选择要对比的模型'
         },
         panelClass: 'full-screen',
       }).afterClosed().pipe(filter(ids => !!ids)).subscribe(ids => this.updateUrl(ids));

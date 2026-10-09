@@ -5,7 +5,7 @@ import {ActivatedRoute, Router, RouterLink, RouterOutlet} from '@angular/router'
 import {selectGlobalLegendData, selectShowGlobalLegend} from './reducers';
 import {combineLatestWith, distinctUntilChanged, filter, map, withLatestFrom} from 'rxjs/operators';
 import {resetSelectCompareHeader, setShowGlobalLegend} from './actions/compare-header.actions';
-import {EntityTypeEnum} from '~/shared/constants/non-common-consts';
+import {ENTITY_TYPE_LABELS, EntityTypeEnum} from '~/shared/constants/non-common-consts';
 import {getCompanyTags, setBreadcrumbsOptions, setSelectedProject} from '@common/core/actions/projects.actions';
 import {selectSelectedProject} from '@common/core/reducers/projects.reducer';
 import {TitleCasePipe} from '@angular/common';
@@ -77,6 +77,7 @@ export class ExperimentsCompareComponent implements OnInit, OnDestroy {
   protected readonly trackById = trackById;
   private subs = new Subscription();
   public entityTypeEnum = EntityTypeEnum;
+  protected readonly entityTypeLabels: Record<string, string> = ENTITY_TYPE_LABELS;
   public icons = ICONS;
   public experimentsColor: Record<string, string>;
   private ids: string[];
@@ -169,7 +170,7 @@ export class ExperimentsCompareComponent implements OnInit, OnDestroy {
             showProjects: false,
             featureBreadcrumb: {name: '模型', url: 'models'},
             subFeatureBreadcrumb: {
-              name: `Compare ${this.titleCasePipe.transform(this.entityType)}s`
+              name: `对比${ENTITY_TYPE_LABELS[this.entityType] ?? this.entityType}`
             },
           }
         }));
@@ -182,7 +183,7 @@ export class ExperimentsCompareComponent implements OnInit, OnDestroy {
               url: projectType
             },
             subFeatureBreadcrumb: {
-              name: `Compare ${this.titleCasePipe.transform(this.entityType)}s`
+              name: `对比${ENTITY_TYPE_LABELS[this.entityType] ?? this.entityType}`
             },
             projectsOptions: {
               basePath: projectTypeBasePath[projectType],
@@ -228,7 +229,7 @@ export class ExperimentsCompareComponent implements OnInit, OnDestroy {
       data:{
         name: exp.name,
         iconClass: this.entityType === this.entityTypeEnum.model ? 'al-ico-model' : 'al-ico-training',
-        header: `RENAME ${this.entityType.toUpperCase()}`,
+        header: `重命名${ENTITY_TYPE_LABELS[this.entityType] ?? this.entityType}`,
       },
     }).afterClosed().subscribe(result => {
       if ((result as any)?.name) {

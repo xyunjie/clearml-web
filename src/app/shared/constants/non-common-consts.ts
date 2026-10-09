@@ -24,7 +24,8 @@ export const ENTITY_TYPE_LABELS: Record<string, string> = {
   [EntityTypeEnum.openDataset]: '数据集',
   [EntityTypeEnum.report]: '报告',
   [EntityTypeEnum.endpoint]: '端点',
-  [EntityTypeEnum.endpointsContainer]: '端点容器'
+  [EntityTypeEnum.endpointsContainer]: '端点容器',
+  experiment: '任务'
 };
 
 export enum CircleTypeEnum {

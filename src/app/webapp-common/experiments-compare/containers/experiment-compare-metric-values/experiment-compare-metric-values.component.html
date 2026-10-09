@@ -24,13 +24,13 @@
     @if (dataTable?.length === 0) {
       <div class="no-output">
         <mat-icon fontSet="al" fontIcon="al-ico-no-data-table" class="xxl"></mat-icon>
-        <h4>NO METRICS</h4>
+        <h4>暂无指标</h4>
       </div>
     }
 
     @if (dataTable?.length > 0 && dataTableFiltered?.length === 0) {
       <div class="no-output all-filtered-message">
-        All metrics hidden. <a class="link" (click)="clear(); showAll()">Clear filters</a>
+        所有指标均已隐藏。<a class="link" (click)="clear(); showAll()">清除筛选</a>
       </div>
     }
 
@@ -117,10 +117,10 @@
                 <span class="value-text" smShowTooltipIfEllipsis [smTooltip]="metricVariant.values[exp.id]?.[valuesMode.key]">{{ metricVariant.values[exp.id]?.[valuesMode.key] }}</span>
                 @if ((selectShowRowExtremes$ | ngrxPush) && metricVariant.min !== metricVariant.max) {
                   @if (metricVariant.values[exp.id]?.[valuesMode.key] === metricVariant.max) {
-                    <span class="tag tag-max">MAX</span>
+                    <span class="tag tag-max">最大</span>
                   }
                   @if (metricVariant.values[exp.id]?.[valuesMode.key] === metricVariant.min) {
-                    <span class="tag tag-min">MIN</span>
+                    <span class="tag tag-min">最小</span>
                   }
                 }
               </div>

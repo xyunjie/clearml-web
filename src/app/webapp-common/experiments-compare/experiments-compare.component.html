@@ -42,7 +42,7 @@
             <!--            }-->
           </div>
         } @empty {
-          <span class="d-flex align-items-center">No {{ entityType.replace('experiment', 'task') }} selected</span>
+          <span class="d-flex align-items-center">未选择{{ entityTypeLabels[entityType] ?? entityType }}</span>
         }
       </div>
       <button mat-icon-button (click)="closeLegend()" data-id="closeLegend">
@@ -58,11 +58,11 @@
   @if (selectedTask) {
     <button mat-menu-item (click)="viewTask(selectedTask)">
       <mat-icon fontSet="al" [fontIcon]="icons.DETAILS"></mat-icon>
-      <span>View {{ entityType.replace('experiment', 'task') }} in new tab</span>
+      <span>在新标签页中查看{{ entityTypeLabels[entityType] ?? entityType }}</span>
     </button>
     <button mat-menu-item (click)="renameTask(selectedTask)">
       <mat-icon fontSet="al" [fontIcon]="icons.EDIT"></mat-icon>
-      <span>Rename</span>
+      <span>重命名</span>
     </button>
     @if ((globalLegendData$ | ngrxPush)?.length > 1) {
       <button mat-menu-item (click)="toggleArchive(selectedTask)">
@@ -72,7 +72,7 @@
       <mat-divider></mat-divider>
       <button mat-menu-item (click)="removeExperiment(selectedTask)">
         <mat-icon fontSet="al" [fontIcon]="icons.REMOVE"></mat-icon>
-        <span>Remove from comparison</span>
+        <span>从对比中移除</span>
       </button>
     }
   }

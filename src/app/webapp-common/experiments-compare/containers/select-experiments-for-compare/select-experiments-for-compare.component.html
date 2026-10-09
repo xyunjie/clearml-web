@@ -2,7 +2,7 @@
   <button mat-icon-button [mat-dialog-close]="{ids: [], filters: tableFilters(), sortFields: tableSortFields()}" class="stick-to-corner right" data-id="Cross" tabindex="-1">
     <mat-icon fontSet="al" fontIcon="al-ico-dialog-x"></mat-icon>
   </button>
-  <div mat-dialog-title class="dialog-title">{{ 'Select compared ' + data.entityType + 's' }}</div>
+  <div mat-dialog-title class="dialog-title">{{ '选择要对比的' + (entityTypeLabels[data.entityType] ?? data.entityType) }}</div>
   <div class="px-5 h-100">
   <ng-container *ngTemplateOutlet="mainContent"></ng-container>
   </div>
@@ -11,7 +11,7 @@
       mat-stroked-button
       [mat-dialog-close]="{ids: [], filters: tableFilters(), sortFields: tableSortFields()}"
       data-id="CancelButton">
-      CANCEL
+      取消
     </button>
     <button
       mat-flat-button
@@ -19,7 +19,7 @@
       type="submit"
       [mat-dialog-close]="{ids: selectedExperimentsIds(), filters: tableFilters(), sortFields: tableSortFields()}"
       class="yes-button" data-id="ApplyButton">
-      APPLY
+      应用
     </button>
   </mat-dialog-actions>
 } @else {
@@ -29,7 +29,7 @@
       mat-stroked-button
       (click)="closeDialog(false)"
       data-id="CancelButton">
-      CANCEL
+      取消
     </button>
     <button
       mat-flat-button
@@ -37,7 +37,7 @@
       type="submit"
       (click)="closeDialog(true)"
       class="yes-button" data-id="ApplyButton">
-      APPLY
+      应用
     </button>
   </mat-dialog-actions>
 }
@@ -50,7 +50,7 @@
           #search
           class="search outline"
           [class.shorter]="!popupMode"
-          [placeholder]="`Search for ${data.entityType ? data.entityType + 's' : 'tasks'} ${ popupMode ? 'to add to your comparison' : ''}`"
+          [placeholder]="`搜索${popupMode ? '要加入对比的' : ''}${data.entityType ? (entityTypeLabels[data.entityType] ?? data.entityType) : '任务'}`"
           [value]="searchTerm()"
           (valueChanged)="searchTermChanged($event)">
         </sm-search>
@@ -60,7 +60,7 @@
               class="me-2"
               [checked]="showArchived()"
               (change)="toShowArchived($event)"
-            >Include Archived
+            >包含已归档
             </mat-slide-toggle>
             <sm-clear-filters-button
               [tableFilters]="tableFilters()"

@@ -10,7 +10,7 @@ import {isEqual, unionBy} from 'lodash-es';
 import {ColHeaderTypeEnum, ISmCol} from '@common/shared/ui-components/data/table/table.consts';
 import {addMessage} from '@common/core/actions/layout.actions';
 import {INITIAL_EXPERIMENT_COLS_ORDER, INITIAL_EXPERIMENT_TABLE_COLS} from '@common/experiments/experiment.consts';
-import {EntityTypeEnum} from '~/shared/constants/non-common-consts';
+import {ENTITY_TYPE_LABELS, EntityTypeEnum} from '~/shared/constants/non-common-consts';
 import {ExperimentsTableComponent} from '@common/experiments/dumb/experiments-table/experiments-table.component';
 import {MESSAGES_SEVERITY} from '@common/constants';
 import {MatSlideToggle, MatSlideToggleChange} from '@angular/material/slide-toggle';
@@ -62,6 +62,7 @@ export class SelectExperimentsForCompareComponent implements OnInit, OnDestroy {
   private filters: Record<string, FilterMetadata>;
   private sortableFields = ['started', 'last_update', 'active_duration'];
   public entityTypes = EntityTypeEnum;
+  protected readonly entityTypeLabels: Record<string, string> = ENTITY_TYPE_LABELS;
   public selectedExperimentsIds = signal<string[]>([]);
   selectedExperiment: ITableExperiment;
   public reachedCompareLimit = signal(false);
@@ -359,10 +360,10 @@ export class SelectExperimentsForCompareComponent implements OnInit, OnDestroy {
     switch (entityType) {
       case this.entityTypes.controller:
         return INITIAL_CONTROLLER_TABLE_COLS.map((col) =>
-          col.id === EXPERIMENTS_TABLE_COL_FIELDS.NAME ? {...col, header: 'RUN'} : col);
+          col.id === EXPERIMENTS_TABLE_COL_FIELDS.NAME ? {...col, header: '运行'} : col);
       case this.entityTypes.dataset:
         return INITIAL_CONTROLLER_TABLE_COLS.map((col) =>
-          col.id === EXPERIMENTS_TABLE_COL_FIELDS.NAME ? {...col, header: 'VERSION NAME'} : col);
+          col.id === EXPERIMENTS_TABLE_COL_FIELDS.NAME ? {...col, header: '版本名称'} : col);
       default:
         return this.popupMode ? INITIAL_EXPERIMENT_TABLE_COLS : INITIAL_EXPERIMENT_TABLE_COLS.map(col => this.sortableFields.includes(col.id) ? col : {...col, sortable: false});
     }
