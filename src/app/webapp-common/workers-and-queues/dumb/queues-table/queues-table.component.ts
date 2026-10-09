@@ -67,7 +67,7 @@ export class QueuesTableComponent extends BaseTableView {
         id: QUEUES_TABLE_COL_FIELDS.WORKERS,
         headerType: ColHeaderTypeEnum.sortFilter,
         header: '工作节点',
-        style: {width: '100px'},
+        style: {width: '130px', minWidth: '130px'},
         sortable: true,
       },
       {
