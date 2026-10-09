@@ -139,7 +139,7 @@ export class ServingLoadingComponent extends BaseEntityPageComponent implements 
   }
 
   syncAppSearch() {
-    this.store.dispatch(initSearch({payload: 'Search for endpoints'}));
+    this.store.dispatch(initSearch({payload: '搜索端点'}));
     this.searchQuery$
       .pipe(
         takeUntilDestroyed(),

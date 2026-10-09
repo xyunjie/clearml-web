@@ -9,11 +9,11 @@
 >
   <ng-container subtitle>
         <span class="d-flex sub-title">
-          <span class="project ellipsis">{{ entity().entries_count ?? 0 }} in queue</span>
+          <span class="project ellipsis">排队 {{ entity().entries_count ?? 0 }} 个</span>
           <span class="dot">●</span>
-          <span class="project ellipsis">{{ entity().workers?.length ?? 0 }} workers</span>
+          <span class="project ellipsis">{{ entity().workers?.length ?? 0 }} 个工作节点</span>
           <span class="dot">●</span>
-          <span title="Updated" class="sub-item">{{ entity().last_update | timeAgo }}</span>
+          <span title="更新时间" class="sub-item">{{ entity().last_update | timeAgo }}</span>
         </span>
   </ng-container>
 </sm-result-line>

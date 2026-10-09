@@ -72,7 +72,7 @@ export class QueuesComponent {
   protected queuesManager = this.route.snapshot.data.queuesManager;
 
   constructor() {
-    this.store.dispatch(initSearch({payload: 'Search for queues'}));
+    this.store.dispatch(initSearch({payload: '搜索队列'}));
     this.store.dispatch(queueActions.getQueues({}));
 
     effect(() => {

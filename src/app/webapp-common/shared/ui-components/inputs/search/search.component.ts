@@ -42,7 +42,7 @@ export class SearchComponent implements OnInit, OnChanges, OnDestroy {
 
   minimumChars = input(3);
   debounceTime = input(300);
-  placeholder = input<string>('Type to search');
+  placeholder = input<string>('输入以搜索');
   hideIcons = input<boolean>(false);
   expandOnHover = input(false);
   disabled = input(false);

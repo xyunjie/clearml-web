@@ -37,7 +37,7 @@
         [value]="filtersValues()"
         [columns]="initialColumns"
         [filterMatch]="filtersMatch"
-        fixedOptionsSubheader="System tags"
+        fixedOptionsSubheader="系统标签"
         (subFilterChanged)="tableFilterChanged({id:'system_tags'}, $event)"
         (filterChanged)="tableFilterChanged({id: $event.col}, $event)"
         (menuOpened)="columnFilterOpened($event)"
@@ -158,7 +158,7 @@
         [noSelection]="true"
         [class.no-tags]="true"
       >
-        <span class="uptime ms-auto">Uptime: {{ endpoint.uptime_sec | duration }}</span>
+        <span class="uptime ms-auto">运行时间：{{ endpoint.uptime_sec | duration }}</span>
 
       </sm-table-card>
       <ng-template #compactCol>
@@ -177,7 +177,7 @@
 <ng-template #noData let-noDataTop="noDataTop" let-minimizedView="minimizedView">
     <div class="no-output" [class.centered]="minimizedView" [style.top.px]="noDataTop">
       @if (hasActiveFilters()) {
-        <span>No matching results. <a class="link" (click)="clearTableFiltersAndSearch.emit(tableFilters())">Clear filters</a></span>
+        <span>没有匹配的结果。<a class="link" (click)="clearTableFiltersAndSearch.emit(tableFilters())">清除筛选</a></span>
       } @else {
         <sm-serving-empty-state class="center-message"></sm-serving-empty-state>
       }

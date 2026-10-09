@@ -91,7 +91,7 @@ describe('DashboardComponent', () => {
   });
 
   it('should dispatch initSearch in the constructor', () => {
-    expect(store.dispatch).toHaveBeenCalledWith(initSearch({payload: 'Search for all'}));
+    expect(store.dispatch).toHaveBeenCalledWith(initSearch({payload: '搜索全部'}));
   });
 
   it('should navigate to search when active search becomes true', fakeAsync(() => {

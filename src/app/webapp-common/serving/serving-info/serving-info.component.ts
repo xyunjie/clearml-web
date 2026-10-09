@@ -50,7 +50,7 @@ export class ServingInfoComponent implements OnDestroy {
     this.store.dispatch(setBreadcrumbsOptions({
       breadcrumbOptions: {
         showProjects: false,
-        featureBreadcrumb: {name: 'Model Endpoints'}
+        featureBreadcrumb: {name: '模型端点'}
       }
     }));
   }

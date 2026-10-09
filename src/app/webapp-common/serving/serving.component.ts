@@ -167,7 +167,7 @@ export class ServingComponent extends BaseEntityPageComponent implements OnDestr
   }
 
   syncAppSearch() {
-    this.store.dispatch(initSearch({payload: 'Search for endpoints'}));
+    this.store.dispatch(initSearch({payload: '搜索端点'}));
     // this.sub.add(this.searchQuery$.pipe(skip(1)).subscribe(query => this.store.dispatch(ServingActions.globalFilterChanged(query))));
   }
 

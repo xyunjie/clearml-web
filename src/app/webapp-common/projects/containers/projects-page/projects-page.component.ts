@@ -306,7 +306,7 @@ export class ProjectsPageComponent implements OnDestroy {
   }
 
   syncAppSearch() {
-    this.store.dispatch(initSearch({payload: `Search for ${this.getName()}s`}));
+    this.store.dispatch(initSearch({payload: `搜索${ENTITY_TYPE_LABELS[this.getName()] ?? this.getName()}`}));
     this.searchQuery$
       .pipe(
         takeUntilDestroyed(),

@@ -258,7 +258,7 @@ export class ModelsComponent extends BaseEntityPageComponent implements OnDestro
   }
 
   syncAppSearch() {
-    this.store.dispatch(initSearch({payload: 'Search for models'}));
+    this.store.dispatch(initSearch({payload: '搜索模型'}));
     this.searchQuery$
       .pipe(
         takeUntilDestroyed(),
