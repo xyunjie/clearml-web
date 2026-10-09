@@ -29,7 +29,7 @@ import {
   selectSelectedProject
 } from '@common/core/reducers/projects.reducer';
 import {selectActiveWorkspaceReady} from '~/core/reducers/view.reducer';
-import {EntityTypeEnum} from '~/shared/constants/non-common-consts';
+import {ENTITY_TYPE_LABELS, EntityTypeEnum} from '~/shared/constants/non-common-consts';
 import {concatLatestFrom} from '@ngrx/operators';
 import {selectShowOnlyUserWork} from '@common/core/reducers/users-reducer';
 import {ConfirmDialogConfig} from '@common/shared/ui-components/overlay/confirm-dialog/confirm-dialog.model';
@@ -250,17 +250,20 @@ export class ProjectsPageComponent implements OnDestroy {
 
   private showConfirmDialog(readyForDeletion: CommonProjectReadyForDeletion) {
     const name = this.getName();
+    const nameLabel = ENTITY_TYPE_LABELS[name] ?? name;
+    const listKey = this.getDeletePopupEntitiesList();
+    const listLabel = ENTITY_TYPE_LABELS[listKey] ?? (listKey === 'run' ? '运行' : listKey);
     this.dialog.open<ConfirmDialogComponent, ConfirmDialogConfig, boolean>(ConfirmDialogComponent, {
       data: {
-        title: `Unable to Delete ${name[0].toUpperCase()}${name.slice(1)}`,
-        body: `You cannot delete ${name} "<b>${readyForDeletion.project.name.split('/').pop()}</b>" with un-archived ${name === 'project' ? popupEntitiesListConst : this.getDeletePopupEntitiesList()}s. <br/>
-                   You have ${getDeleteProjectPopupStatsBreakdown(
+        title: `无法删除${nameLabel}`,
+        body: `无法删除包含未归档${name === 'project' ? popupEntitiesListConst : listLabel}的${nameLabel}“<b>${readyForDeletion.project.name.split('/').pop()}</b>”。<br/>
+                   此${nameLabel}中还有未归档的${getDeleteProjectPopupStatsBreakdown(
           readyForDeletion,
           'unarchived',
-          `un-archived ${this.getDeletePopupEntitiesList()}`
-        )} in this ${name}. <br/>
-                   If you wish to delete this ${name}, you must first archive${name === 'project' ? `, delete, or move these items to another ${name}` : ' or delete these items'} .`,
-        no: 'OK',
+          listLabel
+        )}。<br/>
+                   如需删除此${nameLabel}，必须先将这些项${name === 'project' ? `归档、删除或移动到其他${nameLabel}` : '归档或删除'}。`,
+        no: '确定',
         iconClass: 'al-ico-alert',
         iconColor: 'var(--color-warning)'
       },
