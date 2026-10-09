@@ -167,7 +167,7 @@ export class ExperimentsCompareComponent implements OnInit, OnDestroy {
         this.store.dispatch(setBreadcrumbsOptions({
           breadcrumbOptions: {
             showProjects: false,
-            featureBreadcrumb: {name: 'Models', url: 'models'},
+            featureBreadcrumb: {name: '模型', url: 'models'},
             subFeatureBreadcrumb: {
               name: `Compare ${this.titleCasePipe.transform(this.entityType)}s`
             },

@@ -80,7 +80,7 @@ export const getTimeInSecondsFromDate = (_date: number | Date): number => {
     templateUrl: './table-filter-duration-date-time.component.html',
     styleUrls: ['./table-filter-duration-date-time.component.scss'],
     providers: [
-        { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
+        { provide: MAT_DATE_LOCALE, useValue: 'zh-CN' },
         { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS },
         provideNativeDateAdapter()
     ],

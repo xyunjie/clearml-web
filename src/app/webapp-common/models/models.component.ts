@@ -538,7 +538,7 @@ export class ModelsComponent extends BaseEntityPageComponent implements OnDestro
           this.store.dispatch(setBreadcrumbsOptions({
             breadcrumbOptions: {
               showProjects: false,
-              featureBreadcrumb: {name: 'Models'},
+              featureBreadcrumb: {name: '模型'},
             }
           }));
         } else {
@@ -546,7 +546,7 @@ export class ModelsComponent extends BaseEntityPageComponent implements OnDestro
             breadcrumbOptions: {
               showProjects: !!selectedProject && !this.modelsFeature,
               featureBreadcrumb: {
-                name: 'PROJECTS',
+                name: '项目',
                 url: 'projects'
               },
               ...(this.projectDeepMode() && selectedProject?.id !== '*' && {

@@ -1,5 +1,6 @@
 export interface HeaderNavbarTabConfig {
   header: string;
+  label?: string;
   subHeader?: string;
   badge?: string;
   badgeTooltip?: string;

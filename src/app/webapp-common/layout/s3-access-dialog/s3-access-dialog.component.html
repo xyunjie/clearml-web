@@ -9,7 +9,7 @@
         <input matInput type="text" name="Key" required placeholder="Key" formControlName="Key"
           autocomplete="off">
         @if (s3Form.controls.Key.errors?.required) {
-          <mat-error>*Required</mat-error>
+          <mat-error>*必填</mat-error>
         }
       </mat-form-field>
     }
@@ -17,9 +17,9 @@
       <mat-label>Secret</mat-label>
       <input matInput formControlName="Secret" type="text" name="Secret" required
         autocomplete="off"
-        [placeholder]="isAzure() ? 'Shared access signature (SAS)' : 'Secret'">
+        [placeholder]="isAzure() ? '共享访问签名（SAS）' : 'Secret'">
       @if (s3Form.controls.Secret.errors?.required) {
-        <mat-error>*Required</mat-error>
+        <mat-error>*必填</mat-error>
       }
     </mat-form-field>
     @if (!isAzure()) {
@@ -30,34 +30,34 @@
     }
     @if (!isAzure() && !isGCS()) {
       <mat-form-field appearance="outline" class="w-100">
-        <mat-label>Region</mat-label>
-        <input matInput formControlName="Region" type="text" name="Region" placeholder="AWS Region (e.g. us-east-2)"
+        <mat-label>区域</mat-label>
+        <input matInput formControlName="Region" type="text" name="Region" placeholder="AWS 区域（例如 us-east-2）"
           autocomplete="off">
       </mat-form-field>
     }
     @if ((!isAzure()) && endpoint()) {
       <mat-form-field appearance="outline" class="w-100">
-        <mat-label>Endpoint</mat-label>
+        <mat-label>端点</mat-label>
         <input
           matInput
           formControlName="Endpoint"
           name="Endpoint"
           autocomplete="off"
           [disabled]="isGCS()"
-          placeholder="Host (Endpoint)"
+          placeholder="主机（端点）"
           >
         @if (s3Form.controls.Endpoint.value?.startsWith('http://') && secured) {
           <i
             matSuffix
             class="al-icon sm al-ico-alert"
-            smTooltip="Embedding images through a non-secure transport (HTTP) in a secure web application might require special configuration of your browser"
+            smTooltip="在安全的 Web 应用中通过非安全传输（HTTP）嵌入图片，可能需要对浏览器进行特殊配置"
           ></i>
         }
       </mat-form-field>
     }
     <div class="w-100 d-flex justify-content-center mt-4">
       <button mat-flat-button (click)="s3Form.markAllAsTouched(); saveNewCredentials()"
-        [disabled]="(!saveEnabled()) || (formIsSubmitted && s3Form.invalid)">SAVE CREDENTIALS
+        [disabled]="(!saveEnabled()) || (formIsSubmitted && s3Form.invalid)">保存凭据
       </button>
     </div>
   </form>

@@ -8,7 +8,7 @@ import {MatOption, MatSelect} from '@angular/material/select';
 import {MatDivider} from '@angular/material/list';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
-import {enGB} from 'date-fns/locale';
+import {zhCN} from 'date-fns/locale';
 import {DateFnsAdapter, MAT_DATE_FNS_FORMATS, provideDateFnsAdapter} from '@angular/material-date-fns-adapter';
 import {ClickStopPropagationDirective} from '@common/shared/ui-components/directives/click-stop-propagation.directive';
 import {MatIconModule} from '@angular/material/icon';
@@ -40,7 +40,7 @@ import {ActivatedRoute, Router} from '@angular/router';
       useExisting: forwardRef(() => PeriodSelectorComponent),
       multi: true
     },
-    {provide: MAT_DATE_LOCALE, useValue: enGB},
+    {provide: MAT_DATE_LOCALE, useValue: zhCN},
     {provide: DateAdapter, useClass: DateFnsAdapter, deps: [MAT_DATE_LOCALE]},
     {provide: MAT_DATE_FORMATS, useValue: MAT_DATE_FNS_FORMATS},
     provideDateFnsAdapter()  ],

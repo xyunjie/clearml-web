@@ -61,21 +61,21 @@ export class S3AccessResolverComponent {
     this.token          = s3Credentials.Token;
     this.region         = s3Credentials.Region;
     if (data.credentialsError) {
-      this.header = this.header = `${data.credentialsError}, please check credentials for bucket <b>${this.bucket}</b>.`;
+      this.header = this.header = `${data.credentialsError}，请检查存储桶 <b>${this.bucket}</b> 的凭据。`;
     }  else {
       if (data?.provider !== 'gcs') {
-        this.header = `Please provide credentials for bucket <b>${this.bucket}</b>.`;
+        this.header = `请提供存储桶 <b>${this.bucket}</b> 的凭据。`;
       }
     }
     switch (data?.provider) {
       case 'azure':
-        this.title = 'Azure Credentials';
+        this.title = 'Azure 凭据';
         break;
       case 'gcs':
-        this.title = 'GCS Credentials';
+        this.title = 'GCS 凭据';
         break;
       default:
-        this.title = 'S3 Credentials';
+        this.title = 'S3 凭据';
     }
   }
 

@@ -14,7 +14,7 @@ export const routes: Routes = [
     providers: [modelsProviders],
     data: {
       staticBreadcrumb: [[{
-        name: 'Models',
+        name: '模型',
         type: CrumbTypeEnum.Feature
       } as IBreadcrumbsLink]]
     },

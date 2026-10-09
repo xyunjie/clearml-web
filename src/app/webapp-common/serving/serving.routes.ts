@@ -7,7 +7,7 @@ export const routes: Routes = [
     path: '',
     data: {
       staticBreadcrumb: [[{
-        name: 'MODEL ENDPOINTS',
+        name: '模型端点',
         type: CrumbTypeEnum.Feature
       } as IBreadcrumbsLink]]
     },
@@ -28,7 +28,7 @@ export const routes: Routes = [
                 data: {
                   minimized: true,
                   staticBreadcrumb: [[{
-                    name: 'MODEL ENDPOINTS',
+                    name: '模型端点',
                     type: CrumbTypeEnum.Feature
                   } as IBreadcrumbsLink]]
                 }
@@ -39,7 +39,7 @@ export const routes: Routes = [
                 data: {
                   minimized: true,
                   staticBreadcrumb: [[{
-                    name: 'MODEL ENDPOINTS',
+                    name: '模型端点',
                     type: CrumbTypeEnum.Feature
                   } as IBreadcrumbsLink]]
                 }

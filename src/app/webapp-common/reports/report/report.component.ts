@@ -262,7 +262,7 @@ export class ReportComponent implements OnDestroy {
         breadcrumbOptions: {
           showProjects: !!this.report(),
           featureBreadcrumb: {
-            name: 'REPORTS',
+            name: '报告',
             url: this.nested()['reports'] ? 'reports/*/projects' : 'reports',
             linkLast: true
           },

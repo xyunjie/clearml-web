@@ -21,13 +21,16 @@ import { MAT_TOOLTIP_DEFAULT_OPTIONS, MatTooltipDefaultOptions } from '@angular/
 import { RefreshService } from '@common/core/services/refresh.service';
 import { AdminService } from './shared/services/admin.service';
 import { ReportCodeEmbedService } from './shared/services/report-code-embed.service';
-import { DEFAULT_CURRENCY_CODE } from '@angular/core';
-import { APP_BASE_HREF } from '@angular/common';
+import { DEFAULT_CURRENCY_CODE, LOCALE_ID } from '@angular/core';
+import { APP_BASE_HREF, registerLocaleData } from '@angular/common';
+import localeZh from '@angular/common/locales/zh';
 import { MatIconRegistry } from '@angular/material/icon';
 import { Environment } from '../environments/base';
 import {OVERLAY_DEFAULT_CONFIG, OverlayDefaultConfig} from '@angular/cdk/overlay';
 import {WebappInterceptor} from '@common/core/interceptors/webapp-interceptor';
 import {userPrefMetaFactory} from '~/core/core.config';
+
+registerLocaleData(localeZh, 'zh-CN');
 
 export const getAppConfig = (configData: Environment): ApplicationConfig => {
   return {
@@ -86,6 +89,7 @@ export const getAppConfig = (configData: Environment): ApplicationConfig => {
         useFactory: userPrefMetaFactory
       },
       {provide: DEFAULT_CURRENCY_CODE, useValue: 'USD'},
+      {provide: LOCALE_ID, useValue: 'zh-CN'},
     ]
   };
 };

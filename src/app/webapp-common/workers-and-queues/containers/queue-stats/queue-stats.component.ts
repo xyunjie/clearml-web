@@ -12,6 +12,7 @@ import {
   IOption
 } from '@common/shared/ui-components/inputs/select-autocomplete-with-chips/select-autocomplete-with-chips.component';
 import {formatDistance} from 'date-fns'
+import {zhCN} from 'date-fns/locale'
 import {takeUntilDestroyed, toObservable} from '@angular/core/rxjs-interop';
 import {debounceTime, map} from 'rxjs/operators';
 import {LineChartComponent} from '@common/shared/components/charts/line-chart/line-chart.component';
@@ -54,7 +55,7 @@ export class QueueStatsComponent {
   protected refreshChart = computed(() => !(this.queueStats().wait || this.queueStats().length));
   protected statsError = this.store.selectSignal(selectStatsErrorNotice);
 
-  timeFormatter = (value: number) => formatDistance(0, value * 1000, { includeSeconds: true });
+  timeFormatter = (value: number) => formatDistance(0, value * 1000, { includeSeconds: true, locale: zhCN });
 
   constructor() {
     effect(() => {

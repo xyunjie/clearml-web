@@ -147,7 +147,7 @@ export class ControllersComponent extends ExperimentsComponent {
           breadcrumbOptions: {
             showProjects: !!selectedProject,
             featureBreadcrumb: {
-              name: 'PIPELINES',
+              name: '流水线',
               url: this.defaultNestedModeForFeature()['pipelines'] ? 'pipelines/*/projects' : 'pipelines'
             },
             projectsOptions: {

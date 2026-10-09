@@ -67,7 +67,7 @@ export class ProjectsPageComponent implements OnDestroy {
 
   public ALL_EXPERIMENTS_CARD: ProjectsGetAllResponseSingle = {
     id: '*',
-    name: 'All Tasks',
+    name: '全部任务',
     stats: {
       active: {
         status_count: {queued: '∞' as any, in_progress: '∞' as any, published: '∞' as any},
@@ -213,8 +213,8 @@ export class ProjectsPageComponent implements OnDestroy {
     return [{
       ...((selectedProjectId && selectedProject?.id) ? selectedProject : this.ALL_EXPERIMENTS_CARD),
       id: selectedProjectId ? selectedProjectId : '*',
-      name: 'All Tasks',
-      basename: 'All Tasks',
+      name: '全部任务',
+      basename: '全部任务',
       sub_projects: null
     } as ProjectsGetAllResponseSingle];
   }
@@ -231,7 +231,7 @@ export class ProjectsPageComponent implements OnDestroy {
           breadcrumbOptions: {
             showProjects: !!selectedProject,
             featureBreadcrumb: {
-              name: 'PROJECTS',
+              name: '项目',
               url: 'projects',
               queryParamsHandling: 'merge'
             },
@@ -320,7 +320,7 @@ export class ProjectsPageComponent implements OnDestroy {
   }
 
   public projectCardClicked(project: ProjectsGetAllResponseSingle) {
-    const allExperiments = project.name === 'All Tasks';
+    const allExperiments = project.name === '全部任务';
     if (allExperiments) {
       this.store.dispatch(setDeep({deep: true}));
     }

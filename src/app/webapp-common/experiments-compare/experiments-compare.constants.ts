@@ -97,19 +97,19 @@ export const COMPARE_DEBUG_IMAGES_ONLY_FIELDS = [
 export const LIMITED_VIEW_LIMIT = 10;
 
 export const EXPERIMENTS_COMPARE_ROUTES = [
-  {header: 'details'},
-  {header: 'hyperparameters', featureName: 'hyper-params', featureLink: 'hyper-params'},
-  {header: 'scalars'},
-  {header: 'plots', featureName: 'metrics-plots', featureLink: 'metrics-plots'},
-  {header: 'debug samples', featureName: 'debug-images', featureLink: 'debug-images'},
+  {header: 'details', label: '详情'},
+  {header: 'hyperparameters', label: '超参数', featureName: 'hyper-params', featureLink: 'hyper-params'},
+  {header: 'scalars', label: '标量'},
+  {header: 'plots', label: '图表', featureName: 'metrics-plots', featureLink: 'metrics-plots'},
+  {header: 'debug samples', label: '调试样本', featureName: 'debug-images', featureLink: 'debug-images'},
 ] as HeaderNavbarTabConfig[];
 
 
 export const MODELS_COMPARE_ROUTES = [
-  {header: 'details', featureName: 'models-details', featureLink: 'models-details'},
-  {header: 'network'},
-  {header: 'scalars'},
-  {header: 'plots', featureName: 'metrics-plots', featureLink: 'metrics-plots'},
+  {header: 'details', label: '详情', featureName: 'models-details', featureLink: 'models-details'},
+  {header: 'network', label: '网络结构'},
+  {header: 'scalars', label: '标量'},
+  {header: 'plots', label: '图表', featureName: 'metrics-plots', featureLink: 'metrics-plots'},
 ] as HeaderNavbarTabConfig[];
 
 export const HIDDEN_PLOTS_BY_DEFAULT = ['Pipeline - Execution Flow', 'Pipeline Details - Execution Details'];

@@ -3,7 +3,7 @@ import {CrumbTypeEnum} from '@common/layout/breadcrumbs/breadcrumbs.component';
 import {settingsProviders} from '~/features/settings/settings.providers';
 
 const settingsBreadcrumb = {
-  name: 'Settings',
+  name: '设置',
   url: 'settings',
   type: CrumbTypeEnum.Feature
 };
@@ -23,7 +23,7 @@ export const routes: Routes = [
         loadComponent: () => import('./containers/admin/profile-name/profile-name.component').then(m => m.ProfileNameComponent),
         data: {
         staticBreadcrumb:[[settingsBreadcrumb, {
-            name: 'Profile',
+            name: '个人资料',
             type: CrumbTypeEnum.SubFeature
           }]]},
       },
@@ -31,7 +31,7 @@ export const routes: Routes = [
         path: 'webapp-configuration',
         loadComponent: () => import('~/features/settings/containers/webapp-configuration/webapp-configuration.component').then(m => m.WebappConfigurationComponent),
         data: {workspaceNeutral: true, staticBreadcrumb:[[settingsBreadcrumb, {
-            name: 'Configuration',
+            name: '配置',
             type: CrumbTypeEnum.SubFeature
           }]]},
       },
@@ -39,7 +39,7 @@ export const routes: Routes = [
         path: 'workspace-configuration',
         loadComponent: () => import('@common/settings/workspace-configuration/workspace-configuration.component').then(m => m.WorkspaceConfigurationComponent),
         data: {workspaceNeutral: true, staticBreadcrumb:[[settingsBreadcrumb, {
-            name: 'Workspace',
+            name: '工作区',
             type: CrumbTypeEnum.SubFeature
           }]]},
       },
@@ -50,7 +50,7 @@ export const routes: Routes = [
           workspaceNeutral: true,
           route: '/settings/storage-credentials',
           staticBreadcrumb: [[settingsBreadcrumb, {
-            name: 'Storage Cleanup',
+            name: '存储清理',
             type: CrumbTypeEnum.SubFeature
           }]]
         }
