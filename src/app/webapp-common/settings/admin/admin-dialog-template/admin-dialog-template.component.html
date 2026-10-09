@@ -21,7 +21,7 @@
     @if (expirationEnabled()) {
       <div class="cred-row">
         <div class="label">Expiration</div>
-        <div class="value">{{newCredential?.expire ? (newCredential?.expire | date: timeFormatString) : 'Never'}}</div>
+        <div class="value">{{newCredential?.expire ? (newCredential?.expire | date: timeFormatString) : '永不'}}</div>
       </div>
     }
 
@@ -29,7 +29,7 @@
   <div [class.mt-4]="serviceUserMode">
     @if (!serviceUserMode) {
       <mat-tab-group [(selectedIndex)]="selectedIndex" mat-stretch-tabs="false" mat-align-tabs="center">
-        <mat-tab label="LOCAL PYTHON" ></mat-tab>
+        <mat-tab label="本地 Python" ></mat-tab>
         <mat-tab label="JUPYTER NOTEBOOK" ></mat-tab>
       </mat-tab-group>
     }
@@ -131,7 +131,7 @@
 @if (!serviceUserMode && !expirationEnabled()) {
   <form (submit)="onUpdateLabel()">
     <mat-form-field appearance="outline" class="label-input no-bottom">
-      <input matInput [(ngModel)]="label" placeholder="Credentials label" name="credentials" [value]="newCredential?.label || ''">
+      <input matInput [(ngModel)]="label" placeholder="凭据标签" name="credentials" [value]="newCredential?.label || ''">
     </mat-form-field>
     <button mat-stroked-button class="label-button" type="submit" [disabled]="label === newCredential?.label">UPDATE LABEL</button>
   </form>

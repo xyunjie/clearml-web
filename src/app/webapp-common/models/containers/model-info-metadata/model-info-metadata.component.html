@@ -8,7 +8,7 @@
     (saveClicked)="saveFormData()"
     (activateEditClicked)="activateEditChanged('metadata')"
   >
-    <sm-section-header label="Metadata"></sm-section-header>
+    <sm-section-header label="元数据"></sm-section-header>
     @if (inEdit()) {
       <form #container [formGroup]="metadataGroup">
         <div formArrayName="metadata">
@@ -30,7 +30,7 @@
             <div [formGroupName]="$index" class="d-flex align-items-start me-3 mb-2">
               <mat-form-field
                 appearance="outline" class="w-100"
-                [hintLabel]="metadataItem.controls.key.invalid && metadataItem.controls.key.errors?.required ? '*Required': ''"
+                [hintLabel]="metadataItem.controls.key.invalid && metadataItem.controls.key.errors?.required ? '*必填': ''"
               >
                 <input
                   formControlName="key"
@@ -57,7 +57,7 @@
                               appearance="outline" class="strength w-100">
                 <input
                   formControlName="type"
-                  placeholder="Type"
+                  placeholder="类型"
                   data-id="typeField"
                   matInput>
                 @if (metadataItem.controls.type.errors?.required) {
@@ -74,7 +74,7 @@
               <mat-form-field appearance="outline" class="w-100">
                 <input
                   formControlName="value"
-                  placeholder="Value"
+                  placeholder="值"
                   data-id="valueField"
                   matInput>
               </mat-form-field>

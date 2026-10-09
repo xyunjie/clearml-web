@@ -36,15 +36,15 @@
             <mat-form-field appearance="outline" class="no-bottom">
               <input matInput class="form-control" formControlName="Region" placeholder="us-east-2" data-id="regionField"></mat-form-field>
             <mat-form-field appearance="outline" class="no-bottom">
-              <input #endpoint matInput class="form-control" formControlName="Endpoint" placeholder="Leave empty for AWS S3" data-id="hostField">
+              <input #endpoint matInput class="form-control" formControlName="Endpoint" placeholder="AWS S3 请留空" data-id="hostField">
             </mat-form-field>
             <div class="d-flex justify-content-end">
               @if (endpoint.value.startsWith('http://') && secured) {
-                <span class="alert-icon me-2" smTooltip="Embedding images through a non-secure transport (HTTP) in a secure web application might require special configuration of your browser">
+                <span class="alert-icon me-2" smTooltip="在安全的 Web 应用中通过非安全传输（HTTP）嵌入图片，可能需要对浏览器进行特殊配置">
                 <i class="al-icon sm-md al-ico-alert"></i>
               </span>
               }
-              <button mat-icon-button smTooltip="Remove" matTooltipShowDelay="500" (click)="removeBucket($index)" data-id="removeButton">
+              <button mat-icon-button smTooltip="移除" matTooltipShowDelay="500" (click)="removeBucket($index)" data-id="removeButton">
                 <mat-icon fontSet="al" [fontIcon]="ICONS.REMOVE"></mat-icon>
               </button>
             </div>

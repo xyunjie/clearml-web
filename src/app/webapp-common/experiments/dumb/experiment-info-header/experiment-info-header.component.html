@@ -62,7 +62,7 @@
           class="line-item"
           mat-icon-button
           (click)="exportTaskInfo()"
-          smTooltip="Export task information (JSON)"
+          smTooltip="导出任务信息（JSON）"
           data-id="exportTaskButton"
           aria-label="Export task information"
         >
@@ -71,13 +71,13 @@
       }
 
       @if (minimized()) {
-        <button class="line-item" mat-icon-button (click)="maximizedClicked.emit()" smTooltip="View Full Screen" data-id="fullscreenIcon">
+        <button class="line-item" mat-icon-button (click)="maximizedClicked.emit()" smTooltip="全屏查看" data-id="fullscreenIcon">
           <mat-icon fontSet="al" fontIcon="al-ico-info-max"></mat-icon>
         </button>
       }
 
       @if (experiment() && (!minimized()) && !isSharedNotInWorkspaces() && !isPipeline()) {
-        <button class="line-item" mat-icon-button (click)="minimizeClicked.emit()" smTooltip="View in tasks table" data-id="tasksDetailsView">
+        <button class="line-item" mat-icon-button (click)="minimizeClicked.emit()" smTooltip="在任务表格中查看" data-id="tasksDetailsView">
           <mat-icon fontSet="al" fontIcon="al-ico-info-min"></mat-icon>
         </button>
       }

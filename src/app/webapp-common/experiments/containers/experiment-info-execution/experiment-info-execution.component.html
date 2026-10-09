@@ -32,7 +32,7 @@
                              (cancelClicked)="sourceCode.cancel(); cancelFormChange()"
                              (saveClicked)="sourceCode.sourceCodeForm.valid && saveSourceData()"
                              (activateEditClicked)="activateEditChanged('source', sourceSection)">
-          <sm-section-header label="SOURCE CODE"></sm-section-header>
+          <sm-section-header label="源代码"></sm-section-header>
           <sm-experiment-execution-source-code
             #sourceCode
             class="form-section"
@@ -51,7 +51,7 @@
                              (cancelClicked)="cancelFormChange()"
                              (activateEditClicked)="activateEditChanged('diff'); editDiff()">
           @if (minimized) {
-            <sm-section-header label="UNCOMMITTED CHANGES"></sm-section-header>
+            <sm-section-header label="未提交的更改"></sm-section-header>
           }
           <sm-scroll-textarea
             class="form-section"
@@ -90,15 +90,15 @@
             <button
               mat-flat-button extra-buttons class="ms-auto"
               (click)="clearInstalledPackages()"
-              smTooltip="Reset python packages"
+              smTooltip="重置 Python 依赖包"
               data-id="Reset Python Packages"
             >
-              RESET {{ requirementsOptions?.length > 1 ? ' ALL' : '' }}
+              {{ requirementsOptions?.length > 1 ? '全部重置' : '重置' }}
             </button>
           }
           <div class="requirements-header">
             @if (minimized) {
-              <sm-section-header label="PYTHON PACKAGES"></sm-section-header>
+              <sm-section-header label="Python 依赖包"></sm-section-header>
             }
             @if (requirementsOptions?.length > 1) {
               <mat-form-field
@@ -120,7 +120,7 @@
           </div>
           <sm-scroll-textarea
             class="form-section"
-            [emptyMessage]="formData.requirements?.[selectedRequirement] === '' ? 'No packages will be installed' : 'Packages will be installed from repository requirements.txt'"
+            [emptyMessage]="formData.requirements?.[selectedRequirement] === '' ? '不会安装任何依赖包' : '将从仓库的 requirements.txt 安装依赖包'"
             [isInDev]="isInDev()"
             [formData]="formData.requirements?.[selectedRequirement]">
             @if (editableRequirements && formData?.requirements?.pip && editable() && !showExtraDataSpinner()) {
@@ -142,8 +142,8 @@
                              (cancelClicked)="cancelFormChange()"
                              (saveClicked)="saveContainerData({image: containerImage.nativeElement.value, arguments: containerArguments.nativeElement.value})"
                              (activateEditClicked)="activateEditChanged('orchestration', containerSection)">
-          <sm-section-header label="CONTAINER"></sm-section-header>
-          <sm-labeled-row label="IMAGE">
+          <sm-section-header label="容器"></sm-section-header>
+          <sm-labeled-row label="镜像">
             @if (!((editable() && !isInDev()) && containerSection.inEditMode())) {
               <div>{{ formData.container?.image }}</div>
             }
@@ -153,7 +153,7 @@
               </mat-form-field>
             }
           </sm-labeled-row>
-          <sm-labeled-row label="ARGUMENTS"  [labelClass]="'this-is-myclass'">
+          <sm-labeled-row label="参数"  [labelClass]="'this-is-myclass'">
             @if (!((editable() && !isInDev()) && containerSection.inEditMode())) {
               <div>{{ formData.container?.arguments | hideRedactedArguments: (redactedArguments$| ngrxPush) }}</div>
             }
@@ -175,7 +175,7 @@
                              [disableSave]="false"
                              (cancelClicked)="cancelFormChange()"
                              (activateEditClicked)="activateEditChanged('container'); editContainerSetupShellScript(containerSetupShellSection)">
-          <sm-section-header label="SETUP SHELL SCRIPT"></sm-section-header>
+          <sm-section-header label="初始化 Shell 脚本"></sm-section-header>
           <sm-scroll-textarea
             class="form-section"
             [editable]="editable() && containerSetupShellSection.inEditMode()"
@@ -205,8 +205,8 @@
                              (cancelClicked)="cancelFormChange()"
                              (saveClicked)="saveOutputData()"
                              (activateEditClicked)="activateEditChanged('output', outputSection)">
-          <sm-section-header label="OUTPUT"></sm-section-header>
-          <sm-labeled-row label="DESTINATION">
+          <sm-section-header label="输出"></sm-section-header>
+          <sm-labeled-row label="目标位置">
             @if (!((editable() && !isInDev()) && outputSection.inEditMode())) {
               <div>{{ formData.output?.destination }}</div>
             }
@@ -217,7 +217,7 @@
             }
           </sm-labeled-row>
           <!--      Can we remove this non existing input?-->
-          <sm-labeled-row label="LOG LEVEL" >
+          <sm-labeled-row label="日志级别" >
             @if (!((editable() && !isInDev()) && outputSection.inEditMode())) {
               <div>{{ formData.output?.logLevel }}</div>
             }

@@ -55,7 +55,7 @@
     @if (hasLessThanValue) {
       <button mat-icon-button
               (click)="hasLessThanValue ? onResetToDateInput() : onFakeNowCheckbox()"
-              [smTooltip]="hasLessThanValue ? 'Clear' : 'Autofill current time'"
+              [smTooltip]="hasLessThanValue ? '清除' : '填入当前时间'"
       >
         <mat-icon fontSet="al" [fontIcon]="hasLessThanValue ? 'al-ico-dialog-x' : 'al-ico-time'"></mat-icon>
       </button>

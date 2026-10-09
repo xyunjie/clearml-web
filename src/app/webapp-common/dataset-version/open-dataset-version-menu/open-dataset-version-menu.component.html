@@ -24,14 +24,14 @@
           (menuOpened)="tagMenuOpened()"
           (menuClosed)="tagMenuClosed()">
     <mat-icon fontSet="al" [fontIcon]="icons.TAG" data-id="addTagOption"></mat-icon>
-    <span>{{selectedDisableAvailable()[menuItems.tags]?.available | menuItemText : 'Add Tag' : selectedDisableAvailableIsMultiple() }}</span>
+    <span>{{selectedDisableAvailable()[menuItems.tags]?.available | menuItemText : '添加标签' : selectedDisableAvailableIsMultiple() }}</span>
   </button>
   <button
     mat-menu-item
     (click)="publishPopup()" data-id="Publish Option"
     [disabled]="selectedDisableAvailable()[menuItems.publish]?.disable">
     <mat-icon fontSet="al" [fontIcon]="icons.PUBLISHED"></mat-icon>
-    <span>{{selectedDisableAvailable()[menuItems.publish]?.available | menuItemText : 'Publish' : selectedDisableAvailableIsMultiple() }}</span>
+    <span>{{selectedDisableAvailable()[menuItems.publish]?.available | menuItemText : '发布' : selectedDisableAvailableIsMultiple() }}</span>
   </button>
 <!--  <button mat-menu-item (click)="renamePopup()" data-id="renameOption">-->
 <!--    <mat-icon fontSet="al" [fontIcon]="icons.EDIT"></mat-icon>Rename-->
@@ -48,14 +48,14 @@
   <button mat-menu-item (click)="restoreArchive(entityTypeEnum.dataset)" data-id="archiveOption"
           [disabled]="selectedDisableAvailable()[menuItems.archive]?.disable">
     <mat-icon fontSet="al" [fontIcon]="isArchive() ? icons.RESTORE : icons.ARCHIVE"></mat-icon>
-    {{selectedDisableAvailable()[menuItems.archive]?.available | menuItemText : isArchive() ? 'Restore from Archive' : 'Archive' : selectedDisableAvailableIsMultiple()}}
+    {{selectedDisableAvailable()[menuItems.archive]?.available | menuItemText : isArchive() ? '从归档中恢复' : '归档' : selectedDisableAvailableIsMultiple()}}
   </button>
 
   @if (isArchive()) {
     <button mat-menu-item (click)="deleteExperimentPopup(entityTypeEnum.dataset, true)"
             [disabled]="selectedDisableAvailable()[menuItems.delete]?.disable">
       <mat-icon fontSet="al" [fontIcon]="icons.REMOVE" data-id="deleteOption"></mat-icon>
-      {{selectedDisableAvailable()[menuItems.delete]?.available | menuItemText : 'Delete' : selectedDisableAvailableIsMultiple()}}
+      {{selectedDisableAvailable()[menuItems.delete]?.available | menuItemText : '删除' : selectedDisableAvailableIsMultiple()}}
     </button>
   }
 </mat-menu>

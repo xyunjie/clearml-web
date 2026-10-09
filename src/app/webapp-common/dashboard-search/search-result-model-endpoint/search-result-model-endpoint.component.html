@@ -12,7 +12,7 @@
           <span class="dot">●</span>
           <span title="更新时间" class="sub-item">{{ entity().last_update | timeAgo }}</span>
           <span class="dot">●</span>
-          <span [title]="entity().url? 'URL':'PREPROCESS ARTIFACT'" class="sub-item">{{ entity().url || entity().preprocess_artifact }}</span>
+          <span [title]="entity().url? 'URL':'预处理产物'" class="sub-item">{{ entity().url || entity().preprocess_artifact }}</span>
         </span>
   </ng-container>
 </sm-result-line>

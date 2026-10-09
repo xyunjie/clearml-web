@@ -3,8 +3,8 @@
 @let configurationObjectName = selectedConfigObj$ | ngrxPush;
 <sm-editable-section [editable]="false">
   <sm-section-header [label]="configurationObjectName | replaceViaMapPipe: sectionReplaceMap | uppercase"></sm-section-header>
-  <sm-labeled-row label="TYPE">{{ formData?.type === 'legacy' ? '' : formData?.type }}</sm-labeled-row>
-  <sm-labeled-row label="DESCRIPTION">{{ formData?.description }}</sm-labeled-row>
+  <sm-labeled-row label="类型">{{ formData?.type === 'legacy' ? '' : formData?.type }}</sm-labeled-row>
+  <sm-labeled-row label="描述">{{ formData?.description }}</sm-labeled-row>
 </sm-editable-section>
 
 <!-- **************** CONFIGURATION OBJECT **************** -->
@@ -16,7 +16,7 @@
                      [disableEditable]="!(editable && !formData?.value)"
                      (cancelClicked)="cancelModelChange()"
                      (activateEditClicked)="activateEditChanged('prototext'); editPrototext()">
-  <sm-section-header label="CONFIGURATION OBJECT"></sm-section-header>
+  <sm-section-header label="配置对象"></sm-section-header>
   <sm-scroll-textarea
     class="flex-grow-1"
     [editable]="editable && prototext.inEditMode()"

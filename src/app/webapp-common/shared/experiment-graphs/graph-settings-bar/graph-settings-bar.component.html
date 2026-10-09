@@ -102,7 +102,7 @@
   @if (clearable() !== null) {
     <div class="reset-button me-auto mt-2"
          [class.divider]="verticalLayout()"
-         smTooltip="Apply as default scalar view configuration for this project">
+         smTooltip="应用为此项目的默认标量视图配置">
       <button mat-button
               [disabled]="!clearable()"
               (click)="setToProjectLevel()"

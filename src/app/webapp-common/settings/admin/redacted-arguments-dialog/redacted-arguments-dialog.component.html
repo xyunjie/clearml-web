@@ -1,4 +1,4 @@
-<sm-dialog-template header="REDACTED ARGUMENTS" iconClass="al-ico-access-key">
+<sm-dialog-template header="隐藏的参数" iconClass="al-ico-access-key">
   <div class="form-container">
     @for (control of argumentsArray.controls; track control; let i = $index) {
       <div class="d-flex align-items-center" >
@@ -10,7 +10,7 @@
             matInput
             [formControl]="control"
             [autocomplete]="'off'"
-            placeholder="Argument"
+            placeholder="参数"
             data-id="redactedArgumentField">
         </mat-form-field>
         <button mat-icon-button (click)="removeArgument(i)" data-id="redactedArgumentDeleteButton">

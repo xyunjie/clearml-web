@@ -3,7 +3,7 @@
   [isExample]="!['全部任务'].includes(project.name) && !isRootProject && (!project.company || ! project.company.id)"
   [showFolder]="false"
   [oneTabMode]="true"
-  [subFolderTitle]="project?.sub_projects?.length + ' sub projects'"
+  [subFolderTitle]="project?.sub_projects?.length + ' 个子项目'"
   >
   <div header-content [class.rename-state]="editName.active()">
     <div class="d-flex justify-content-between align-items-center card-name">

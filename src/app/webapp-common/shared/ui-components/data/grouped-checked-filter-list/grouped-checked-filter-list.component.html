@@ -31,7 +31,7 @@
         @for (item of category.value; track item.value) {
           <div class="item pointer"
                [class.disabled]="selectionLimitReached() && !item.checked"
-               [smTooltip]="!item.checked && selectionLimitReached()? 'You can only select up to ' + limitSelection() + ' parameters' : ''"
+               [smTooltip]="!item.checked && selectionLimitReached()? '最多只能选择 ' + limitSelection() + ' 个参数' : ''"
                customClass="parameter-tooltip"
                (click)="(!selectionLimitReached() || item.checked) && toggleParamToDisplay(category.key, item.value, item.checked)">
             <mat-checkbox data-id="selectParametersCheckbox" smClickStopPropagation [checked]="item.checked" (change)="(!selectionLimitReached() || item.checked) && toggleParamToDisplay(category.key, item.value, item.checked)">

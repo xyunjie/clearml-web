@@ -4,7 +4,7 @@
       @for (parameter of form(); track parameter.id) {
         <div class="w-100 d-flex pe-2 align-items-start">
           <mat-form-field
-            [hintLabel]="parameterKey.invalid && parameterKey?.errors?.required? '*Required': ''"
+            [hintLabel]="parameterKey.invalid && parameterKey?.errors?.required? '*必填': ''"
             appearance="outline"
             class="strength">
             <input
@@ -12,7 +12,7 @@
               #row="matInput"
               [(ngModel)]="parameter['name']"
               (keydown.enter)="nextRow($event, $index)"
-              placeholder="Parameter"
+              placeholder="参数"
               data-id="parameterField"
               name="parameterKey-{{parameter.id}}"
               matInput
@@ -42,7 +42,7 @@
               [(ngModel)]="parameter['value']"
               (keydown.enter)="nextRow($event, $index)"
               name="parameterValue-{{parameter.id}}"
-              placeholder="Value"
+              placeholder="值"
               data-id="valueField"
               [class.highlight-text]="(searchedText()?.length > 0) && parameter['value'].includes(searchedText())"
               [class.current-match]="searchIndexList[matchIndex]?.index === $index && searchIndexList[matchIndex]?.col==='value'"
@@ -93,7 +93,7 @@
                 mat-icon-button
                 class="allow-multi-space sm"
                 customClass="hyper-parameters-tooltip"
-                smTooltip="{{(row.type ? ('Type: '+ row.type+'\n') : '') + (row?.description|| '')}}"
+                smTooltip="{{(row.type ? ('类型：'+ row.type+'\n') : '') + (row?.description|| '')}}"
                 matTooltipPosition="before"
               >
                 <mat-icon fontSet="al" fontIcon="al-ico-description"></mat-icon>

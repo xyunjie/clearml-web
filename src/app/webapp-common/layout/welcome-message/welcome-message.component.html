@@ -1,6 +1,6 @@
 <sm-dialog-template [displayX]="true"
-  [header]="queue? 'NO WORKERS ASSIGNED TO QUEUE': (step() === 1 ? 'Welcome to ClearML' : (showTabs? 'CREATE NEW TASK' : 'GETTING STARTED'))"
-  [subHeader]="showTabs ? 'To create a new task you can either run your ML code instrumented with the ClearML SDK, or relaunch a previously run task by cloning it.' : ''"
+  [header]="queue? '队列未分配工作节点': (step() === 1 ? '欢迎使用 ClearML' : (showTabs? '新建任务' : '快速开始'))"
+  [subHeader]="showTabs ? '要创建新任务，可以运行接入了 ClearML SDK 的机器学习代码，也可以克隆之前运行过的任务重新启动。' : ''"
   (xClicked)="closeDialog()" [closeOnX]="false"
   [iconClass]="queue?'al-ico-queues': 'i-welcome-researcher'" xmlns="http://www.w3.org/1999/html">
 
@@ -66,11 +66,11 @@
           <div class="step">{{step.title}}</div>
           @if (step.title==='2. Configure') {
             <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" [(selectedIndex)]="target">
-              <mat-tab label="LOCAL PYTHON" data-id="LocalPythonTab"></mat-tab>
+              <mat-tab label="本地 Python" data-id="LocalPythonTab"></mat-tab>
               <mat-tab label="JUPYTER NOTEBOOK" data-id="JupyterNotebookTab"></mat-tab>
             </mat-tab-group>
           }
-          <div class="sub-note mt-2 mb-2">{{isJupyter() ? 'Set the ClearML environment for your notebook':'Run the ClearML setup script'}}</div>
+          <div class="sub-note mt-2 mb-2">{{isJupyter() ? '为你的 notebook 设置 ClearML 环境':'运行 ClearML 安装脚本'}}</div>
           <div class="code">
             <div class="content" #stepCode>{{step.code}}</div>
             <sm-copy-clipboard

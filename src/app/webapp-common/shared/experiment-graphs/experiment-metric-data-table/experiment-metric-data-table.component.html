@@ -52,7 +52,7 @@
               >
                 <mat-icon fontSet="al"
                   [fontIcon]="dataTable()?.length > dataTableFiltered()?.length ? 'al-ico-filter-on' : 'al-ico-filter-off'"
-                  [smTooltip]="dataTableFiltered()?.length + '/' + dataTable()?.length + ' filtered'"
+                  [smTooltip]="dataTableFiltered()?.length + '/' + dataTable()?.length + ' 已筛选'"
                   [matTooltipDisabled]="dataTableFiltered()?.length === dataTable()?.length"
                   [showTooltip]="showFilterTooltip"
                 >
@@ -64,7 +64,7 @@
                   #filterRef
                   name="filter"
                   [formControl]="variantFilter"
-                  placeholder="Search metric"
+                  placeholder="搜索指标"
                   matInput
                   autocomplete="off">
                 @if (variantFilter.value) {
@@ -102,7 +102,7 @@
               @if (metricVariant.min === metricVariant.max) {
                 <i
                   class="al-icon al-ico-equal-outline sm row-info-icon"
-                smTooltip="All values are the same in this row"></i>
+                smTooltip="此行中所有值都相同"></i>
               }
             </div>
           </td>

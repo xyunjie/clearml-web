@@ -1,11 +1,11 @@
 <mat-expansion-panel [expanded]="true" (transitionend)="$event.stopPropagation()">
   <mat-expansion-panel-header>
     <mat-panel-title data-id="expandInfoPanel" class="expand-header">
-      {{ controller() ? 'RUN INFO' : stepWithStatus()?.data?.isStage ? 'STAGE INFO' : 'STEP INFO' }}
+      {{ controller() ? '运行信息' : stepWithStatus()?.data?.isStage ? '阶段信息' : '步骤信息' }}
     </mat-panel-title>
     @if (entity()?.id) {
       <button mat-icon-button
-              [smTooltip]="controller() ? 'Export pipeline information (JSON)' : 'Export step information (JSON)'"
+              [smTooltip]="controller() ? '导出流水线信息（JSON）' : '导出步骤信息（JSON）'"
               (click)="$event.stopPropagation();exportPipelineInfo()"
               data-id="exportInfo"
               class="sm me-3">

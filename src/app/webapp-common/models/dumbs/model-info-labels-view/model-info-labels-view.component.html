@@ -7,7 +7,7 @@
   (saveClicked)="saveClicked()"
   (cancelClicked)="cancelEdit()"
 >
-  <sm-section-header label="LABELS"></sm-section-header>
+  <sm-section-header label="标签"></sm-section-header>
     @if (editable) {
       <form
         #labelsForm="ngForm"
@@ -41,7 +41,7 @@
                   Label must be unique.
                 </span>
               }
-              <mat-form-field [hintLabel]="parameterKey.invalid && parameterKey?.errors?.required? '*Required': ''" appearance="outline" class="w-100">
+              <mat-form-field [hintLabel]="parameterKey.invalid && parameterKey?.errors?.required? '*必填': ''" appearance="outline" class="w-100">
                 <input #parameterKey="ngModel"
                        [(ngModel)]="parameter.id"
                        type="number"

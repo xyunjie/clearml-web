@@ -67,7 +67,7 @@
     @if ((globalLegendData$ | ngrxPush)?.length > 1) {
       <button mat-menu-item (click)="toggleArchive(selectedTask)">
         <mat-icon fontSet="al" [fontIcon]="isArchived(selectedTask) ? icons.RESTORE : icons.ARCHIVE"></mat-icon>
-        <span>{{ isArchived(selectedTask) ? 'Restore from Archive' : 'Archive' }}</span>
+        <span>{{ isArchived(selectedTask) ? '从归档中恢复' : '归档' }}</span>
       </button>
       <mat-divider></mat-divider>
       <button mat-menu-item (click)="removeExperiment(selectedTask)">

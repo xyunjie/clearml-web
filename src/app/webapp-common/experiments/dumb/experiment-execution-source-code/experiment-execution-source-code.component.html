@@ -1,6 +1,6 @@
 <form [formGroup]="sourceCodeForm">
   <div [class.source-code-container]="editable()">
-    <sm-labeled-row label="REPOSITORY">
+    <sm-labeled-row label="仓库">
       @if (!editable()) {
         @if (repoData().targetUrl) {
           <a [href]="repoData().targetUrl" target="_blank" class="d-inline-flex ">
@@ -17,7 +17,7 @@
         </mat-form-field>
       }
     </sm-labeled-row>
-    <sm-labeled-row [label]="editable() ? 'COMMIT' : (sourceCodeForm.controls.scriptType.value | replaceViaMapPipe: flagNameMap)">
+    <sm-labeled-row [label]="editable() ? '提交' : (sourceCodeForm.controls.scriptType.value | replaceViaMapPipe: flagNameMap)">
       @if (!editable()) {
         <div>
           <div>
@@ -85,7 +85,7 @@
         </div>
       }
     </sm-labeled-row>
-    <sm-labeled-row label="SCRIPT PATH">
+    <sm-labeled-row label="脚本路径">
       @if (!editable()) {
         <div>{{sourceCodeForm.controls.entry_point.value}}</div>
       } @else {
@@ -94,7 +94,7 @@
         </mat-form-field>
       }
     </sm-labeled-row>
-    <sm-labeled-row label="WORKING DIRECTORY">
+    <sm-labeled-row label="工作目录">
       @if (!editable()) {
         <div>{{sourceCodeForm.controls.working_dir.value}}</div>
       }
@@ -104,14 +104,14 @@
         </mat-form-field>
       }
     </sm-labeled-row>
-    <sm-labeled-row label="BINARY">
+    <sm-labeled-row label="可执行程序">
       @if (!editable()) {
         <div class="d-flex align-items-center">
           {{sourceCodeForm.controls.binary.value}}
           @if (sourceCodeForm.controls.binary.value && !(sourceCodeForm.controls.binary.value.substring(sourceCodeForm.controls.binary.value.lastIndexOf('/')+1)).match(binaryValidationRegexp)) {
             <i
               class="al-icon al-ico-alert-outline sm ms-2"
-              smTooltip="This binary is not supported by ClearML agent - System python will be used for execution"
+              smTooltip="ClearML Agent 不支持此可执行程序，将使用系统 Python 执行"
             ></i>
           }
         </div>

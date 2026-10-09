@@ -8,7 +8,7 @@
             <button
               mat-stroked-button
               class="btn-expand-view me-2 icon-only"
-              [smTooltip]="isExpand() ? 'Minimize view' : 'Expand view'"
+              [smTooltip]="isExpand() ? '缩小视图' : '展开视图'"
               matTooltipPosition="below"
               data-id="expandMinimizeButton"
               (click)="expandClicked()"
@@ -24,7 +24,7 @@
       </div>
       @if (editMode) {
         <button mat-button class="preview-toggle" (click)="togglePreview()">
-          {{ editorVisible() ? 'EDIT' : 'PREVIEW' }}
+          {{ editorVisible() ? '编辑' : '预览' }}
         </button>
       }
       @if (editMode && !editorVisible()) {
@@ -79,7 +79,7 @@
               [matMenuTriggerFor]="imageActions"
               (menuOpened)="imageMenuOpened.emit(getData())"
               type="button"
-              smTooltip="Image resources"
+              smTooltip="图片资源"
               class="btn-upload-image"
               data-id="imageResourcesButton"
             >
@@ -91,7 +91,7 @@
         </md-editor>
       </div>
       <div class="md-footer">
-        <button mat-icon-button class="help" data-id="markdownCheatSheetButton" (click)="openMDCCheatSheet()" smTooltip="Markdown cheat sheet">
+        <button mat-icon-button class="help" data-id="markdownCheatSheetButton" (click)="openMDCCheatSheet()" smTooltip="Markdown 速查表">
           <mat-icon fontSet="al" fontIcon="al-ico-markdown"></mat-icon>
         </button>
         <div [class]="(editMode && isDirty() ? 'active' : '') + ' md-warning'">

@@ -70,7 +70,7 @@
             </mat-option>
           }
           <mat-option value="graph" class="compare-mat-option">
-            <mat-icon fontSet="al" fontIcon="al-ico-charts-view" class="me-2"></mat-icon>{{ currentPage === 'hyper-params' ? 'Parallel Coordinates' : 'Graph' }}
+            <mat-icon fontSet="al" fontIcon="al-ico-charts-view" class="me-2"></mat-icon>{{ currentPage === 'hyper-params' ? '平行坐标图' : '图表' }}
           </mat-option>
           @if (currentPage === 'hyper-params') {
             <mat-option value="scatter" class="compare-mat-option">
@@ -86,7 +86,7 @@
     @if (['hyper-params', 'details', 'models-details', 'network'].includes(currentPage)) {
       <mat-slide-toggle
         (change)="hideIdenticalFieldsToggled($event)"
-        [checked]="selectHideIdenticalFields$ | ngrxPush">Hide Identical {{ (viewMode === 'graph' || viewMode === 'scatter') ? 'Parameters' : 'Fields' }}
+        [checked]="selectHideIdenticalFields$ | ngrxPush">隐藏相同的{{ (viewMode === 'graph' || viewMode === 'scatter') ? '参数' : '字段' }}
       </mat-slide-toggle>
     }
 
@@ -106,7 +106,7 @@
       <button
       mat-icon-button
         (click)="exportCSV()"
-        smTooltip="Export to CSV">
+        smTooltip="导出为 CSV">
         <mat-icon fontSet="al" fontIcon="al-ico-download"></mat-icon>
       </button>
     }

@@ -3,7 +3,7 @@
   [isExample]="!['全部任务'].includes(projectClean().name) && !isRootProject() && (!projectClean().company || ! projectClean().company.id)"
   [showFolder]="true"
   [oneTabMode]="!(projectClean()?.sub_projects?.length>0)"
-  [subFolderTitle]="projectClean()?.sub_projects?.length + ' sub projects'"
+  [subFolderTitle]="projectClean()?.sub_projects?.length + ' 个子项目'"
   data-id="projectCard"
   >
   <div secondTab class="sub-projects-list">
