@@ -42,11 +42,11 @@
 <ng-template #cardContent let-project>
   <sm-circle-counter
     [counter]="project.stats?.active?.total_tasks ?? '0'"
-    label="REPORTS"
+    label="报告"
     [type]="circleTypeEnum.empty"></sm-circle-counter>
   <sm-circle-counter
     [counter]="project.stats?.active?.status_count?.published ?? '0'"
-    label="PUBLISHED"
+    label="已发布"
     [type]="project.stats?.active?.status_count?.published ===0 ? circleTypeEnum.empty :
             circleTypeEnum.published"
   ></sm-circle-counter>

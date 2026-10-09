@@ -8,18 +8,18 @@
   >
     @if (queuesManager) {
       <sm-menu-item
-        itemLabel="Delete"
+        itemLabel="删除"
         [disabled]="selectedQueue()?.entries_count > 0"
         (itemClicked)="deleteQueue.emit(selectedQueue())"
       ></sm-menu-item>
       <sm-menu-item
-        itemLabel="Update"
+        itemLabel="更新"
         [disabled]="!!selectedQueue().profile_connection"
         (itemClicked)="renameQueue.emit(selectedQueue())"
       ></sm-menu-item>
     }
     <sm-menu-item
-      itemLabel="Clear"
+      itemLabel="清空"
       (itemClicked)="clearQueue.emit(selectedQueue())"
       [disabled]="selectedQueue()?.entries_count === 0"
     ></sm-menu-item>

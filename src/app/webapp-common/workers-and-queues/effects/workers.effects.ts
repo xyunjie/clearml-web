@@ -144,8 +144,8 @@ export class WorkersEffects {
               result = addStats(currentStats, statsData, action.maxPoints,
                 [{key: 'active'}, {key: 'total'}], 'activity',
                 {
-                  total: {title: 'Total Workers', multiply: 1},
-                  active: {title: 'Active Workers', multiply: 1}
+                  total: {title: '工作节点总数', multiply: 1},
+                  active: {title: '活跃工作节点数', multiply: 1}
                 });
             }
             return [workersActions.setStats({data: result}), hideNoStatsNotice()];

@@ -93,11 +93,11 @@ export class QueuesEffect {
         ConfirmDialogComponent,
         {
           data: {
-            title: 'Delete Queue',
-            body: `Are you sure you would like to delete the "<b>${htmlTextShort(action.queue.caption)}</b>" queue?`,
+            title: '删除队列',
+            body: `确定要删除队列“<b>${htmlTextShort(action.queue.caption)}</b>”吗？`,
             centerText: true,
-            yes: 'Delete',
-            no: 'Cancel',
+            yes: '删除',
+            no: '取消',
             iconClass: 'al-ico-trash'
           },
           panelClass: 'dialog-md'
@@ -284,9 +284,9 @@ export class QueuesEffect {
             }];
             newStats = {
               wait: addStats(currentStats.wait, waitData, action.maxPoints,
-                [{key: 'queueAvgWait'}], 'wait', {queueAvgWait: {title: 'Queue Average Wait Time', multiply: 1}}),
+                [{key: 'queueAvgWait'}], 'wait', {queueAvgWait: {title: '队列平均等待时间', multiply: 1}}),
               length: addStats(currentStats.length, lenData, action.maxPoints,
-                [{key: 'queueLen'}], 'length', {queueLen: {title: 'Queues Average Length', multiply: 1}})
+                [{key: 'queueLen'}], 'length', {queueLen: {title: '队列平均长度', multiply: 1}})
             };
             if (Array.isArray(newStats.wait) && newStats.wait.some(topic => topic.dates.length > 0)) {
               addFullRangeMarkers(newStats.wait, now - range, now);

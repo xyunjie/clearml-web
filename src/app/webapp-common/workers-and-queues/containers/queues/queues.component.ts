@@ -115,10 +115,10 @@ export class QueuesComponent {
   clearQueue(queue: Queue) {
     this.dialog.open<ConfirmDialogComponent, ConfirmDialogConfig, boolean>(ConfirmDialogComponent, {
       data: {
-        title: 'Clear all pending tasks',
-        body: `Are you sure you want to dequeue the ${queue.entries_count} task${queue.entries_count > 1 ? 's' : ''} currently pending on the <b>${htmlTextShort(queue.caption, 200)}</b> queue?`,
-        yes: 'Clear Queue',
-        no: 'Cancel',
+        title: '清空所有排队任务',
+        body: `确定要将 <b>${htmlTextShort(queue.caption, 200)}</b> 队列中当前排队的 ${queue.entries_count} 个任务出队吗？`,
+        yes: '清空队列',
+        no: '取消',
         iconClass: 'al-ico-alert',
         iconColor: 'var(--color-warning)'
       },

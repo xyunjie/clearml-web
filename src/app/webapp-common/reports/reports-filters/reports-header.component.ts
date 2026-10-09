@@ -41,7 +41,7 @@ export class ReportsHeaderComponent {
   sortByField = input<string>();
 
   sortByTitle = computed(() => this.sortByField().includes('name') ? 'NAME' : 'RECENT');
-  readonly reportsStatusOptions: IOption[] = [{label: 'Draft', value: 'created'},{label: 'Published', value: 'published'}]
+  readonly reportsStatusOptions: IOption[] = [{label: '草稿', value: 'created'},{label: '已发布', value: 'published'}]
 
   reportsFilterChanged = output<string>();
   orderByChanged = output<string>();

@@ -96,10 +96,10 @@ export class WorkersStatsComponent {
 
   timeFrameOptions = timeFrameOptions;
   public chartParamOptions: IOption[] = [
-    {label: 'CPU and GPU Usage', value: 'cpu_usage;gpu_usage'},
-    {label: 'Memory Usage', value: 'memory_used'},
-    {label: 'GPU Memory', value: 'gpu_memory_used'},
-    {label: 'Network Usage', value: 'network_rx;network_tx'}
+    {label: 'CPU 与 GPU 使用率', value: 'cpu_usage;gpu_usage'},
+    {label: '内存使用', value: 'memory_used'},
+    {label: 'GPU 显存', value: 'gpu_memory_used'},
+    {label: '网络使用', value: 'network_rx;network_tx'}
     //    {label: 'Frames Processed', value: 'frames'},
   ];
 

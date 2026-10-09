@@ -384,10 +384,10 @@ export class ReportsEffects {
       ConfirmDialogComponent,
       {
         data: {
-          title: 'DELETE',
-          body: '<p class="text-center">Permanently Delete Report</p>',
-          yes: 'DELETE',
-          no: 'Cancel',
+          title: '删除',
+          body: '<p class="text-center">永久删除报告</p>',
+          yes: '删除',
+          no: '取消',
           iconClass: 'al-ico-trash',
           width: 430
         }

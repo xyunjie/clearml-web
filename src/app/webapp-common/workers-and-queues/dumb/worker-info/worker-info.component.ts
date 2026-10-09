@@ -41,8 +41,8 @@ export class WorkerInfoComponent {
   deselectWorker = output();
 
   public readonly cols     = [
-    {header: 'QUEUE', class: ''},
-    {header: 'NEXT TASK', class: ''},
-    {header: 'IN QUEUE', class: ''},
+    {header: '队列', class: ''},
+    {header: '下一个任务', class: ''},
+    {header: '排队数', class: ''},
   ];
 }
