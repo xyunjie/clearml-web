@@ -46,6 +46,10 @@ import {MatIconButton} from '@angular/material/button';
   ]
 })
 export class PipelineInfoComponent {
+  protected readonly stepStatusLabels: Record<string, string> = {
+    queued: '排队中', pending: '等待中', skipped: '已跳过', executed: '已执行', cached: '已缓存',
+    running: '运行中', failed: '失败', aborted: '已中止', completed: '已完成'
+  };
       private store = inject(Store);
   public fileSizeConfigStorage = fileSizeConfigStorage;
 

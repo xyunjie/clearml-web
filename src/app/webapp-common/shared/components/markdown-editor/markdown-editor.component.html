@@ -17,7 +17,7 @@
             </button>
           }
           @if (!readOnly()) {
-            <button mat-stroked-button class="outline" data-id="editReportButton" (click)="editClicked()">EDIT</button>
+            <button mat-stroked-button class="outline" data-id="editReportButton" (click)="editClicked()">编辑</button>
           }
         </div>
         }
@@ -28,7 +28,7 @@
         </button>
       }
       @if (editMode && !editorVisible()) {
-        <span class="preview-header">PREVIEW</span>
+        <span class="preview-header">预览</span>
       }
       <md-editor #editorComponent
         name="Content"
@@ -53,7 +53,7 @@
               >
               <button mat-menu-item class="action" data-id="uploadImageButton" (click)="imgInput.click()">
                 <mat-icon fontSet="al" fontIcon="al-ico-upload"></mat-icon>
-                Upload Image
+                上传图片
               </button>
               <hr class="dark"/>
               @if (resources()?.length > 0) {
@@ -71,7 +71,7 @@
                   </button>
                 }
               } @else {
-                <div class="action src-empty">No uploads yet</div>
+                <div class="action src-empty">尚无上传</div>
               }
             </mat-menu>
             <button
@@ -96,16 +96,16 @@
         </button>
         <div [class]="(editMode && isDirty() ? 'active' : '') + ' md-warning'">
           @if (duplicateNames()) {
-            <span>* You have duplicate names on different iframes</span>
+            <span>* 不同的 iframe 中存在重复名称</span>
           }
           @if (!duplicateNames()) {
-            <span>* You have unsaved changes</span>
+            <span>* 有未保存的更改</span>
           }
         </div>
         @if (editMode) {
           <div class="right-buttons">
-            <button mat-stroked-button data-id="cancelEditReportButton" (click)="cancelClicked()">CANCEL</button>
-            <button mat-flat-button [disabled]="!isDirty() || duplicateNames()" data-id="saveEditReportButton" (click)="save()">SAVE</button>
+            <button mat-stroked-button data-id="cancelEditReportButton" (click)="cancelClicked()">取消</button>
+            <button mat-flat-button [disabled]="!isDirty() || duplicateNames()" data-id="saveEditReportButton" (click)="save()">保存</button>
           </div>
         }
       </div>

@@ -32,7 +32,7 @@
               <div class="status"
                    [style.--status-color]="'var(--color-' + stepWithStatus().data.status + '-container)'"
                    data-id="infoStepStatus"
-              >{{ stepWithStatus().data.status }}
+              >{{ stepStatusLabels[stepWithStatus().data.status] ?? stepWithStatus().data.status }}
               </div>
               <sm-id-badge class="ms-1" [id]="stepWithStatus().data.job_id" (copied)="copyToClipboard()"></sm-id-badge>
             </div>
@@ -47,7 +47,7 @@
       }
       @if (!stepWithStatus() || stepWithStatus().data.job_id === entity()?.id && !stepWithStatus().data.isStage) {
         <div class="section">
-          <div class="header">PARAMETERS</div>
+          <div class="header">参数</div>
           @for (section of (entity()?.type === 'controller' ? {'Args': {}} : entity()?.hyperparams) | keyvalue; track section) {
             @for (param of entity()?.hyperparams[section.key]  | keyvalue | filterRegex: '^(?!_).+$'; track param) {
               <div class="param">
@@ -72,7 +72,7 @@
           }
         </div>
         <div class="section">
-          <div class="header">METRICS</div>
+          <div class="header">指标</div>
           @if ((entity()?.last_metrics | keyvalue)?.length > 0) {
             @for (metric of entity().last_metrics | keyvalue; track metric) {
               @for (variant of $any($any(metric.value) | keyvalue) | filterMonitorMetric; track variant) {
@@ -83,11 +83,11 @@
               }
             }
           } @else {
-            <div class="empty-msg" data-id="emptyMsg">No data to show</div>
+            <div class="empty-msg" data-id="emptyMsg">暂无数据</div>
           }
         </div>
         <div class="section">
-          <div class="header">ARTIFACTS</div>
+          <div class="header">产物</div>
           @if (entity()?.execution?.artifacts?.length > 0) {
             @for (artifact of entity().execution.artifacts; track artifact.hash || artifact.uri) {
               <div
@@ -98,11 +98,11 @@
               </div>
             }
           } @else {
-            <div class="empty-msg" data-id="emptyMsg">No data to show</div>
+            <div class="empty-msg" data-id="emptyMsg">暂无数据</div>
           }
         </div>
         <div class="section">
-          <div class="header">MODELS</div>
+          <div class="header">模型</div>
           @if (entity()?.models?.output?.length > 0) {
             @for (model of entity().models?.output; track model) {
               <div class="param">
@@ -112,29 +112,29 @@
               </div>
             }
           } @else {
-            <div class="empty-msg" data-id="emptyMsg">No data to show</div>
+            <div class="empty-msg" data-id="emptyMsg">暂无数据</div>
           }
         </div>
       }
       @if (stepWithStatus()?.data?.isStage) {
         <div class="section">
-          <div class="header">Step count by status</div>
+          <div class="header">各状态步骤数</div>
           @for (status of stepWithStatus().data.statusCount | keyvalue; track $index) {
             @if (status.value > 0) {
               <div class="param">
-                <span class="key">{{ status.key | titlecase }}:</span><span class="value">{{ status.value }}</span>
+                <span class="key">{{ stepStatusLabels[status.key] ?? (status.key | titlecase) }}：</span><span class="value">{{ status.value }}</span>
               </div>
             }
           }
         </div>
         @if (stepWithStatus().data.computingTime > 0) {
           <div class="section">
-            <div class="header">Steps computing time: {{ stepWithStatus().data.computingTime | duration }}</div>
+            <div class="header">步骤计算时长：{{ stepWithStatus().data.computingTime | duration }}</div>
           </div>
         }
       }
       <ng-template #emptyMsg>
-        <div class="empty-msg" data-id="emptyMsg">No data to show</div>
+        <div class="empty-msg" data-id="emptyMsg">暂无数据</div>
       </ng-template>
     </div>
   }
@@ -144,7 +144,7 @@
         class="arr-link"
         target="_blank"
         [href]="'/projects/' + project() + '/tasks/' + entity()?.id + '/output/execution'">
-        Full details<i class="al-icon al-ico-link-arrow sm" data-id="fullDetailsArrow"></i>
+        完整详情<i class="al-icon al-ico-link-arrow sm" data-id="fullDetailsArrow"></i>
       </a>
     </footer>
   }

@@ -3,7 +3,7 @@
     <button (click)="goBackToStagesMode()" mat-icon-button>
       <mat-icon fontSet="al" fontIcon="al-ico-arrow-left"></mat-icon>
     </button>
-    Stage details: {{ focusOnStageId() }}
+    阶段详情：{{ focusOnStageId() }}
   </div>
 }
 <sm-pipeline-info [entity]="selected$ | ngrxPush" [project]="projectId$ | ngrxPush" [step]="selectedEntity()" data-id="pipelineInfo"></sm-pipeline-info>
@@ -11,7 +11,7 @@
 <div class="console-button">
     <button mat-flat-button (click)="openLog()" data-id="consoleDetailsButton">
       <mat-icon fontSet="al" fontIcon="al-ico-console"></mat-icon>
-      DETAILS
+      详情
     </button>
   @if (!focusOnStageId() && hasStages()) {
     <button
@@ -118,7 +118,7 @@
           } @else {
             <div class="no-code" data-id="noCode">
               <mat-icon fontSet="al" fontIcon="al-ico-no-data-code" class="xxl"></mat-icon>
-              <h4>NO CODE</h4>
+              <h4>暂无代码</h4>
             </div>
           }
         }
