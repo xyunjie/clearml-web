@@ -86,6 +86,7 @@ export class ExperimentCompareHeaderComponent implements OnInit, OnDestroy {
 
   @Input() entityType: EntityTypeEnum;
   protected readonly entityTypeLabels: Record<string, string> = ENTITY_TYPE_LABELS;
+  protected readonly viewModeLabels: Record<string, string> = {values: '值', 'min-values': '最小值', 'max-values': '最大值', graph: '图表', scatter: '散点图'};
 
   routerParamsIds = injectParams('ids');
   allowAddExperiment = computed(() => this.routerParamsIds()?.split(',').length < compareLimitations);

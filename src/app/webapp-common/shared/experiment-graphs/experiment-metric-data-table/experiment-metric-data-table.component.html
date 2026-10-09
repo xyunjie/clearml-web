@@ -83,7 +83,7 @@
           @for (col of colKeys; track trackByFunction($index, col)) {
             <th class="experiment-header">
               <span class="experiment-name"
-              >{{ col | uppercase }}</span>
+              >{{ colLabels[col] ?? (col | uppercase) }}</span>
             </th>
           }
 

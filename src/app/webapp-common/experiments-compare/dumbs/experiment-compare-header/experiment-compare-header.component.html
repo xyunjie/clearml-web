@@ -7,7 +7,7 @@
         data-id="entity"
         (click)="showGlobalLegend()"
         [class.rotated]="globalLegend()"
-      ><span>{{ entityType | uppercase }}S</span>
+      ><span>{{ entityTypeLabels[entityType] ?? (entityType | uppercase) }}</span>
       <mat-icon iconPositionEnd fontSet="al" fontIcon="al-ico-dropdown-arrow" class="sm"></mat-icon>
     </button>
       <button
@@ -46,7 +46,7 @@
                 <span>最新值</span>
               }
               @default {
-                <span>{{ (queryParamsViewMode$ | ngrxPush) || viewMode | noUnderscore | titlecase }}</span>
+                <span>{{ viewModeLabels[(queryParamsViewMode$ | ngrxPush) || viewMode] ?? ((queryParamsViewMode$ | ngrxPush) || viewMode | noUnderscore | titlecase) }}</span>
               }
             }
           </mat-select-trigger>

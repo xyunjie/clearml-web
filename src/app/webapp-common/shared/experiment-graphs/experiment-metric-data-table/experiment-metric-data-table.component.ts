@@ -166,4 +166,5 @@ export class ExperimentMetricDataTableComponent implements OnInit {
   });
 
   colKeys = ['first', 'last', 'min', 'max', 'mean'];
+  protected readonly colLabels: Record<string, string> = {first: '首个值', last: '最新值', min: '最小值', max: '最大值', mean: '平均值'};
 }

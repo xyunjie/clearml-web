@@ -101,6 +101,7 @@ export class ExperimentInfoExecutionComponent implements OnInit, OnDestroy {
   public redactedArguments$ = this.store.select(selectHideRedactedArguments);
   public formData: IExecutionForm;
   links = ['details', 'uncommitted changes', 'python packages', 'container'];
+  protected readonly linkLabels: Record<string, string> = {details: '详情', 'uncommitted changes': '未提交的更改', 'python packages': 'Python 依赖包', container: '容器'};
   currentLink = 'details';
   public selectedRequirement = 'pip';
   public editableRequirements = false;

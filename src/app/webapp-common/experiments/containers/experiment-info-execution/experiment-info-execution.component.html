@@ -8,7 +8,7 @@
              class="side-link"
              [class.selected]="link === currentLink"
              (click)="showSection(link)"
-          >{{ link | uppercase }}</a>
+          >{{ linkLabels[link] ?? (link | uppercase) }}</a>
         }
       </mat-nav-list>
     </mat-sidenav>
