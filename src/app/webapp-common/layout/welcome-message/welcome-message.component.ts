@@ -74,36 +74,36 @@ export class WelcomeMessageComponent {
   WEB_SERVER_URL = window.location.origin + this.locationStrategy.getBaseHref();
   GETTING_STARTED_STEPS: StepObject[] = [{
     id: 1,
-    header: 'Get started in a jiffy:',
-    title: '1. Install',
+    header: '快速上手：',
+    title: '1. 安装',
     code: 'pip install clearml',
   }, {
     id: 2,
-    title: '2. Configure',
+    title: '2. 配置',
     code: 'clearml-init'
   }];
   ORPHANED_QUEUE_STEPS: StepObject[] =
     [{
       id: 1,
       header: null, code: null,
-      subNote: 'See ClearML Documentation for different ways of deploying workers'
+      subNote: '部署工作节点的不同方式请参阅 ClearML 文档'
     }, {
       id: 2,
-      header: 'To setup a worker',
-      title: '1. Install',
+      header: '设置工作节点',
+      title: '1. 安装',
       code: 'pip install clearml-agent',
     }, {
       id: 3,
-      title: '2. Configure',
+      title: '2. 配置',
       code: 'clearml-agent init'
     }
     ];
-  public links = ['Set up ClearML', 'Run your ML code', 'Relaunch previous experiments'];
+  public links = ['设置 ClearML', '运行你的机器学习代码', '重新启动之前的任务'];
   public doNotShowAgain: boolean;
   public credentialsLabel: string;
   public src: string;
   public queue: Queue = this.data?.queue;
-  public entityName: string = this.data?.entityName ?? 'Tasks';
+  public entityName: string = this.data?.entityName ?? '任务';
   protected showTabs = this.data?.showTabs;
   protected currentLink = this.showTabs ? this.links[0] : undefined;
   protected host = `${window.location.protocol}//${window.location.hostname}`;
@@ -125,7 +125,7 @@ export class WelcomeMessageComponent {
 
     if (this.queue) {
       steps[0].code = `clearml-agent daemon --queue ${this.queue.name}`;
-      steps[0].header = `To assign a worker to the ${this.queue.display_name || this.queue.name} queue, run:`;
+      steps[0].header = `要为 ${this.queue.display_name || this.queue.name} 队列分配工作节点，请运行：`;
       steps[1].code = `pip install clearml-agent`;
       steps[2].code = `clearml-agent init`;
     } else {

@@ -1,28 +1,28 @@
 {
   "onboarding": [
     {
-      "title": "Persistent custom views",
+      "title": "持久化的自定义视图",
       "image": "assets/welcome-researcher.svg",
-      "content": "Your view customizations (e.g. column choice, column order, sorting) is also specified in the browser URL bar.<br/><br/>Bookmark the page to easily save your favorite view, or send your team members the URL link so they can share the same view as yours.",
+      "content": "你对视图的自定义（例如列的选择、列顺序、排序）也会体现在浏览器地址栏的 URL 中。<br/><br/>将页面加入书签即可轻松保存常用视图，也可以把 URL 链接发给团队成员，与他们共享相同的视图。",
       "context": ""
     },
     {
-      "title": "Creating a new experiment",
+      "title": "新建任务",
       "image": "assets/welcome-cat.svg",
-      "content": "Clone any task to create a draft copy using right-click or the task context menu.<br/><br/>Reproduce the original run by executing the copy, or modify any element of the new draft to try out a new approach.",
+      "content": "通过右键或任务的上下文菜单克隆任意任务，即可创建一个草稿副本。<br/><br/>执行该副本可复现原始运行，也可以修改新草稿的任意部分来尝试新的方法。",
       "context": "",
       "feature": "experiments"
     },
     {
-      "title": "Comparing experiments",
+      "title": "对比任务",
       "image": "assets/welcome-researcher.svg",
-      "content": "Select the experiments you want to compare, then compare them using the bottom bar.",
+      "content": "选择要对比的任务，然后通过底部操作栏进行对比。",
       "context": ""
     },
     {
-      "title": "View in full screen",
+      "title": "全屏查看",
       "image": "assets/welcome-cat.svg",
-      "content": "Focus on a single experiment details by using the full screen view.<br/><br/>Get finer controls on viewing the experiment results thanks to the additional screen real-estate.<br/<<br/>You can toggle between full-screen and experiment table view.",
+      "content": "使用全屏视图专注查看单个任务的详情。<br/><br/>更大的屏幕空间让你可以更精细地查看任务结果。<br/><br/>你可以在全屏视图和任务表格视图之间切换。",
       "context": ""
     }
   ]

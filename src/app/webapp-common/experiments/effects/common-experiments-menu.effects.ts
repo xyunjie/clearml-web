@@ -161,7 +161,7 @@ export class CommonExperimentsMenuEffects {
               project: navigateProjectId || projectId
             }),
             deactivateLoader(action.type),
-            ...(res.queue_watched === false ? [menuActions.openEmptyQueueMessage({queue: action.queue, entityName: 'Pipeline'})] : [])
+            ...(res.queue_watched === false ? [menuActions.openEmptyQueueMessage({queue: action.queue, entityName: '流水线'})] : [])
           ];
         }),
         catchError(error => [
